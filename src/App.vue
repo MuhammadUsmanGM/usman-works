@@ -97,22 +97,15 @@ const groupedProjects = computed(() => {
           </div>
         </div>
 
-        <div v-for="[year, projects] in groupedProjects" :key="year" class="year-block">
-          <div class="year-header">
-            <span class="year-text bebas">{{ year }}</span>
-            <div class="year-line"></div>
-          </div>
-
-          <div class="project-gallery">
-            <ProjectCard 
-              v-for="(project, index) in projects" 
-              :key="project.id" 
-              :project="project"
-              v-motion
-              :initial="{ opacity: 0, y: 20 }"
-              :enter="{ opacity: 1, y: 0, transition: { delay: index * 50 } }"
-            />
-          </div>
+        <div class="project-gallery">
+          <ProjectCard 
+            v-for="(project, index) in filteredProjects" 
+            :key="project.id" 
+            :project="project"
+            v-motion
+            :initial="{ opacity: 0, y: 20 }"
+            :enter="{ opacity: 1, y: 0, transition: { delay: index * 50 } }"
+          />
         </div>
       </div>
     </div>

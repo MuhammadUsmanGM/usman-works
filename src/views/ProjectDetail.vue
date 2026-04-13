@@ -33,7 +33,7 @@ const iconMap: Record<string, any> = {
     <header class="detail-header" v-motion-slide-top>
       <div class="header-meta-tags">
         <span class="meta-tag blue">{{ project.type }}</span>
-        <span class="meta-tag mono">{{ project.year }} • TECHNICAL STUDY</span>
+        <span class="meta-tag mono">TECHNICAL STUDY</span>
       </div>
       
       <h1 class="bebas detail-title">

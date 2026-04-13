@@ -260,14 +260,14 @@ const goToCaseStudy = () => {
   background: var(--accent);
   color: black;
   text-decoration: none;
-  font-weight: 900;
-  font-size: 0.85rem;
+  font-weight: 950;
+  font-size: 1rem;
   padding: 0 1.5rem;
   border-radius: 14px;
   transition: all 0.3s ease;
   flex-grow: 1;
   height: 52px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.15em;
   box-shadow: 0 4px 15px rgba(245, 166, 35, 0.2);
 }
 
