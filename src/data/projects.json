@@ -3,33 +3,36 @@
     "id": "1",
     "year": "2024",
     "name": "Amber Vault Archive",
-    "description": "High-density project registry with system-level adaptive theming.",
+    "description": "High-density project registry with system-level adaptive theming and SEO optimization.",
     "tech": ["Vue 3", "Vite", "Motion"],
     "type": "Personal",
     "status": "Live",
     "link": "https://github.com/usman-mustafa",
-    "featured": true
+    "github": "https://github.com/usman-mustafa",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop"
   },
   {
     "id": "2",
     "year": "2023",
     "name": "Neural Newsletter",
-    "description": "AI-powered newsletter engine with Inngest integration and automated delivery.",
+    "description": "AI-powered newsletter engine with Inngest integration and automated delivery pipelines.",
     "tech": ["Next.js", "Inngest", "OpenAI"],
     "type": "Product",
     "status": "Alpha",
     "link": "#",
-    "featured": false
+    "github": "#",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop"
   },
   {
     "id": "3",
     "year": "2023",
     "name": "FerrumDB Encryption",
-    "description": "AES-256 GCM encryption at rest layer for distributed databases.",
+    "description": "AES-256 GCM encryption at rest layer for distributed databases and high-security apps.",
     "tech": ["Rust", "Tauri", "Crypto"],
     "type": "Library",
     "status": "Archived",
     "link": "#",
-    "featured": false
+    "github": "#",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop"
   }
 ]
