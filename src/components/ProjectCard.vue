@@ -78,9 +78,9 @@ const goToCaseStudy = () => {
         <a :href="project.github" target="_blank" class="github-btn" v-if="project.github !== '#'" title="View Source" @click.stop>
           <Github :size="20" />
         </a>
-        <button @click.stop="goToCaseStudy" class="case-study-btn">
+        <button @click.stop="goToCaseStudy" class="case-study-btn group">
           <span>CASE STUDY</span>
-          <ArrowRight :size="16" />
+          <ArrowRight :size="16" class="btn-icon" />
         </button>
       </div>
     </div>
@@ -102,7 +102,6 @@ const goToCaseStudy = () => {
   z-index: 1;
 }
 
-/* The Spotlight Effect */
 .spotlight {
   pointer-events: none;
   position: absolute;
@@ -123,7 +122,6 @@ const goToCaseStudy = () => {
   box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
 }
 
-/* Image Section */
 .card-image-wrap {
   position: relative;
   aspect-ratio: 16 / 10;
@@ -165,7 +163,6 @@ const goToCaseStudy = () => {
 .status-badge.alpha { background: rgba(245, 158, 11, 0.8); color: black; }
 .status-badge.archived { background: rgba(107, 114, 128, 0.8); color: white; }
 
-/* Content Section */
 .card-content {
   padding: 2rem;
   display: flex;
@@ -224,7 +221,6 @@ const goToCaseStudy = () => {
   color: var(--text-sub);
 }
 
-/* Footer Section */
 .card-footer {
   border-top: 1px solid var(--border);
   padding-top: 1.5rem;
@@ -242,7 +238,7 @@ const goToCaseStudy = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--border);
 }
 
@@ -264,16 +260,25 @@ const goToCaseStudy = () => {
   font-size: 1rem;
   padding: 0 1.5rem;
   border-radius: 14px;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   flex-grow: 1;
   height: 52px;
   letter-spacing: 0.15em;
   box-shadow: 0 4px 15px rgba(245, 166, 35, 0.2);
+  border: none;
+  cursor: pointer;
 }
 
 .case-study-btn:hover {
   background: var(--accent-glow);
-  gap: 1.25rem;
   box-shadow: 0 8px 25px rgba(245, 166, 35, 0.4);
+}
+
+.btn-icon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.case-study-btn:hover .btn-icon {
+  transform: translateX(6px);
 }
 </style>
