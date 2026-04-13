@@ -1,4 +1,10 @@
 {
+  "compilerOptions": {
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
+    "isolatedModules": true,
+    "useDefineForClassFields": true
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
