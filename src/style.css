@@ -1,0 +1,70 @@
+/* Standard CSS Custom Variables for the Vault */
+:root {
+  --bg:          #F7F4EF;   /* warm parchment */
+  --bg-2:        #EDEAE3;   /* cards/surface */
+  --bg-3:        #E2DDD4;   /* hover states, borders */
+  --accent:      #C9960C;   /* deeper gold for light mode */
+  --accent-glow: #F5A623;   
+  --text:        #0A0A0A;   
+  --text-sub:    #3D3A35;   
+  --muted:       #8A8480;   
+  --border:      #D6D1C8;   
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:          #0A0A0A;
+    --bg-2:        #111111;
+    --bg-3:        #1A1A1A;
+    --accent:      #F5A623;   /* bright amber for dark mode */
+    --accent-glow: #FFB84D;
+    --text:        #F0EDE6;
+    --text-sub:    #C8C4BC;
+    --muted:       #6B6866;
+    --border:      #1E1E1E;
+  }
+}
+
+/* Global Aesthetics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, .bebas {
+  font-family: 'Bebas Neue', cursice;
+  letter-spacing: 0.05em;
+}
+
+/* Custom Scrollbar (Amber Accented) */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--bg);
+}

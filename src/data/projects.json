@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "year": "2024",
+    "name": "Amber Vault Archive",
+    "description": "High-density project registry with system-level adaptive theming.",
+    "tech": ["Vue 3", "Vite", "Motion"],
+    "type": "Personal",
+    "link": "https://github.com/usman-mustafa",
+    "featured": true
+  },
+  {
+    "id": "2",
+    "year": "2023",
+    "name": "Neural Newsletter",
+    "description": "AI-powered newsletter engine with Inngest integration.",
+    "tech": ["Next.js", "Inngest", "OpenAI"],
+    "type": "Product",
+    "link": "#",
+    "featured": false
+  },
+  {
+    "id": "3",
+    "year": "2023",
+    "name": "FerrumDB Encryption",
+    "description": "AES-256 GCM encryption at rest layer for distributed databases.",
+    "tech": ["Rust", "Tauri", "Crypto"],
+    "type": "Library",
+    "link": "#",
+    "featured": false
+  }
+]
