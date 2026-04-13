@@ -1,16 +1,23 @@
 <script setup lang="ts">
-import { ArrowLeft } from 'lucide-vue-next'
+import { ArrowLeft, Terminal } from 'lucide-vue-next'
 </script>
 
 <template>
   <div class="layout-container">
     <header class="nav-header">
       <div class="nav-content">
-        <a href="/" class="back-link">
-          <ArrowLeft :size="18" />
-          <span>Back to Portfolio</span>
+        <a href="/" class="back-link group">
+          <ArrowLeft :size="16" class="arrow-icon" />
+          <span class="back-text">PORTFOLIO</span>
         </a>
-        <div class="brand-logo bebas">VAULT v1.0</div>
+        
+        <div class="brand-cluster">
+          <div class="brand-id">UM-WORKS</div>
+          <div class="brand-version">
+            <span class="version-dot"></span>
+            VAULT v1.0
+          </div>
+        </div>
       </div>
     </header>
 
@@ -19,23 +26,27 @@ import { ArrowLeft } from 'lucide-vue-next'
     </main>
 
     <footer class="archive-footer">
-      <p class="muted-text">Built with Amber & Vue • © {{ new Date().getFullYear() }} Usman Mustafa</p>
+      <div class="footer-grid">
+        <p class="copyright">© {{ new Date().getFullYear() }} USMAN MUSTAFA</p>
+        <div class="footer-divider"></div>
+        <p class="build-by">ENGINEERED FOR THE WEB</p>
+      </div>
     </footer>
   </div>
 </template>
 
 <style scoped>
 .layout-container {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
 .nav-header {
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
 .nav-content {
@@ -44,37 +55,98 @@ import { ArrowLeft } from 'lucide-vue-next'
   align-items: center;
 }
 
+/* Back Link */
 .back-link {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: var(--text-sub);
+  gap: 0.75rem;
+  color: var(--muted);
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  transition: color 0.3s ease;
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
 }
 
 .back-link:hover {
   color: var(--accent);
 }
 
-.brand-logo {
-  font-size: 1.5rem;
-  color: var(--accent);
+.back-link:hover .arrow-icon {
+  transform: translateX(-4px);
 }
 
-.main-content {
-  flex-grow: 1;
+/* Brand Cluster */
+.brand-cluster {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.archive-footer {
-  padding: 4rem 0 2rem;
-  text-align: center;
-  border-top: 1px solid var(--border);
+.brand-id {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.25rem;
+  color: var(--text);
+  letter-spacing: 0.05em;
 }
 
-.muted-text {
+.brand-version {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.7rem;
   color: var(--muted);
-  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.version-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* Footer refinements */
+.archive-footer {
+  padding: 5rem 0 3rem;
+}
+
+.footer-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.copyright, .build-by {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.footer-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--border);
+}
+
+@media (max-width: 768px) {
+  .brand-id { display: none; }
 }
 </style>

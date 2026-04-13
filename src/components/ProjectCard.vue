@@ -243,7 +243,6 @@ const handleMouseMove = (e: MouseEvent) => {
   background: var(--accent);
   color: black;
   border-color: var(--accent);
-  transform: rotate(-8deg);
 }
 
 .case-study-btn {
