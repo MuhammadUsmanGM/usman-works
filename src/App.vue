@@ -1,215 +1,126 @@
 <script setup lang="ts">
+import { ref, computed, onMounted, watch } from 'vue'
 import MainLayout from './components/MainLayout.vue'
-import projects from './data/projects.json'
-import { ExternalLink } from 'lucide-vue-next'
+import ProjectCard from './components/ProjectCard.vue'
+import projectsData from './data/projects.json'
+import { Search, X } from 'lucide-vue-next'
+
+const searchQuery = ref('')
+const selectedTech = ref('All')
+
+onMounted(() => {
+  const params = new URLSearchParams(window.location.search)
+  if (params.has('q')) searchQuery.value = params.get('q') || ''
+  if (params.has('tech')) selectedTech.value = params.get('tech') || 'All'
+})
+
+watch([searchQuery, selectedTech], ([newQ, newT]) => {
+  const url = new URL(window.location.href)
+  newQ ? url.searchParams.set('q', newQ) : url.searchParams.delete('q')
+  newT !== 'All' ? url.searchParams.set('tech', newT) : url.searchParams.delete('tech')
+  window.history.replaceState({}, '', url)
+})
+
+const allTech = computed(() => {
+  const tags = new Set(['All'])
+  projectsData.forEach(p => p.tech.forEach(t => tags.add(t)))
+  return Array.from(tags)
+})
+
+const filteredProjects = computed(() => {
+  return projectsData.filter(p => {
+    const query = searchQuery.value.toLowerCase()
+    const matchesSearch = p.name.toLowerCase().includes(query) || 
+                          p.description.toLowerCase().includes(query) ||
+                          p.tech.some(t => t.toLowerCase().includes(query))
+    return (selectedTech.value === 'All' || p.tech.includes(selectedTech.value)) && matchesSearch
+  })
+})
+
+const groupedProjects = computed(() => {
+  const groups: Record<string, typeof projectsData> = {}
+  filteredProjects.value.forEach(p => {
+    if (!groups[p.year]) groups[p.year] = []
+    groups[p.year].push(p)
+  })
+  return Object.entries(groups).sort((a, b) => Number(b[0]) - Number(a[0]))
+})
 </script>
 
 <template>
   <MainLayout>
-    <!-- Header Section -->
-    <header class="archive-header">
-      <div 
-        v-motion
-        :initial="{ opacity: 0, y: 20 }" 
-        :enter="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 600 }"
-      >
+    <header class="archive-header" v-motion-fade>
+      <div class="header-top">
         <div class="status-pill">
           <span class="dot"></span>
-          ACTIVE REGISTRY
+          Vault : {{ filteredProjects.length }} Result(s)
         </div>
-        <h1 class="bebas main-title">PROJECT <span class="accent-text">ARCHIVE</span></h1>
-        <p class="subtitle">An exhaustive list of everything I've built, from production SaaS to weekend experiments.</p>
+        <button v-if="searchQuery || selectedTech !== 'All'" @click="searchQuery = ''; selectedTech = 'All'" class="clear-btn">
+          <X :size="14" /> CLEAR FILTERS
+        </button>
+      </div>
+
+      <h1 class="bebas main-title">PROJ<span class="accent-text">ECTS</span></h1>
+      
+      <div class="filter-bar">
+        <div class="search-input-wrapper">
+          <Search :size="18" class="search-icon" />
+          <input v-model="searchQuery" type="text" placeholder="Search the collection..." class="search-input" />
+        </div>
+        <div class="tech-filter-chips">
+          <button v-for="tech in allTech" :key="tech" @click="selectedTech = tech" :class="['filter-chip', { active: selectedTech === tech }]">
+            {{ tech }}
+          </button>
+        </div>
       </div>
     </header>
 
-    <!-- Project Table -->
-    <div class="archive-table-container">
-      <table class="archive-table">
-        <thead>
-          <tr>
-            <th class="col-year">Year</th>
-            <th class="col-project">Project</th>
-            <th class="col-made">Made at</th>
-            <th class="col-tech hide-mobile">Built with</th>
-            <th class="col-link">Link</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr 
+    <div class="archive-content">
+      <div v-if="filteredProjects.length === 0" class="no-results">
+        No records matching your parameters.
+      </div>
+
+      <div v-for="[year, projects] in groupedProjects" :key="year" class="year-group">
+        <div class="year-divider">
+          <span class="year-label bebas">{{ year }}</span>
+          <div class="divider-line"></div>
+        </div>
+
+        <div class="project-grid">
+          <ProjectCard 
             v-for="(project, index) in projects" 
-            :key="project.id"
+            :key="project.id" 
+            :project="project"
             v-motion
-            :initial="{ opacity: 0, x: -10 }"
-            :enter="{ 
-              opacity: 1, 
-              x: 0,
-              transition: { delay: index * 100, duration: 500 }
-            }"
-            class="project-row"
-          >
-            <td class="cell-year">{{ project.year }}</td>
-            <td class="cell-project">
-              <div class="project-info">
-                <span class="project-name">{{ project.name }}</span>
-                <span class="project-desc hide-mobile">— {{ project.description }}</span>
-              </div>
-            </td>
-            <td class="cell-made">{{ project.type }}</td>
-            <td class="cell-tech hide-mobile">
-              <div class="tech-pills">
-                <span v-for="t in project.tech" :key="t">{{ t }}</span>
-              </div>
-            </td>
-            <td class="cell-link">
-              <a :href="project.link" target="_blank" class="action-btn">
-                <ExternalLink :size="16" />
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            :initial="{ opacity: 0, y: 15 }"
+            :enter="{ opacity: 1, y: 0, transition: { delay: index * 40 } }"
+          />
+        </div>
+      </div>
     </div>
   </MainLayout>
 </template>
 
 <style>
-/* Header refinements */
-.archive-header {
-  margin-bottom: 5rem;
-  padding-top: 2rem;
-}
+/* Simplified Main CSS after component abstraction */
+.header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.clear-btn { background: none; border: none; color: var(--muted); font-size: 0.7rem; font-weight: 800; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; letter-spacing: 0.1em; padding: 0.5rem; border-radius: 6px; }
+.clear-btn:hover { color: var(--accent); background: var(--bg-2); }
 
-.status-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  border: 1px solid var(--border);
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  margin-bottom: 1.5rem;
-}
+.filter-bar { margin: 2rem 0 4rem; display: flex; flex-direction: column; gap: 1.5rem; }
+.search-input-wrapper { position: relative; max-width: 600px; }
+.search-icon { position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); color: var(--muted); opacity: 0.5; }
+.search-input { width: 100%; background: var(--bg-2); border: 1px solid var(--border); padding: 1.1rem 1.1rem 1.1rem 3.5rem; border-radius: 12px; color: var(--text); font-size: 1rem; transition: all 0.3s ease; }
+.search-input:focus { outline: none; border-color: var(--accent); background: var(--bg); box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.1); }
 
-.dot {
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent);
-}
+.tech-filter-chips { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.filter-chip { background: var(--bg-2); border: 1px solid var(--border); padding: 0.5rem 1.2rem; border-radius: 100px; font-size: 0.75rem; font-weight: 700; color: var(--text-sub); cursor: pointer; transition: 0.2s; text-transform: uppercase; }
+.filter-chip.active { background: var(--accent); border-color: var(--accent); color: black; }
 
-.main-title {
-  font-size: clamp(3.5rem, 12vw, 7rem);
-  line-height: 0.85;
-  margin-bottom: 1.5rem;
-}
+.year-divider { display: flex; align-items: center; gap: 2rem; margin-bottom: 2.5rem; }
+.year-label { font-size: 4rem; color: var(--accent); opacity: 0.15; }
+.divider-line { flex-grow: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
 
-.subtitle {
-  color: var(--text-sub);
-  max-width: 600px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* Table Styles */
-.archive-table-container {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.archive-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-th {
-  padding: 1rem;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  border-bottom: 1px solid var(--border);
-}
-
-td {
-  padding: 1.25rem 1rem;
-  border-bottom: 1px solid var(--border);
-  vertical-align: middle;
-}
-
-.project-row {
-  transition: background-color 0.2s ease;
-}
-
-.project-row:hover {
-  background-color: var(--bg-2);
-}
-
-.cell-year {
-  font-family: monospace;
-  color: var(--muted);
-}
-
-.project-name {
-  font-weight: 700;
-  color: var(--text);
-  font-size: 1.05rem;
-}
-
-.project-desc {
-  font-size: 0.9rem;
-  color: var(--text-sub);
-  margin-left: 0.5rem;
-}
-
-.cell-made {
-  font-size: 0.85rem;
-  color: var(--text-sub);
-}
-
-.tech-pills {
-  display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-}
-
-.tech-pills span {
-  font-size: 0.65rem;
-  padding: 0.15rem 0.5rem;
-  background: var(--bg-3);
-  border-radius: 4px;
-  color: var(--text-sub);
-  font-weight: 600;
-}
-
-.action-btn {
-  color: var(--text-sub);
-  transition: color 0.2s ease, transform 0.2s ease;
-  display: inline-block;
-}
-
-.action-btn:hover {
-  color: var(--accent);
-  transform: translateY(-2px);
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .hide-mobile {
-    display: none;
-  }
-  
-  .main-title {
-    font-size: 4rem;
-  }
-  
-  td, th {
-    padding: 0.75rem 0.5rem;
-  }
-}
+.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.5rem; margin-bottom: 5rem; }
+.no-results { text-align: center; padding: 6rem; color: var(--muted); border: 1px dashed var(--border); border-radius: 24px; }
 </style>

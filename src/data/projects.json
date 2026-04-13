@@ -6,6 +6,7 @@
     "description": "High-density project registry with system-level adaptive theming.",
     "tech": ["Vue 3", "Vite", "Motion"],
     "type": "Personal",
+    "status": "Live",
     "link": "https://github.com/usman-mustafa",
     "featured": true
   },
@@ -13,9 +14,10 @@
     "id": "2",
     "year": "2023",
     "name": "Neural Newsletter",
-    "description": "AI-powered newsletter engine with Inngest integration.",
+    "description": "AI-powered newsletter engine with Inngest integration and automated delivery.",
     "tech": ["Next.js", "Inngest", "OpenAI"],
     "type": "Product",
+    "status": "Alpha",
     "link": "#",
     "featured": false
   },
@@ -26,6 +28,7 @@
     "description": "AES-256 GCM encryption at rest layer for distributed databases.",
     "tech": ["Rust", "Tauri", "Crypto"],
     "type": "Library",
+    "status": "Archived",
     "link": "#",
     "featured": false
   }
