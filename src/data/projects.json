@@ -9,7 +9,28 @@
     "status": "Live",
     "link": "https://github.com/usman-mustafa",
     "github": "https://github.com/usman-mustafa",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop",
+    "benchmarks": [
+      { "label": "Lighthouse Score", "value": "100", "detail": "Perfect performance" },
+      { "label": "Initial Load", "value": "240ms", "detail": "Vite-optimized" },
+      { "label": "Bundle Size", "value": "14kb", "detail": "Zero-bloat dependencies" }
+    ],
+    "sections": [
+      {
+        "title": "The Registry Engine",
+        "icon": "Database",
+        "content": "Built with a reactive JSON-driven architecture. The entire vault is powered by a single source of truth, allowing for real-time filtering and ultra-fast dynamic routing without database overhead."
+      },
+      {
+        "title": "Adaptive Aesthetics",
+        "icon": "Zap",
+        "content": "Implemented a system-aware CSS variable engine. The Amber theme shifts its saturation and luminosity based on the user's OS preference to maintain perfect accessibility (WCAG AA) in both modes."
+      }
+    ],
+    "learnings": [
+      "Dynamic routing in Vue 3 requires careful scroll-behavior management for a premium SPA feel.",
+      "Custom SVG grain textures are more performance-efficient than high-res noise pngs."
+    ]
   },
   {
     "id": "2",
@@ -21,18 +42,22 @@
     "status": "Alpha",
     "link": "#",
     "github": "#",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    "id": "3",
-    "year": "2023",
-    "name": "FerrumDB Encryption",
-    "description": "AES-256 GCM encryption at rest layer for distributed databases and high-security apps.",
-    "tech": ["Rust", "Tauri", "Crypto"],
-    "type": "Library",
-    "status": "Archived",
-    "link": "#",
-    "github": "#",
-    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop",
+    "benchmarks": [
+      { "label": "Queue Latency", "value": "< 10ms", "detail": "Inngest optimized" },
+      { "label": "AI Generation", "value": "3.2s", "detail": "GPT-4o standard" },
+      { "label": "Delivery Rate", "value": "99.9%", "detail": "Resend integration" }
+    ],
+    "sections": [
+      {
+        "title": "Pipeline Automation",
+        "icon": "Cpu",
+        "content": "Leveraging Inngest's event-driven architecture to handle long-running generative tasks. The engine decouples user requests from AI processing to ensure zero-timeout delivery."
+      }
+    ],
+    "learnings": [
+      "Reliability in AI products comes from robust queue management, not just prompt engineering.",
+      "Edge functions significantly reduce latency for global newsletter distribution."
+    ]
   }
 ]

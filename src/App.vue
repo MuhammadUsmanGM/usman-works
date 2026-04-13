@@ -49,73 +49,74 @@ const groupedProjects = computed(() => {
 
 <template>
   <MainLayout>
-    <header class="archive-header" v-motion-fade>
-      <!-- Top Meta Bar -->
-      <div class="header-meta">
-        <div class="index-status">
-          <span class="status-icon"></span>
-          <span class="label">VAULT_RECORDS:</span>
-          <span class="value">[{{ filteredProjects.length }}]</span>
-        </div>
-        <button v-if="searchQuery || selectedTech !== 'All'" @click="searchQuery = ''; selectedTech = 'All'" class="reset-btn">
-          RESET_VIEW
-        </button>
-      </div>
-
-      <!-- Compact Hero -->
-      <div class="hero-section">
-        <h1 class="bebas premium-title">
-          <span>PROJECTS</span>
-          <div class="title-shine"></div>
-        </h1>
-        <p class="hero-sub">Selected engineering works and technical artifacts from 2021—Present.</p>
-      </div>
-      
-      <!-- Sleek Search Navigation -->
-      <div class="search-wrap">
-        <div class="search-box">
-          <Search :size="16" class="search-icon" />
-          <input v-model="searchQuery" type="text" placeholder="FILTER BY STACK OR NAME..." class="compact-input" />
-        </div>
-        <div class="filter-chips">
-          <button 
-            v-for="tech in allTech" 
-            :key="tech" 
-            @click="selectedTech = tech" 
-            :class="['chip', { active: selectedTech === tech }]"
-          >
-            {{ tech }}
+    <div v-if="$route.path === '/'">
+      <!-- Your Existing Archive UI -->
+      <header class="archive-header" v-motion-fade>
+        <div class="header-meta">
+          <div class="index-status">
+            <span class="status-icon"></span>
+            <span class="label">VAULT_RECORDS:</span>
+            <span class="value">[{{ filteredProjects.length }}]</span>
+          </div>
+          <button v-if="searchQuery || selectedTech !== 'All'" @click="searchQuery = ''; selectedTech = 'All'" class="reset-btn">
+            RESET_VIEW
           </button>
         </div>
-      </div>
-    </header>
 
-    <div class="archive-content">
-      <div v-if="filteredProjects.length === 0" class="no-results" v-motion-fade>
-        <div class="empty-state">
-          <p>NO DATA NODES FOUND</p>
-          <button @click="searchQuery = ''; selectedTech = 'All'" class="link-btn">RE-INITIALIZE SEARCH</button>
+        <div class="hero-section">
+          <h1 class="bebas premium-title">
+            <span>PROJECTS</span>
+            <div class="title-shine"></div>
+          </h1>
+          <p class="hero-sub">Selected engineering works and technical artifacts from 2021—Present.</p>
         </div>
-      </div>
+        
+        <div class="search-wrap">
+          <div class="search-box">
+            <Search :size="16" class="search-icon" />
+            <input v-model="searchQuery" type="text" placeholder="FILTER BY STACK OR NAME..." class="compact-input" />
+          </div>
+          <div class="filter-chips">
+            <button 
+              v-for="tech in allTech" 
+              :key="tech" 
+              @click="selectedTech = tech" 
+              :class="['chip', { active: selectedTech === tech }]"
+            >
+              {{ tech }}
+            </button>
+          </div>
+        </div>
+      </header>
 
-      <div v-for="[year, projects] in groupedProjects" :key="year" class="year-block">
-        <div class="year-header">
-          <span class="year-text bebas">{{ year }}</span>
-          <div class="year-line"></div>
+      <div class="archive-content">
+        <div v-if="filteredProjects.length === 0" class="no-results" v-motion-fade>
+          <div class="empty-state">
+            <p>NO DATA NODES FOUND</p>
+            <button @click="searchQuery = ''; selectedTech = 'All'" class="link-btn">RE-INITIALIZE SEARCH</button>
+          </div>
         </div>
 
-        <div class="project-gallery">
-          <ProjectCard 
-            v-for="(project, index) in projects" 
-            :key="project.id" 
-            :project="project"
-            v-motion
-            :initial="{ opacity: 0, y: 20 }"
-            :enter="{ opacity: 1, y: 0, transition: { delay: index * 50 } }"
-          />
+        <div v-for="[year, projects] in groupedProjects" :key="year" class="year-block">
+          <div class="year-header">
+            <span class="year-text bebas">{{ year }}</span>
+            <div class="year-line"></div>
+          </div>
+
+          <div class="project-gallery">
+            <ProjectCard 
+              v-for="(project, index) in projects" 
+              :key="project.id" 
+              :project="project"
+              v-motion
+              :initial="{ opacity: 0, y: 20 }"
+              :enter="{ opacity: 1, y: 0, transition: { delay: index * 50 } }"
+            />
+          </div>
         </div>
       </div>
     </div>
+    <RouterView v-else />
   </MainLayout>
 </template>
 

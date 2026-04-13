@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Github, ArrowRight } from 'lucide-vue-next'
+import { useRouter } from 'vue-router'
 
-defineProps<{
+const props = defineProps<{
   project: {
     id: string
     name: string
@@ -16,6 +17,7 @@ defineProps<{
   }
 }>()
 
+const router = useRouter()
 const cardRef = ref<HTMLElement | null>(null)
 const mouseX = ref(0)
 const mouseY = ref(0)
@@ -27,6 +29,10 @@ const handleMouseMove = (e: MouseEvent) => {
   mouseX.value = e.clientX - rect.left
   mouseY.value = e.clientY - rect.top
 }
+
+const goToCaseStudy = () => {
+  router.push({ name: 'project-detail', params: { id: props.project.id } })
+}
 </script>
 
 <template>
@@ -36,6 +42,7 @@ const handleMouseMove = (e: MouseEvent) => {
     @mousemove="handleMouseMove"
     @mouseenter="isHovering = true"
     @mouseleave="isHovering = false"
+    @click="goToCaseStudy"
     :style="{
       '--x': `${mouseX}px`,
       '--y': `${mouseY}px`,
@@ -68,13 +75,13 @@ const handleMouseMove = (e: MouseEvent) => {
 
       <!-- Action Footer -->
       <div class="card-footer">
-        <a :href="project.github" target="_blank" class="github-btn" v-if="project.github !== '#'" title="View Source">
+        <a :href="project.github" target="_blank" class="github-btn" v-if="project.github !== '#'" title="View Source" @click.stop>
           <Github :size="20" />
         </a>
-        <a :href="project.link" target="_blank" class="case-study-btn">
+        <button @click.stop="goToCaseStudy" class="case-study-btn">
           <span>CASE STUDY</span>
           <ArrowRight :size="16" />
-        </a>
+        </button>
       </div>
     </div>
   </div>
