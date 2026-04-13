@@ -50,38 +50,39 @@ const groupedProjects = computed(() => {
 <template>
   <MainLayout>
     <header class="archive-header" v-motion-fade>
-      <!-- Premium Status Ribbon -->
-      <div class="header-ribbon">
-        <div class="system-index">
-          <LayoutGrid :size="14" />
-          <span class="index-label">PROJECT_INDEX</span>
-          <span class="index-count">[{{ filteredProjects.length < 10 ? '0' + filteredProjects.length : filteredProjects.length }}]</span>
+      <!-- Top Meta Bar -->
+      <div class="header-meta">
+        <div class="index-status">
+          <span class="status-icon"></span>
+          <span class="label">VAULT_RECORDS:</span>
+          <span class="value">[{{ filteredProjects.length }}]</span>
         </div>
-        <div class="action-zone">
-          <button v-if="searchQuery || selectedTech !== 'All'" @click="searchQuery = ''; selectedTech = 'All'" class="reset-link">
-            // RESET_FILTERS
-          </button>
-        </div>
+        <button v-if="searchQuery || selectedTech !== 'All'" @click="searchQuery = ''; selectedTech = 'All'" class="reset-btn">
+          RESET_VIEW
+        </button>
       </div>
 
-      <!-- Main Brutalist Title -->
-      <div class="hero-title-wrap">
-        <h1 class="bebas hero-title">PROJ<span class="accent-text">ECTS</span></h1>
-        <div class="hero-serial">CATALOG_2024_UMA</div>
+      <!-- Compact Hero -->
+      <div class="hero-section">
+        <h1 class="bebas premium-title">
+          <span>PROJECTS</span>
+          <div class="title-shine"></div>
+        </h1>
+        <p class="hero-sub">Selected engineering works and technical artifacts from 2021—Present.</p>
       </div>
       
-      <!-- Integrated Search -->
-      <div class="search-command-center">
-        <div class="search-field">
-          <Search :size="20" class="search-icon" />
-          <input v-model="searchQuery" type="text" placeholder="TYPE TO SEARCH THE VAULT..." class="command-input" />
+      <!-- Sleek Search Navigation -->
+      <div class="search-wrap">
+        <div class="search-box">
+          <Search :size="16" class="search-icon" />
+          <input v-model="searchQuery" type="text" placeholder="FILTER BY STACK OR NAME..." class="compact-input" />
         </div>
-        <div class="tech-navigator">
+        <div class="filter-chips">
           <button 
             v-for="tech in allTech" 
             :key="tech" 
             @click="selectedTech = tech" 
-            :class="['nav-chip', { active: selectedTech === tech }]"
+            :class="['chip', { active: selectedTech === tech }]"
           >
             {{ tech }}
           </button>
@@ -90,11 +91,10 @@ const groupedProjects = computed(() => {
     </header>
 
     <div class="archive-content">
-      <div v-if="filteredProjects.length === 0" class="no-results" v-motion-slide-bottom>
+      <div v-if="filteredProjects.length === 0" class="no-results" v-motion-fade>
         <div class="empty-state">
-          <X :size="40" stroke-width="1" />
-          <p>NO MATCHES FOUND IN DATABASE</p>
-          <button @click="searchQuery = ''; selectedTech = 'All'" class="cta-link">Clear Parameters</button>
+          <p>NO DATA NODES FOUND</p>
+          <button @click="searchQuery = ''; selectedTech = 'All'" class="link-btn">RE-INITIALIZE SEARCH</button>
         </div>
       </div>
 
@@ -110,8 +110,8 @@ const groupedProjects = computed(() => {
             :key="project.id" 
             :project="project"
             v-motion
-            :initial="{ opacity: 0, y: 30 }"
-            :enter="{ opacity: 1, y: 0, transition: { delay: index * 60, duration: 800 } }"
+            :initial="{ opacity: 0, y: 20 }"
+            :enter="{ opacity: 1, y: 0, transition: { delay: index * 50 } }"
           />
         </div>
       </div>
@@ -120,171 +120,181 @@ const groupedProjects = computed(() => {
 </template>
 
 <style>
-/* New Premium Header Logic */
+/* Refined Compact Header */
 .archive-header {
-  margin-bottom: 6rem;
+  margin-bottom: 5rem;
+  padding-top: 1rem;
 }
 
-.header-ribbon {
+.header-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.system-index {
+.index-status {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-weight: 900;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  color: var(--muted);
-}
-
-.index-label {
-  color: var(--text-sub);
-}
-
-.index-count {
-  color: var(--accent);
-}
-
-.reset-link {
-  background: none;
-  border: none;
-  color: var(--accent);
+  gap: 0.6rem;
   font-family: monospace;
   font-size: 0.7rem;
   font-weight: 700;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+  color: var(--muted);
+  letter-spacing: 0.1em;
 }
 
-.reset-link:hover { opacity: 1; }
-
-.hero-title-wrap {
-  position: relative;
-  margin-bottom: 4rem;
+.status-icon {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
 }
 
-.hero-title {
-  font-size: clamp(4rem, 15vw, 9rem);
-  line-height: 0.8;
-  letter-spacing: -0.01em;
-  margin-left: -5px;
-}
+.value { color: var(--accent); }
 
-.hero-serial {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
+.reset-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-sub);
   font-family: monospace;
   font-size: 0.65rem;
-  color: var(--muted);
-  writing-mode: vertical-rl;
-  opacity: 0.4;
-  letter-spacing: 0.2em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/* Command Center */
-.search-command-center {
+.reset-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: black;
+}
+
+/* Premium Title with Live Effect */
+.hero-section {
+  margin-bottom: 3rem;
+}
+
+.premium-title {
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  position: relative;
+  display: inline-block;
+  color: var(--text);
+  background: linear-gradient(
+    to right,
+    var(--text),
+    var(--text) 40%,
+    var(--accent) 50%,
+    var(--text) 60%,
+    var(--text)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+.hero-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 450px;
+  line-height: 1.5;
+}
+
+/* Sleek Search Wrap */
+.search-wrap {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.25rem;
 }
 
-.search-field {
+.search-box {
   position: relative;
+  max-width: 400px;
 }
 
 .search-icon {
   position: absolute;
-  left: 0;
+  left: 1rem;
   top: 50%;
   transform: translateY(-50%);
   color: var(--accent);
+  opacity: 0.6;
 }
 
-.command-input {
+.compact-input {
   width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--border);
-  padding: 1.5rem 0 1.5rem 3rem;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem;
-  letter-spacing: 0.05em;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  padding: 0.85rem 1rem 0.85rem 2.75rem;
+  border-radius: 10px;
   color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   transition: all 0.3s ease;
 }
 
-.command-input:focus {
+.compact-input:focus {
   outline: none;
   border-color: var(--accent);
-  padding-left: 3.5rem;
+  background: var(--bg);
+  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.08);
 }
 
-.tech-navigator {
+.filter-chips {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
 }
 
-.nav-chip {
-  background: var(--bg-2);
+.chip {
+  background: transparent;
   border: 1px solid var(--border);
-  padding: 0.5rem 1.25rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
   font-weight: 800;
-  color: var(--text-sub);
+  color: var(--muted);
   cursor: pointer;
   transition: all 0.2s ease;
   text-transform: uppercase;
 }
 
-.nav-chip:hover {
+.chip:hover {
   border-color: var(--accent);
   color: var(--accent);
 }
 
-.nav-chip.active {
+.chip.active {
   background: var(--accent);
   border-color: var(--accent);
   color: black;
 }
 
 /* Gallery Restructure */
-.year-block { 
-  margin-bottom: 8rem; 
-}
-
+.year-block { margin-bottom: 6rem; }
 .year-header { 
   display: flex; 
   align-items: center; 
-  gap: 2rem; 
-  margin-bottom: 3.5rem; 
+  gap: 1.5rem; 
+  margin-bottom: 3rem; 
   position: sticky;
   top: 0;
   z-index: 10;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   background: linear-gradient(to bottom, var(--bg) 80%, transparent);
 }
-
-.year-text { 
-  font-size: 5rem; 
-  color: var(--accent); 
-  opacity: 0.2; 
-  line-height: 1; 
-  transition: opacity 0.3s ease;
-}
-
-.year-header:hover .year-text {
-  opacity: 0.6;
-}
-
+.year-text { font-size: 3.5rem; color: var(--accent); opacity: 0.15; line-height: 1; transition: opacity 0.3s ease; }
+.year-header:hover .year-text { opacity: 0.5; }
 .year-line { flex-grow: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
 
 .project-gallery {
@@ -293,19 +303,21 @@ const groupedProjects = computed(() => {
   gap: 2.5rem;
 }
 
-/* No Results state */
 .empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 8rem 0;
-  gap: 1.5rem;
+  text-align: center;
+  padding: 5rem 0;
   color: var(--muted);
-  border: 1px dashed var(--border);
-  border-radius: 32px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
 }
 
-.empty-state p { font-weight: 900; letter-spacing: 0.1em; font-size: 0.9rem; }
-.cta-link { background: none; border-bottom: 1px solid var(--accent); color: var(--accent); cursor: pointer; font-weight: 800; }
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 1rem;
+}
 </style>
