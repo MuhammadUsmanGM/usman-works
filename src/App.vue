@@ -1,27 +1,18 @@
 <script setup lang="ts">
 import MainLayout from './components/MainLayout.vue'
 import projects from './data/projects.json'
-import { ExternalLink, Github, Terminal } from 'lucide-vue-next'
-import { Motion } from 'motion/vue'
-
-const getTechVariant = (index: number) => ({
-  initial: { opacity: 0, y: 10 },
-  enter: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { delay: index * 0.05, duration: 0.4 } 
-  }
-})
+import { ExternalLink } from 'lucide-vue-next'
 </script>
 
 <template>
   <MainLayout>
     <!-- Header Section -->
     <header class="archive-header">
-      <Motion 
+      <div 
+        v-motion
         :initial="{ opacity: 0, y: 20 }" 
         :enter="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.6 }"
+        :transition="{ duration: 600 }"
       >
         <div class="status-pill">
           <span class="dot"></span>
@@ -29,7 +20,7 @@ const getTechVariant = (index: number) => ({
         </div>
         <h1 class="bebas main-title">PROJECT <span class="accent-text">ARCHIVE</span></h1>
         <p class="subtitle">An exhaustive list of everything I've built, from production SaaS to weekend experiments.</p>
-      </Motion>
+      </div>
     </header>
 
     <!-- Project Table -->
@@ -45,14 +36,17 @@ const getTechVariant = (index: number) => ({
           </tr>
         </thead>
         <tbody>
-          <Motion 
+          <tr 
             v-for="(project, index) in projects" 
             :key="project.id"
-            tag="tr"
-            class="project-row"
+            v-motion
             :initial="{ opacity: 0, x: -10 }"
-            :enter="{ opacity: 1, x: 0 }"
-            :transition="{ delay: index * 0.1, duration: 0.5 }"
+            :enter="{ 
+              opacity: 1, 
+              x: 0,
+              transition: { delay: index * 100, duration: 500 }
+            }"
+            class="project-row"
           >
             <td class="cell-year">{{ project.year }}</td>
             <td class="cell-project">
@@ -72,7 +66,7 @@ const getTechVariant = (index: number) => ({
                 <ExternalLink :size="16" />
               </a>
             </td>
-          </Motion>
+          </tr>
         </tbody>
       </table>
     </div>
