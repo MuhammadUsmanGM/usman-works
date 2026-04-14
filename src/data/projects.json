@@ -44,7 +44,7 @@
   },
   {
     "id": "ferrumdb",
-    "year": "2024",
+    "year": "2025",
     "name": "FerrumDB",
     "description": "High-performance, embedded document database engine written from scratch in Rust. Features O(1) performance, AES-256 encryption, and atomic transactions.",
     "tech": ["Rust", "Tokio", "AES-256", "Python Bindings", "NAPI-RS"],
@@ -134,7 +134,7 @@
   },
   {
     "id": "go-load-balancer",
-    "year": "2024",
+    "year": "2025",
     "name": "Go Load Balancer",
     "description": "Production-grade HTTP load balancer with advanced observability. Features multi-strategy routing, distributed tracing, and zero-downtime hot reloads.",
     "tech": ["Go", "OpenTelemetry", "Prometheus", "Grafana", "fnotify"],
@@ -218,7 +218,7 @@
   },
   {
     "id": "opsforge",
-    "year": "2024",
+    "year": "2025",
     "name": "OpsForge",
     "description": "Zero-dependency DevOps CLI & REST API toolkit built with Go's standard library. Features 10+ core utilities for load testing, SSL auditing, and network discovery.",
     "tech": ["Go (Stdlib)", "slog", "Docker", "Prometheus", "GoReleaser"],
@@ -300,7 +300,7 @@
   },
   {
     "id": "promptly",
-    "year": "2025",
+    "year": "2026",
     "name": "Promptly",
     "description": "Smart Context-Aware Prompt Engineering. An MCP server that bridges the gap between AI intent and codebase reality through automated analysis and refinement.",
     "tech": ["TypeScript", "MCP SDK", "Node.js", "Zod", "tsup"],
@@ -343,7 +343,7 @@
   },
   {
     "id": "vidx",
-    "year": "2024",
+    "year": "2025",
     "name": "VidX",
     "description": "High-Fidelity Video Transformation for the Web. An interactive CLI tool that abstracts complex FFmpeg operations into a guided TUI for professional web optimization.",
     "tech": ["Node.js", "FFmpeg", "AV1/VP9", "TUI", "Vitest"],
@@ -386,7 +386,7 @@
   },
   {
     "id": "notion-autopilot",
-    "year": "2024",
+    "year": "2025",
     "name": "Notion Autopilot",
     "description": "Autonomous Workspace Intelligence & Organization. An AI agent that continuously crawls, organizes, and extracts cognitive insights from messy Notion environments.",
     "tech": ["Python (uv)", "Notion API", "Groq/Gemini", "LLM Orchestration"],
@@ -427,7 +427,7 @@
   },
   {
     "id": "automation-vault",
-    "year": "2024",
+    "year": "2026",
     "name": "Automation Vault",
     "description": "Enterprise-Grade Automation Infrastructure & AI Orchestration. A collection of complex, event-driven workflows that automate the entire Software Development Life Cycle (SDLC).",
     "tech": ["n8n", "AI Orchestration", "GitHub API", "Slack", "Groq"],
@@ -469,6 +469,47 @@
       "Low-code doesn't equal low-complexity; enterprise automation requires rigorous error-handling, retry logic, and architectural discipline.",
       "The value of automation isn't just time saved—it's the elimination of cognitive overhead for engineering teams.",
       "Event-driven architectures are the only way to build truly responsive business and technical infrastructure."
+    ]
+  },
+  {
+    "id": "todo-audit",
+    "year": "2026",
+    "name": "todo-audit",
+    "description": "High-Performance Static Technical Debt Auditor. A Rust-based CLI engine that scans massive codebases to track, audit, and visualize technical debt with lazy Git-blame integration.",
+    "tech": ["Rust", "Git Blame API", "Static Analysis", "CLI"],
+    "categories": ["Systems / Rust", "Automation"],
+    "type": "Engineering Utility",
+    "status": "Production",
+    "github": "https://github.com/MuhammadUsmanGM/todo-audit",
+    "links": [],
+    "installCommand": "cargo install todo-audit",
+    "image": "https://placehold.co/1200x800/0a0a0f/f5a623?text=TODO-AUDIT+CLI",
+    "benchmarks": [
+      { "label": "Performance", "value": "O(N)", "detail": "Parallel file-tree walking" },
+      { "label": "Git Integration", "value": "Lazy", "detail": "Zero-overhead metadata fetch" },
+      { "label": "Ecosystem", "value": "Binary", "detail": "Single zero-dep executable" }
+    ],
+    "sections": [
+      {
+        "title": "Static Technical Debt Tracking",
+        "icon": "ShieldCheck",
+        "content": "Engineered a recursive scanning engine that accurately captures TODO, FIXME, and HACK annotations across any codebase. The tool respects .gitignore automatically by leveraging the high-performance 'ignore' crate architecture."
+      },
+      {
+        "title": "Lazy Git-Blame Orchestration",
+        "icon": "Activity",
+        "content": "Implemented a lazy evaluation strategy for Git metadata. Blame data (author, staleness, timestamp) is only fetched when specific filters are triggered, ensuring the core scanning performance remains ultra-fast for large repositories."
+      },
+      {
+        "title": "CI/CD Gate Integration",
+        "icon": "Zap",
+        "content": "Designed with a Unix-first philosophy, allowing todo-audit to be integrated into CI pipelines as a quality gate. Supports multiple output formats (Text, JSON) for automated reporting and debt orchestration."
+      }
+    ],
+    "learnings": [
+      "Effective static analysis tools must prioritize performance; if a scan takes more than a few seconds, it won't be used.",
+      "Git-blame porcelain output is powerful but expensive; batching and lazy loading are mandatory for enterprise-scale repositories.",
+      "Developer experience (DX) is the primary feature of CLI tools—clear error codes and intuitive flags are non-negotiable."
     ]
   }
 ]
