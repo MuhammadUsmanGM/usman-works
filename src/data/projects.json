@@ -1,63 +1,86 @@
 [
   {
-    "id": "1",
-    "year": "2024",
-    "name": "Amber Vault Archive",
-    "description": "High-density project registry with system-level adaptive theming and SEO optimization.",
-    "tech": ["Vue 3", "Vite", "Motion"],
-    "type": "Personal",
-    "status": "Live",
-    "link": "https://github.com/usman-mustafa",
-    "github": "https://github.com/usman-mustafa",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop",
+    "id": "codelens",
+    "year": "2025",
+    "name": "CodeLens",
+    "description": "The Neural Bridge Between Developer & Codebase. A high-fidelity architectural autopilot synthesizing massive repositories into an interactive neural index.",
+    "tech": ["Next.js 16", "Gemini Pro", "Qdrant", "LangChain", "Framer Motion"],
+    "type": "Engineering Tool",
+    "status": "Operational",
+    "link": "https://www.npmjs.com/package/@muhammadusmangm/codelens",
+    "github": "https://github.com/MuhammadUsmanGM/CodeLens",
+    "installCommand": "npx @muhammadusmangm/codelens",
+    "image": "https://placehold.co/1200x800/0a0a0f/f5a623?text=CODELENS+ENGINEERING+PREMIUM",
     "benchmarks": [
-      { "label": "Lighthouse Score", "value": "100", "detail": "Perfect performance" },
-      { "label": "Initial Load", "value": "240ms", "detail": "Vite-optimized" },
-      { "label": "Bundle Size", "value": "14kb", "detail": "Zero-bloat dependencies" }
+      { "label": "Retrieval Latency", "value": "< 10ms", "detail": "Qdrant Top-K vector search" },
+      { "label": "Intelligence Core", "value": "Gemini 2.0", "detail": "Light-speed inference" },
+      { "label": "Language Support", "value": "40+", "detail": "AST-Aware structural chunking" }
     ],
     "sections": [
       {
-        "title": "The Registry Engine",
-        "icon": "Database",
-        "content": "Built with a reactive JSON-driven architecture. The entire vault is powered by a single source of truth, allowing for real-time filtering and ultra-fast dynamic routing without database overhead."
+        "title": "Neural RAG Pipeline",
+        "icon": "Cpu",
+        "content": "Engineered a sophisticated Retrieval-Augmented Generation pipeline grounded in source code truth. It transcends simple keyword matching by understanding developer intent through high-dimensional vector synthesis and semantic contextualization."
       },
       {
-        "title": "Adaptive Aesthetics",
+        "title": "Architectural Discovery",
+        "icon": "Layers",
+        "content": "A glassmorphic, high-focus interface designed to map out structural integrity and logic flow. From onboarding new developers to auditing complex legacy systems, CodeLens provides the strategic depth required for modern engineering."
+      },
+      {
+        "title": "Incremental SHA-256 Indexing",
         "icon": "Zap",
-        "content": "Implemented a system-aware CSS variable engine. The Amber theme shifts its saturation and luminosity based on the user's OS preference to maintain perfect accessibility (WCAG AA) in both modes."
+        "content": "Implemented hash-based delta analysis for codebase ingestion. By tracking file changes with SHA-256, only modified fragments are re-embedded, drastically reducing latency and operational costs for private repository analysis."
       }
     ],
     "learnings": [
-      "Dynamic routing in Vue 3 requires careful scroll-behavior management for a premium SPA feel.",
-      "Custom SVG grain textures are more performance-efficient than high-res noise pngs."
+      "Sub-millisecond vector retrieval is the primary bottleneck for building truly conversational architectural interfaces.",
+      "AST-aware chunking outperforms standard character-based splitting by preserving the semantic integrity of classes and functions.",
+      "Deploying Next.js 16/React 19 applications requires a 'Server-First' mindset for optimal heavy-lifting AI tasks."
     ]
   },
   {
-    "id": "2",
-    "year": "2023",
-    "name": "Neural Newsletter",
-    "description": "AI-powered newsletter engine with Inngest integration and automated delivery pipelines.",
-    "tech": ["Next.js", "Inngest", "OpenAI"],
-    "type": "Product",
-    "status": "Alpha",
-    "link": "#",
-    "github": "#",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop",
+    "id": "ferrumdb",
+    "year": "2024",
+    "name": "FerrumDB",
+    "description": "High-performance, embedded document database engine written from scratch in Rust. Features O(1) performance, AES-256 encryption, and atomic transactions.",
+    "tech": ["Rust", "Tokio", "AES-256", "Python Bindings", "NAPI-RS"],
+    "type": "Systems Engineering",
+    "status": "v0.1.3",
+    "link": "https://pypi.org/project/ferrumdb/",
+    "github": "https://github.com/MuhammadUsmanGM/FerrumDB",
+    "installCommands": [
+      { "label": "Python", "command": "pip install ferrumdb" },
+      { "label": "Node.js", "command": "npm install ferrumdb" },
+      { "label": "Rust", "command": "cargo add ferrumdb" }
+    ],
+    "image": "https://placehold.co/1200x800/0d0d12/de4b39?text=FERRUMDB+RUST+SYSTEMS",
     "benchmarks": [
-      { "label": "Queue Latency", "value": "< 10ms", "detail": "Inngest optimized" },
-      { "label": "AI Generation", "value": "3.2s", "detail": "GPT-4o standard" },
-      { "label": "Delivery Rate", "value": "99.9%", "detail": "Resend integration" }
+      { "label": "Read Latency", "value": "< 1µs", "detail": "Lock-free in-memory indexing" },
+      { "label": "Write Latency", "value": "1–3 µs", "detail": "Append-only sequential log" },
+      { "label": "Encryption", "value": "AES-256", "detail": "GCM authenticated blocks" }
     ],
     "sections": [
       {
-        "title": "Pipeline Automation",
+        "title": "Bitcask-Inspired AOF",
+        "icon": "Database",
+        "content": "Engineered a custom binary log format using an append-only file (AOF) architecture. This design optimizes for high-throughput sequential I/O, ensuring deterministic recovery and crash-resilience through deterministic log replay."
+      },
+      {
+        "title": "Pluggable I/O Abstraction",
         "icon": "Cpu",
-        "content": "Leveraging Inngest's event-driven architecture to handle long-running generative tasks. The engine decouples user requests from AI processing to ensure zero-timeout delivery."
+        "content": "Implemented a sophisticated AsyncFileSystem trait that abstracts disk operations. This allowed for a decorator-based encryption layer, seamlessly wrapping standard I/O with AES-256-GCM authentication tags for each data block."
+      },
+      {
+        "title": "Ferrum Studio",
+        "icon": "Activity",
+        "content": "Developed a built-in observability dashboard using Axum and lock-free atomic metrics. It provides real-time telemetry on operations per second, lookup counts, and database health metrics at sub-microsecond precision."
       }
     ],
     "learnings": [
-      "Reliability in AI products comes from robust queue management, not just prompt engineering.",
-      "Edge functions significantly reduce latency for global newsletter distribution."
+      "Rust's ownership model is uniquely suited for building lock-free storage engines with high concurrency.",
+      "The decorator pattern is powerful for layering cross-cutting concerns like encryption and logging without polluting core logic.",
+      "Embedded databases must prioritize memory efficiency; O(1) reads come at the cost of ram-resident indexes."
     ]
   }
 ]

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import projectsData from '../data/projects.json'
 import { 
   ArrowLeft, Github, Database, Zap, Cpu, 
-  ShieldCheck, Activity, Code2, Link as LinkIcon 
+  ShieldCheck, Activity, Code2, Link as LinkIcon, Layers
 } from 'lucide-vue-next'
 
 const route = useRoute()
@@ -14,11 +14,25 @@ const project = computed(() => {
   return projectsData.find(p => p.id === route.params.id)
 })
 
+const copied = ref(false)
+const selectedTab = ref(0)
+
+// Reset tab when navigating between projects
+watch(() => route.params.id, () => {
+  selectedTab.value = 0
+})
+
+const copyCommand = (cmd: string) => {
+  navigator.clipboard.writeText(cmd)
+  copied.value = true
+  setTimeout(() => copied.value = false, 2000)
+}
+
 const goBack = () => router.push('/')
 
 // Icon mapping system
 const iconMap: Record<string, any> = {
-  Database, Zap, Cpu, ShieldCheck, Activity, Code2
+  Database, Zap, Cpu, ShieldCheck, Activity, Code2, Layers
 }
 </script>
 
@@ -48,8 +62,38 @@ const iconMap: Record<string, any> = {
           SOURCE CODE <Github :size="16" />
         </a>
         <a v-if="project.link !== '#'" :href="project.link" target="_blank" class="action-link border">
-          LIVE PREVIEW <LinkIcon :size="16" />
+          {{ project.link.includes('npm') ? 'NPM PACKAGE' : project.link.includes('crates.io') ? 'CRATES.IO' : project.link.includes('pypi') ? 'PYPI PACKAGE' : 'LIVE PREVIEW' }} <LinkIcon :size="16" />
         </a>
+      </div>
+
+      <!-- Command Install Block -->
+      <div v-if="project.installCommand || project.installCommands" class="install-command-wrap" v-motion-fade>
+        <div class="terminal-frame">
+          <div class="terminal-header">
+            <div class="dots-group">
+              <div class="dots"><span></span><span></span><span></span></div>
+              <div v-if="project.installCommands" class="terminal-tabs">
+                <button 
+                  v-for="(cmd, idx) in project.installCommands" 
+                  :key="cmd.label"
+                  @click="selectedTab = idx"
+                  :class="['tab-btn', { active: selectedTab === idx }]"
+                >
+                  {{ cmd.label }}
+                </button>
+              </div>
+            </div>
+            <span class="terminal-title">SHELL_ACCESS</span>
+          </div>
+          <div class="command-body">
+            <span class="prompt">$</span>
+            <code>{{ project.installCommands ? project.installCommands[selectedTab].command : project.installCommand }}</code>
+            <button @click="copyCommand(project.installCommands ? project.installCommands[selectedTab].command : project.installCommand)" class="copy-btn">
+              <span v-if="copied">COPIED!</span>
+              <span v-else>COPY</span>
+            </button>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -202,9 +246,130 @@ const iconMap: Record<string, any> = {
 .footer-cta-block:hover .cta-icon-wrap { border-color: var(--accent); transform: scale(1.1); }
 .footer-cta-block span { font-size: 1.25rem; letter-spacing: 0.1em; }
 
+/* Install Command Section */
+.install-command-wrap {
+  margin-top: 3.5rem;
+  max-width: 600px;
+}
+
+.terminal-frame {
+  background: #0d0d12;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.terminal-header {
+  background: #16161e;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.dots-group {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.terminal-tabs {
+  display: flex;
+  gap: 1rem;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.05em;
+}
+
+.tab-btn:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.05);
+}
+
+.tab-btn.active {
+  color: var(--accent);
+  background: rgba(245, 166, 35, 0.1);
+}
+
+.terminal-header .dots {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-header .dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #333;
+}
+
+.terminal-header .dots span:nth-child(1) { background: #ff5f56; }
+.terminal-header .dots span:nth-child(2) { background: #ffbd2e; }
+.terminal-header .dots span:nth-child(3) { background: #27c93f; }
+
+.terminal-title {
+  font-family: monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.command-body {
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.prompt {
+  color: var(--accent);
+  font-weight: 900;
+  user-select: none;
+}
+
+.command-body code {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.copy-btn {
+  background: rgba(245, 166, 35, 0.1);
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  color: var(--accent);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 70px;
+}
+
+.copy-btn:hover {
+  background: var(--accent);
+  color: black;
+}
+
 @media (max-width: 768px) {
   .tech-section { grid-template-columns: 1fr; gap: 1.5rem; }
   .learning-grid { grid-template-columns: 1fr; }
   .detail-title { font-size: 4rem; }
+  .install-command-wrap { width: 100%; }
 }
 </style>
