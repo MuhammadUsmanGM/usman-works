@@ -6,26 +6,22 @@ import projectsData from './data/projects.json'
 import { Search, X, LayoutGrid } from 'lucide-vue-next'
 
 const searchQuery = ref('')
-const selectedTech = ref('All')
+const selectedCategory = ref('All')
 
 onMounted(() => {
   const params = new URLSearchParams(window.location.search)
   if (params.has('q')) searchQuery.value = params.get('q') || ''
-  if (params.has('tech')) selectedTech.value = params.get('tech') || 'All'
+  if (params.has('cat')) selectedCategory.value = params.get('cat') || 'All'
 })
 
-watch([searchQuery, selectedTech], ([newQ, newT]) => {
+watch([searchQuery, selectedCategory], ([newQ, newC]) => {
   const url = new URL(window.location.href)
   newQ ? url.searchParams.set('q', newQ) : url.searchParams.delete('q')
-  newT !== 'All' ? url.searchParams.set('tech', newT) : url.searchParams.delete('tech')
+  newC !== 'All' ? url.searchParams.set('cat', newC) : url.searchParams.delete('cat')
   window.history.replaceState({}, '', url)
 })
 
-const allTech = computed(() => {
-  const tags = new Set(['All'])
-  projectsData.forEach(p => p.tech.forEach(t => tags.add(t)))
-  return Array.from(tags)
-})
+const allCategories = ['All', 'AI & Agents', 'Systems / Rust', 'High-Perf Go', 'Automation', 'Full-Stack']
 
 const filteredProjects = computed(() => {
   return projectsData.filter(p => {
@@ -33,7 +29,11 @@ const filteredProjects = computed(() => {
     const matchesSearch = p.name.toLowerCase().includes(query) || 
                           p.description.toLowerCase().includes(query) ||
                           p.tech.some(t => t.toLowerCase().includes(query))
-    return (selectedTech.value === 'All' || p.tech.includes(selectedTech.value)) && matchesSearch
+    
+    const matchesCategory = selectedCategory.value === 'All' || 
+                            p.categories.includes(selectedCategory.value)
+                            
+    return matchesCategory && matchesSearch
   })
 })
 
@@ -52,6 +52,10 @@ const groupedProjects = computed(() => {
     <div v-if="$route.path === '/'">
       <!-- Your Existing Archive UI -->
       <header class="archive-header" v-motion-fade>
+        <button v-if="searchQuery || selectedCategory !== 'All'" @click="searchQuery = ''; selectedCategory = 'All'" class="reset-btn">
+          RESET_VIEW
+        </button>
+
         <div class="hero-section">
           <h1 class="bebas premium-title">
             <span>ENGINEERING ARCHIVE</span>
@@ -67,12 +71,12 @@ const groupedProjects = computed(() => {
           </div>
           <div class="filter-chips">
             <button 
-              v-for="tech in allTech" 
-              :key="tech" 
-              @click="selectedTech = tech" 
-              :class="['chip', { active: selectedTech === tech }]"
+              v-for="cat in allCategories" 
+              :key="cat" 
+              @click="selectedCategory = cat" 
+              :class="['chip', { active: selectedCategory === cat }]"
             >
-              {{ tech }}
+              {{ cat }}
             </button>
           </div>
         </div>
@@ -82,7 +86,7 @@ const groupedProjects = computed(() => {
         <div v-if="filteredProjects.length === 0" class="no-results" v-motion-fade>
           <div class="empty-state">
             <p>NO DATA NODES FOUND</p>
-            <button @click="searchQuery = ''; selectedTech = 'All'" class="link-btn">RE-INITIALIZE SEARCH</button>
+            <button @click="searchQuery = ''; selectedCategory = 'All'" class="link-btn">RE-INITIALIZE SEARCH</button>
           </div>
         </div>
 
