@@ -186,8 +186,10 @@ import { ArrowUpRight } from 'lucide-vue-next'
 }
 
 @media (max-width: 768px) {
-  .premium-navbar { gap: 1rem; width: 100%; padding: 0.5rem; }
-  .nav-brand span { display: none; }
-  .nav-item { padding: 0.6rem 1rem; font-size: 0.6rem; }
+  .premium-navbar { gap: 0.5rem; width: fit-content; max-width: 100%; padding: 0.4rem 0.6rem 0.4rem 1rem; }
+  .logo-title { font-size: 0.8rem; }
+  .nav-item.external { padding: 0.5rem 0.8rem; font-size: 0.55rem; }
+  .brand-logo { width: 22px; height: 22px; border-radius: 4px; }
+  .logo-text { font-size: 0.7rem; }
 }
 </style>
