@@ -332,5 +332,47 @@
       "Developer tools must have sub-100ms latency to feel invisible—caching and incremental analysis are mandatory for high-velocity workflows.",
       "The Model Context Protocol (MCP) is evolving into the standard 'nerve system' for AI-to-IDE communication."
     ]
+  },
+  {
+    "id": "vidx",
+    "year": "2024",
+    "name": "VidX",
+    "description": "High-Fidelity Video Transformation for the Web. An interactive CLI tool that abstracts complex FFmpeg operations into a guided TUI for professional web optimization.",
+    "tech": ["Node.js", "FFmpeg", "AV1/VP9", "TUI", "Vitest"],
+    "type": "Engineering Tooling",
+    "status": "Production",
+    "github": "https://github.com/MuhammadUsmanGM/VidX",
+    "links": [
+      { "label": "NPM PACKAGE", "url": "https://www.npmjs.com/package/@muhammadusmangm/vidx" }
+    ],
+    "installCommand": "npm install -g @muhammadusmangm/vidx",
+    "image": "https://placehold.co/1200x800/0a0a0f/f97316?text=VIDX+VIDEO+ENGINE",
+    "benchmarks": [
+      { "label": "Codec Support", "value": "AV1/VP9", "detail": "Next-gen compression protocols" },
+      { "label": "Automation", "value": "vidxrc", "detail": "Project-level config persistence" },
+      { "label": "UX", "value": "Guided TUI", "detail": "FFmpeg flag abstraction layer" }
+    ],
+    "sections": [
+      {
+        "title": "FFmpeg Abstraction Layer",
+        "icon": "Cpu",
+        "content": "Engineered a non-leaky abstraction over FFmpeg's low-level flags. By synthesizing complex parameters into 'Web Optimized' and 'High Quality' presets, VidX allows developers to achieve perfect web-ready encodes without mastering the libx264/libvpx-vp9 syntax."
+      },
+      {
+        "title": "GIF-to-Video Transformation",
+        "icon": "Zap",
+        "content": "Implemented an automated protocol for converting aging .gif assets into high-performance, looping MP4/WebM videos. This includes automatic audio-stripping (-an) and specific flags for web-streaming (+faststart), resulting in 90%+ reductions in asset size."
+      },
+      {
+        "title": "Universal Runtime Compatibility",
+        "icon": "Activity",
+        "content": "Designed a robust detection engine that bridges system-level FFmpeg binaries with bundled fallbacks. This 'zero-manual-setup' architecture ensures consistent performance across macOS, Windows, and Linux environments without the need for manual path configuration."
+      }
+    ],
+    "learnings": [
+      "The primary hurdle for web video adoption is CLI complexity—reducing this friction directly improves the performance of the modern web.",
+      "AV1 is the future of web video, but standard library fallbacks are still mandatory for comprehensive cross-browser compatibility.",
+      "TUI (Terminal User Interfaces) provide a perfect middle ground between rigid CLI flags and heavy GUI applications for engineering workflows."
+    ]
   }
 ]
