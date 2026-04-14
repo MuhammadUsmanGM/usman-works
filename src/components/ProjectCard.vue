@@ -53,9 +53,13 @@ const goToCaseStudy = () => {
     <!-- Spotlight Glow Layer -->
     <div class="spotlight"></div>
 
-    <!-- Image Header -->
-    <div class="card-image-wrap">
-      <img :src="project.image" :alt="project.name" class="card-img" />
+    <!-- Abstract Typographic Hero Header -->
+    <div class="card-image-wrap abstract-hero">
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <h2 class="hero-title">{{ project.name }}</h2>
+        <span class="hero-subtitle">{{ project.type }}</span>
+      </div>
       <div class="badge-float">
         <span :class="['status-badge', project.status.toLowerCase()]">{{ project.status }}</span>
       </div>
@@ -132,15 +136,63 @@ const goToCaseStudy = () => {
   border-bottom: 1px solid var(--border);
 }
 
-.card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.abstract-hero {
+  background: linear-gradient(135deg, rgba(15,15,20,1) 0%, rgba(20,20,25,1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: center center;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.premium-card:hover .card-img {
-  transform: scale(1.08);
+.premium-card:hover .hero-grid {
+  transform: scale(1.1) rotate(1deg);
+  opacity: 0.8;
+}
+
+.premium-card:hover .hero-content {
+  transform: scale(1.06);
+}
+
+.hero-title {
+  font-size: 2.1rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff 0%, #71717a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.9;
+  display: block;
 }
 
 .badge-float {
