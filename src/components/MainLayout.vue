@@ -1,24 +1,26 @@
 <script setup lang="ts">
-import { ArrowLeft, Terminal } from 'lucide-vue-next'
+import { ArrowUpRight } from 'lucide-vue-next'
 </script>
 
 <template>
   <div class="layout-container">
-    <header class="nav-header">
-      <div class="nav-content">
-        <a href="/" class="back-link group">
-          <ArrowLeft :size="16" class="arrow-icon" />
-          <span class="back-text">PORTFOLIO</span>
-        </a>
-        
-        <div class="brand-cluster">
-          <div class="brand-id">UM-WORKS</div>
-          <div class="brand-version">
-            <span class="version-dot"></span>
-            VAULT v1.0
+    <div class="top-nav-spacer"></div>
+    <header class="floating-nav-wrapper">
+      <nav class="premium-navbar">
+        <a href="/" class="nav-brand">
+          <div class="brand-logo">
+            <img src="/favicon.webp" alt="MU" class="nav-logo-img" />
           </div>
+          <span class="bebas logo-title">MuhammadUsman <span class="accent-text">/ ARCHIVE</span></span>
+        </a>
+
+        <div class="nav-links">
+          <a href="https://muhammadusman.me" target="_blank" class="nav-item external group">
+            MAIN PORTFOLIO
+            <ArrowUpRight :size="14" class="up-arrow" />
+          </a>
         </div>
-      </div>
+      </nav>
     </header>
 
     <main class="main-content">
@@ -27,7 +29,7 @@ import { ArrowLeft, Terminal } from 'lucide-vue-next'
 
     <footer class="archive-footer">
       <div class="footer-grid">
-        <p class="copyright">© {{ new Date().getFullYear() }} USMAN MUSTAFA</p>
+        <p class="copyright">© {{ new Date().getFullYear() }} MUHAMMAD USMAN</p>
         <div class="footer-divider"></div>
         <p class="build-by">ENGINEERED FOR THE WEB</p>
       </div>
@@ -37,7 +39,7 @@ import { ArrowLeft, Terminal } from 'lucide-vue-next'
 
 <style scoped>
 .layout-container {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -45,85 +47,121 @@ import { ArrowLeft, Terminal } from 'lucide-vue-next'
   min-height: 100vh;
 }
 
-.nav-header {
-  padding: 3rem 0;
-}
+.top-nav-spacer { height: 2rem; }
 
-.nav-content {
+.floating-nav-wrapper {
+  position: sticky;
+  top: 1.5rem;
+  z-index: 1000;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
 }
 
-/* Back Link */
-.back-link {
+.premium-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  padding: 0.6rem 0.6rem 0.6rem 1.5rem;
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.nav-brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--muted);
   text-decoration: none;
-  font-weight: 800;
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  transition: color 0.3s ease;
-}
-
-.arrow-icon {
-  transition: transform 0.3s ease;
-}
-
-.back-link:hover {
-  color: var(--accent);
-}
-
-.back-link:hover .arrow-icon {
-  transform: translateX(-4px);
-}
-
-/* Brand Cluster */
-.brand-cluster {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.brand-id {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.25rem;
   color: var(--text);
+  font-size: 1.1rem;
   letter-spacing: 0.05em;
 }
 
-.brand-version {
-  background: var(--bg-2);
-  border: 1px solid var(--border);
-  padding: 0.3rem 0.75rem;
+.brand-logo {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   border-radius: 6px;
-  font-family: monospace;
-  font-size: 0.7rem;
-  color: var(--muted);
+}
+
+.nav-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo-title {
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+.accent-text {
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.nav-links {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.version-dot {
-  width: 5px;
-  height: 5px;
-  background: var(--accent);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
+.nav-item {
+  color: var(--text-sub);
+  text-decoration: none;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  padding: 0.75rem 1.25rem;
+  border-radius: 100px;
+  transition: all 0.3s ease;
 }
 
-@keyframes pulse {
-  0% { opacity: 0.4; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+}
+
+.nav-item:hover {
+  color: var(--accent);
+}
+
+.nav-item.external {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: black;
+}
+
+.nav-item.external:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(245, 166, 35, 0.2);
+}
+
+.up-arrow {
+  transition: transform 0.3s ease;
+}
+
+.nav-item.external:hover .up-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* Main Content Padding */
+.main-content {
+  padding-top: 4rem;
 }
 
 /* Footer refinements */
 .archive-footer {
-  padding: 5rem 0 3rem;
+  padding: 8rem 0 4rem;
 }
 
 .footer-grid {
@@ -134,19 +172,22 @@ import { ArrowLeft, Terminal } from 'lucide-vue-next'
 }
 
 .copyright, .build-by {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 800;
   color: var(--muted);
   letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .footer-divider {
-  width: 40px;
+  width: 30px;
   height: 1px;
   background: var(--border);
 }
 
 @media (max-width: 768px) {
-  .brand-id { display: none; }
+  .premium-navbar { gap: 1rem; width: 100%; padding: 0.5rem; }
+  .nav-brand span { display: none; }
+  .nav-item { padding: 0.6rem 1rem; font-size: 0.6rem; }
 }
 </style>

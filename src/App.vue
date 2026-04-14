@@ -52,29 +52,18 @@ const groupedProjects = computed(() => {
     <div v-if="$route.path === '/'">
       <!-- Your Existing Archive UI -->
       <header class="archive-header" v-motion-fade>
-        <div class="header-meta">
-          <div class="index-status">
-            <span class="status-icon"></span>
-            <span class="label">VAULT_RECORDS:</span>
-            <span class="value">[{{ filteredProjects.length }}]</span>
-          </div>
-          <button v-if="searchQuery || selectedTech !== 'All'" @click="searchQuery = ''; selectedTech = 'All'" class="reset-btn">
-            RESET_VIEW
-          </button>
-        </div>
-
         <div class="hero-section">
           <h1 class="bebas premium-title">
-            <span>PROJECTS</span>
+            <span>ENGINEERING ARCHIVE</span>
             <div class="title-shine"></div>
           </h1>
-          <p class="hero-sub">Selected engineering works and technical artifacts from 2021—Present.</p>
+          <p class="hero-sub">A secondary vault of deep technical artifacts, benchmarks, and architectural learnings from my production systems.</p>
         </div>
         
         <div class="search-wrap">
           <div class="search-box">
             <Search :size="16" class="search-icon" />
-            <input v-model="searchQuery" type="text" placeholder="FILTER BY STACK OR NAME..." class="compact-input" />
+            <input v-model="searchQuery" type="text" placeholder="FILTER VAULT BY STACK OR NAME..." class="compact-input" />
           </div>
           <div class="filter-chips">
             <button 
