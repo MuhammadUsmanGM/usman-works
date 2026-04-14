@@ -511,5 +511,48 @@
       "Git-blame porcelain output is powerful but expensive; batching and lazy loading are mandatory for enterprise-scale repositories.",
       "Developer experience (DX) is the primary feature of CLI tools—clear error codes and intuitive flags are non-negotiable."
     ]
+  },
+  {
+    "id": "echo-ai",
+    "year": "2026",
+    "name": "Echo AI Agent",
+    "description": "The Ultimate JARVIS-Inspired Neural Interface. A holographic, liquid-morphic AI agent featuring real-time particle physics, multi-model reasoning, and a privacy-first STT/TTS engine.",
+    "tech": ["Electron", "React", "Whisper STT", "Neural TTS", "FFmpeg"],
+    "categories": ["AI & Agents", "Full-Stack", "Automation"],
+    "type": "Neural UI / Agentics",
+    "status": "Production",
+    "github": "https://github.com/MuhammadUsmanGM/Echo-Neural-Interface",
+    "links": [
+      { "label": "NPM PACKAGE", "url": "https://www.npmjs.com/package/echo-ai-agent" }
+    ],
+    "installCommand": "npm install -g echo-ai-agent",
+    "image": "https://placehold.co/1200x800/0a0a0f/10b981?text=ECHO+AI+HOLOGRAPHIC",
+    "benchmarks": [
+      { "label": "UI Performance", "value": "60 FPS", "detail": "2,000+ Synchronized Particles" },
+      { "label": "Neural VAD", "value": "< 50ms", "detail": "Sub-second silence detection" },
+      { "label": "Models", "value": "4+", "detail": "Gemini, GPT-4o, Claude, DeepSeek" }
+    ],
+    "sections": [
+      {
+        "title": "Holographic Liquid-Morphic UI",
+        "icon": "Zap",
+        "content": "Engineered a state-of-the-art visual engine using Canvas and complex particle systems. The HUD features 2,000+ particles that react dynamically to voice frequency bands, creating a liquid-morphic 'Emerald' interface inspired by deep sci-fi aesthetics."
+      },
+      {
+        "title": "Hybrid Voice Intelligence",
+        "icon": "Activity",
+        "content": "Implemented a multi-tier Speech-to-Text (STT) layer supporting Browser APIs, Whisper Cloud, and Local Whisper binaries for 100% private execution. Combined with Neural TTS profiles, Echo provides a zero-latency conversational loop."
+      },
+      {
+        "title": "System-Level Function Calling",
+        "icon": "Layers",
+        "content": "Developed a robust orchestration layer that enables Echo to execute shell commands, manage system files, and interact with third-party APIs through secure function calling. Includes a local, encrypted memory vault for context persistence."
+      }
+    ],
+    "learnings": [
+      "Visual fidelity is a functional requirement for AI agents—a high-quality interface creates the 'personality' that drives user adoption.",
+      "VAD (Voice Activity Detection) is the hardest part of the conversational loop; balancing accuracy with sub-100ms response times is critical.",
+      "Local-first AI agents require strict resource management, especially when running concurrent particle simulations and neural inference."
+    ]
   }
 ]
