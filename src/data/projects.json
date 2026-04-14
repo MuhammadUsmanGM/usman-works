@@ -374,5 +374,45 @@
       "AV1 is the future of web video, but standard library fallbacks are still mandatory for comprehensive cross-browser compatibility.",
       "TUI (Terminal User Interfaces) provide a perfect middle ground between rigid CLI flags and heavy GUI applications for engineering workflows."
     ]
+  },
+  {
+    "id": "notion-autopilot",
+    "year": "2024",
+    "name": "Notion Autopilot",
+    "description": "Autonomous Workspace Intelligence & Organization. An AI agent that continuously crawls, organizes, and extracts cognitive insights from messy Notion environments.",
+    "tech": ["Python (uv)", "Notion API", "Groq/Gemini", "LLM Orchestration"],
+    "type": "AI Agent / Productivity",
+    "status": "Hackathon Project",
+    "github": "https://github.com/MuhammadUsmanGM/notion-reverse-autopilot",
+    "links": [],
+    "installCommand": "uv run notion-autopilot organize",
+    "image": "https://placehold.co/1200x800/0a0a0f/10b981?text=NOTION+AUTOPILOT+AGENT",
+    "benchmarks": [
+      { "label": "Analysis Polish", "value": "Continuous", "detail": "Autonomous background organization" },
+      { "label": "Contextual Search", "value": "Pattern-Based", "detail": "Discovers hidden cognitive connections" },
+      { "label": "Intelligence", "value": "Multi-Provider", "detail": "Groq, Gemini, Ollama, Anthropic" }
+    ],
+    "sections": [
+      {
+        "title": "Autonomous Workspace Crawler",
+        "icon": "Database",
+        "content": "Engineered a resilient Notion API client capable of full-workspace discovery. The agent crawls pages, databases, and blocks to identify 'Chaos Scores'—orphan pages, dead links, and duplicate clusters—before executing autonomous cleanup protocols."
+      },
+      {
+        "title": "Cognitive Pattern Recognition",
+        "icon": "Zap",
+        "content": "Developed a reasoning engine that synthesizes raw workspace content into a 'Brain Briefing'. By analyzing recurring themes and contradictions across disjointed notes, the agent surfaces meta-insights about the user's focus areas and blind spots."
+      },
+      {
+        "title": "Multi-Provider Orchestration",
+        "icon": "Layers",
+        "content": "Built a provider-agnostic LLM interface supporting low-latency local execution (Ollama) and high-speed cloud inference (Groq/Gemini). This architecture allows for cost-effective, bulk categorization of thousands of Notion blocks without vendor lock-in."
+      }
+    ],
+    "learnings": [
+      "The hardest part of autonomous organization isn't the AI—it's building a reliable, state-aware API crawler that respects platform limits.",
+      "Machine-generated 'meta-insights' are far more valuable to a user than simple auto-tagging of tasks.",
+      "Providing a full 'organizer' history is critical for building trust in autonomous systems that modify user-owned data."
+    ]
   }
 ]
