@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowUpRight } from 'lucide-vue-next'
+import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
 </script>
 
 <template>
@@ -27,11 +27,35 @@ import { ArrowUpRight } from 'lucide-vue-next'
       <slot />
     </main>
 
-    <footer class="archive-footer">
-      <div class="footer-grid">
-        <p class="copyright">© {{ new Date().getFullYear() }} MUHAMMAD USMAN</p>
-        <div class="footer-divider"></div>
-        <p class="build-by">ENGINEERED FOR THE WEB</p>
+    <footer class="premium-footer" v-motion-fade>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-left">
+            <span class="bebas footer-brand">MuhammadUsman <span class="accent-text">/ ARCHIVE</span></span>
+            <p class="footer-tagline">Deep Systems • AI Agentics • High-Perf Architecture</p>
+          </div>
+          
+          <div class="footer-right">
+            <div class="social-links">
+              <a href="https://github.com/MuhammadUsmanGM" target="_blank" class="social-link">
+                <Github :size="18" />
+                <span>GITHUB</span>
+              </a>
+              <a href="https://linkedin.com/in/muhammad-usman-mustafa" target="_blank" class="social-link">
+                <Linkedin :size="18" />
+                <span>LINKEDIN</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-line"></div>
+          <div class="footer-meta">
+            <p class="copyright">© 2026 MUHAMMAD USMAN. DATA_VAULT_OPERATIONAL</p>
+            <p class="build-tag">BUILT BY MUHAMMAD USMAN</p>
+          </div>
+        </div>
       </div>
     </footer>
   </div>
@@ -159,19 +183,82 @@ import { ArrowUpRight } from 'lucide-vue-next'
   padding-top: 4rem;
 }
 
-/* Footer refinements */
-.archive-footer {
+/* Premium Footer Overhaul */
+.premium-footer {
   padding: 8rem 0 4rem;
+  margin-top: auto;
 }
 
-.footer-grid {
+.footer-inner {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 
-.copyright, .build-by {
+.footer-brand {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.footer-tagline {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-sub);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright, .build-tag {
   font-size: 0.65rem;
   font-weight: 800;
   color: var(--muted);
@@ -179,10 +266,9 @@ import { ArrowUpRight } from 'lucide-vue-next'
   text-transform: uppercase;
 }
 
-.footer-divider {
-  width: 30px;
-  height: 1px;
-  background: var(--border);
+@media (max-width: 768px) {
+  .footer-top { flex-direction: column; gap: 2.5rem; }
+  .social-links { flex-direction: column; gap: 1rem; }
 }
 
 @media (max-width: 768px) {
