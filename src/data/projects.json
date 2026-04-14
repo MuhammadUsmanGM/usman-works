@@ -82,5 +82,45 @@
       "The decorator pattern is powerful for layering cross-cutting concerns like encryption and logging without polluting core logic.",
       "Embedded databases must prioritize memory efficiency; O(1) reads come at the cost of ram-resident indexes."
     ]
+  },
+  {
+    "id": "elyx",
+    "year": "2025",
+    "name": "ELYX",
+    "description": "Local-First Autonomous AI Employee. A multi-platform orchestration engine that monitors email, social media, and ERPs to execute business logic via HITL workflows.",
+    "tech": ["FastAPI", "Next.js 16", "Obsidian", "Playwright", "Claude/Gemini"],
+    "type": "AI Orchestration",
+    "status": "Hackathon 0",
+    "link": "#",
+    "github": "https://github.com/MuhammadUsmanGM/ELYX-Personal-AI-Employee",
+    "installCommand": "python run_elyx.py",
+    "image": "https://placehold.co/1200x800/0a0a0f/bc8cff?text=ELYX+AUTONOMOUS+EMPLOYEE",
+    "benchmarks": [
+      { "label": "Perception Points", "value": "8+", "detail": "Gmail, WA, LinkedIn, X, Odoo" },
+      { "label": "Reasoning Core", "value": "Swappable", "detail": "Claude 3.5 / Gemini 2.0 / Qwen" },
+      { "label": "Memory Architecture", "value": "Obsidian", "detail": "Markdown-based long-term storage" }
+    ],
+    "sections": [
+      {
+        "title": "Perception Layer",
+        "icon": "Activity",
+        "content": "Engineered a Python-based watching system using Playwright and standard APIs to monitor disjointed communication channels. The layer synthesizes raw platform events into structured Markdown tasks for the reasoning engine."
+      },
+      {
+        "title": "Obsidian-as-Memory",
+        "icon": "Database",
+        "content": "Pioneered a 'Local-First' memory architecture using an Obsidian vault. By treating Markdown files as state-machines, ELYX provides deep transparency—every plan, log, and approval cycle is an immutable technical artifact."
+      },
+      {
+        "title": "HITL Approval Cycles",
+        "icon": "ShieldCheck",
+        "content": "Implemented a rigid Human-in-the-Loop (HITL) protocol for sensitive operations. The orchestrator generates execution plans in a 'Pending' state, requiring the user to physically move files in the vault to authorize high-risk actions."
+      }
+    ],
+    "learnings": [
+      "Autonomous agents are only as reliable as their 'perception' fidelity; handling platform-specific edge cases is the hardest part.",
+      "Markdown is a surprisingly robust state management tool for local-first AI systems due to its human-readable nature.",
+      "A truly swappable 'Brain Factory' requires strict output normalization to handle different LLM reasoning styles."
+    ]
   }
 ]
