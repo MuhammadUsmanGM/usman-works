@@ -4,7 +4,8 @@ import { useRoute, useRouter } from 'vue-router'
 import projectsData from '../data/projects.json'
 import { 
   ArrowLeft, Github, Database, Zap, Cpu, 
-  ShieldCheck, Activity, Code2, Link as LinkIcon, Layers
+  ShieldCheck, Activity, Code2, Link as LinkIcon, Layers,
+  Library, CheckCircle
 } from 'lucide-vue-next'
 
 const route = useRoute()
@@ -32,7 +33,7 @@ const goBack = () => router.push('/')
 
 // Icon mapping system
 const iconMap: Record<string, any> = {
-  Database, Zap, Cpu, ShieldCheck, Activity, Code2, Layers
+  Database, Zap, Cpu, ShieldCheck, Activity, Code2, Layers, Library, CheckCircle
 }
 </script>
 
@@ -243,7 +244,7 @@ const iconMap: Record<string, any> = {
 .section-sidebar { display: flex; align-items: center; gap: 1.5rem; }
 .icon-wrap { width: 48px; height: 48px; background: rgba(245, 166, 35, 0.1); border: 1px solid rgba(245, 166, 35, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent); }
 .section-title { font-size: 2.5rem; line-height: 1; }
-.section-body p { font-size: 1.25rem; color: var(--text-sub); line-height: 1.7; font-style: italic; background: var(--bg-2); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); }
+.section-body p { font-size: 1.25rem; color: var(--text-sub); line-height: 1.7; font-style: italic; background: var(--bg-2); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); white-space: pre-line; }
 
 /* Learnings */
 .learning-title { font-size: 4rem; margin-bottom: 4rem; }
