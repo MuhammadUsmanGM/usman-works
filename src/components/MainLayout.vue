@@ -15,7 +15,7 @@ import { ArrowUpRight } from 'lucide-vue-next'
         </a>
 
         <div class="nav-links">
-          <a href="https://muhammadusman.me" target="_blank" class="nav-item external group">
+          <a href="https://www.buildwithusman.me/" target="_blank" class="nav-item external group">
             MAIN PORTFOLIO
             <ArrowUpRight :size="14" class="up-arrow" />
           </a>
