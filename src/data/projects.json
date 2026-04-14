@@ -7,8 +7,10 @@
     "tech": ["Next.js 16", "Gemini Pro", "Qdrant", "LangChain", "Framer Motion"],
     "type": "Engineering Tool",
     "status": "Operational",
-    "link": "https://www.npmjs.com/package/@muhammadusmangm/codelens",
     "github": "https://github.com/MuhammadUsmanGM/CodeLens",
+    "links": [
+      { "label": "NPM PACKAGE", "url": "https://www.npmjs.com/package/@muhammadusmangm/codelens" }
+    ],
     "installCommand": "npx @muhammadusmangm/codelens",
     "image": "https://placehold.co/1200x800/0a0a0f/f5a623?text=CODELENS+ENGINEERING+PREMIUM",
     "benchmarks": [
@@ -47,8 +49,12 @@
     "tech": ["Rust", "Tokio", "AES-256", "Python Bindings", "NAPI-RS"],
     "type": "Systems Engineering",
     "status": "v0.1.3",
-    "link": "https://pypi.org/project/ferrumdb/",
     "github": "https://github.com/MuhammadUsmanGM/FerrumDB",
+    "links": [
+      { "label": "PYPI PACKAGE", "url": "https://pypi.org/project/ferrumdb/" },
+      { "label": "NPM PACKAGE", "url": "https://www.npmjs.com/package/ferrumdb" },
+      { "label": "CRATES.IO", "url": "https://crates.io/crates/ferrumdb" }
+    ],
     "installCommands": [
       { "label": "Python", "command": "pip install ferrumdb" },
       { "label": "Node.js", "command": "npm install ferrumdb" },
@@ -91,8 +97,8 @@
     "tech": ["FastAPI", "Next.js 16", "Obsidian", "Playwright", "Claude/Gemini"],
     "type": "AI Orchestration",
     "status": "Hackathon 0",
-    "link": "#",
     "github": "https://github.com/MuhammadUsmanGM/ELYX-Personal-AI-Employee",
+    "links": [],
     "installCommand": "python run_elyx.py",
     "image": "https://placehold.co/1200x800/0a0a0f/bc8cff?text=ELYX+AUTONOMOUS+EMPLOYEE",
     "benchmarks": [

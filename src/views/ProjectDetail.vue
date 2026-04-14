@@ -61,34 +61,48 @@ const iconMap: Record<string, any> = {
         <a v-if="project.github !== '#'" :href="project.github" target="_blank" class="action-link primary">
           SOURCE CODE <Github :size="16" />
         </a>
-        <a v-if="project.link !== '#'" :href="project.link" target="_blank" class="action-link border">
-          {{ project.link.includes('npm') ? 'NPM PACKAGE' : project.link.includes('crates.io') ? 'CRATES.IO' : project.link.includes('pypi') ? 'PYPI PACKAGE' : 'LIVE PREVIEW' }} <LinkIcon :size="16" />
+        <a 
+          v-for="link in project.links" 
+          :key="link.url" 
+          :href="link.url" 
+          target="_blank" 
+          class="action-link border"
+        >
+          {{ link.label }} <LinkIcon :size="16" />
         </a>
       </div>
 
-      <!-- Command Install Block -->
-      <div v-if="project.installCommand || project.installCommands" class="install-command-wrap" v-motion-fade>
-        <div class="terminal-frame">
+      <!-- Multi-Command Install Block (for projects like FerrumDB) -->
+      <div v-if="project.installCommands" class="multi-install-wrap" v-motion-fade>
+        <div v-for="cmd in project.installCommands" :key="cmd.label" class="terminal-frame mini">
           <div class="terminal-header">
             <div class="dots-group">
               <div class="dots"><span></span><span></span><span></span></div>
-              <div v-if="project.installCommands" class="terminal-tabs">
-                <button 
-                  v-for="(cmd, idx) in project.installCommands" 
-                  :key="cmd.label"
-                  @click="selectedTab = idx"
-                  :class="['tab-btn', { active: selectedTab === idx }]"
-                >
-                  {{ cmd.label }}
-                </button>
-              </div>
+              <span class="platform-label">{{ cmd.label }}</span>
             </div>
+          </div>
+          <div class="command-body">
+            <span class="prompt">$</span>
+            <code>{{ cmd.command }}</code>
+            <button @click="copyCommand(cmd.command)" class="copy-btn">
+              <span v-if="copied">COPIED!</span>
+              <span v-else>COPY</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Single Command Install Block (for CodeLens/ELYX) -->
+      <div v-else-if="project.installCommand" class="install-command-wrap" v-motion-fade>
+        <div class="terminal-frame">
+          <div class="terminal-header">
+            <div class="dots"><span></span><span></span><span></span></div>
             <span class="terminal-title">SHELL_ACCESS</span>
           </div>
           <div class="command-body">
             <span class="prompt">$</span>
-            <code>{{ project.installCommands ? project.installCommands[selectedTab].command : project.installCommand }}</code>
-            <button @click="copyCommand(project.installCommands ? project.installCommands[selectedTab].command : project.installCommand)" class="copy-btn">
+            <code>{{ project.installCommand }}</code>
+            <button @click="copyCommand(project.installCommand)" class="copy-btn">
               <span v-if="copied">COPIED!</span>
               <span v-else>COPY</span>
             </button>
@@ -275,33 +289,27 @@ const iconMap: Record<string, any> = {
   gap: 2rem;
 }
 
-.terminal-tabs {
+/* Multi-Install Stack */
+.multi-install-wrap {
+  margin-top: 3.5rem;
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
 }
 
-.tab-btn {
-  background: none;
-  border: none;
-  color: var(--muted);
+.terminal-frame.mini {
+  background: #0d0d12;
+  border-radius: 10px;
+}
+
+.platform-label {
   font-family: monospace;
   font-size: 0.65rem;
-  font-weight: 700;
-  cursor: pointer;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  letter-spacing: 0.05em;
-}
-
-.tab-btn:hover {
-  color: var(--text);
-  background: rgba(255,255,255,0.05);
-}
-
-.tab-btn.active {
+  font-weight: 800;
   color: var(--accent);
-  background: rgba(245, 166, 35, 0.1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .terminal-header .dots {

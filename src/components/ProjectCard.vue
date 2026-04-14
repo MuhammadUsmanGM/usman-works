@@ -11,7 +11,7 @@ const props = defineProps<{
     tech: string[]
     type: string
     status: string
-    link: string
+    links: { label: string; url: string }[]
     github: string
     image: string
   }
