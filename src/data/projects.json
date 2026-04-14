@@ -290,5 +290,47 @@
       "Vector-based RAG for technical documentation must prioritize code-snippet preservation to remain useful for engineering education.",
       "Hybrid backends (FastAPI for AI + Node.js for Auth) provide the best balance of speed and security for AI-native platforms."
     ]
+  },
+  {
+    "id": "promptly",
+    "year": "2025",
+    "name": "Promptly",
+    "description": "Smart Context-Aware Prompt Engineering. An MCP server that bridges the gap between AI intent and codebase reality through automated analysis and refinement.",
+    "tech": ["TypeScript", "MCP SDK", "Node.js", "Zod", "tsup"],
+    "type": "AI Developer Tooling",
+    "status": "Production",
+    "github": "https://github.com/MuhammadUsmanGM/promptly",
+    "links": [
+      { "label": "NPM PACKAGE", "url": "https://www.npmjs.com/package/@promptly-ai/cli" }
+    ],
+    "installCommand": "npm install -g @promptly-ai/cli",
+    "image": "https://placehold.co/1200x800/0a0a0f/bc8cff?text=PROMPTLY+MCP+SERVER",
+    "benchmarks": [
+      { "label": "Refinement Latency", "value": "< 50ms", "detail": "Sub-second context injection" },
+      { "label": "Protocol", "value": "MCP", "detail": "Full Model Context Protocol support" },
+      { "label": "Agent Support", "value": "4+", "detail": "Claude Code, Cursor, Gemini, Qwen" }
+    ],
+    "sections": [
+      {
+        "title": "Codebase Context Injection",
+        "icon": "Database",
+        "content": "Engineered a high-speed analyzer that maps project structure, naming conventions, and dependency trees. By injecting this 'ground truth' directly into the prompt via the Model Context Protocol, the tool drastically reduces AI hallucinations and logic errors."
+      },
+      {
+        "title": "Agent-Specific Refinement",
+        "icon": "Zap",
+        "content": "Implemented a sophisticated rules-engine that tunes prompts for specific AI agents (e.g., Claude Code, Cursor). It contextually applies success criteria, imperative constraints, and file relevance scoring based on the detected tech stack."
+      },
+      {
+        "title": "Zero-Friction Orchestration",
+        "icon": "Layers",
+        "content": "Designed an automated setup wizard that configures global or project-level MCP settings. The architecture features intelligent caching with automatic invalidation on manifest changes (package.json, tsconfig.json), ensuring minimal overhead."
+      }
+    ],
+    "learnings": [
+      "The 'Ground Truth' gap is the primary reason for AI coding failures; bridging it with local context is more effective than larger context windows.",
+      "Developer tools must have sub-100ms latency to feel invisible—caching and incremental analysis are mandatory for high-velocity workflows.",
+      "The Model Context Protocol (MCP) is evolving into the standard 'nerve system' for AI-to-IDE communication."
+    ]
   }
 ]
