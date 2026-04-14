@@ -8,6 +8,7 @@ const props = defineProps<{
     id: string
     name: string
     description: string
+    highlight?: string
     tech: string[]
     type: string
     status: string
@@ -65,6 +66,7 @@ const goToCaseStudy = () => {
       <div class="card-header">
         <span class="project-type">{{ project.type }}</span>
         <h3 class="project-name">{{ project.name }}</h3>
+        <span v-if="project.highlight" class="project-highlight">{{ project.highlight }}</span>
       </div>
       
       <p class="project-desc">{{ project.description }}</p>
@@ -188,6 +190,20 @@ const goToCaseStudy = () => {
   margin-bottom: 0.85rem;
   line-height: 1.1;
   letter-spacing: -0.02em;
+}
+
+.project-highlight {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  background: rgba(245, 166, 35, 0.1);
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .project-desc {

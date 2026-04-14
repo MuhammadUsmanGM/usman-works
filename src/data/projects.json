@@ -3,6 +3,7 @@
     "id": "ferrumdb",
     "year": "2025",
     "name": "FerrumDB",
+    "highlight": "1600+ PyPI | 850+ NPM | 50+ Crates.io",
     "description": "High-performance, embedded document database engine written from scratch in Rust. Features O(1) performance, AES-256 encryption, and atomic transactions.",
     "tech": [
       "Rust",
@@ -90,6 +91,7 @@
     "id": "codelens",
     "year": "2025",
     "name": "CodeLens",
+    "highlight": "220+ Downloads",
     "description": "The Neural Bridge Between Developer & Codebase. A high-fidelity architectural autopilot synthesizing massive repositories into an interactive neural index.",
     "tech": [
       "Next.js 16",
@@ -157,6 +159,7 @@
     "id": "go-load-balancer",
     "year": "2025",
     "name": "Go Load Balancer",
+    "highlight": "Handles 10k+ Connections | < 2ms Overhead",
     "description": "Production-grade HTTP load balancer with advanced observability. Features multi-strategy routing, distributed tracing, and zero-downtime hot reloads.",
     "tech": [
       "Go",
@@ -218,6 +221,7 @@
     "id": "echo-ai",
     "year": "2026",
     "name": "Echo AI Agent",
+    "highlight": "950+ Downloads",
     "description": "The Ultimate JARVIS-Inspired Neural Interface. A holographic, liquid-morphic AI agent featuring real-time particle physics, multi-model reasoning, and a privacy-first STT/TTS engine.",
     "tech": [
       "Electron",
@@ -286,6 +290,7 @@
     "id": "elyx",
     "year": "2025",
     "name": "ELYX",
+    "highlight": "Reduces Manual Tasks by 70%",
     "description": "Local-First Autonomous AI Employee. A multi-platform orchestration engine that monitors email, social media, and ERPs to execute business logic via HITL workflows.",
     "tech": [
       "FastAPI",
@@ -347,6 +352,7 @@
     "id": "promptly",
     "year": "2026",
     "name": "Promptly",
+    "highlight": "530+ Downloads in 24 Hours",
     "description": "Smart Context-Aware Prompt Engineering. An MCP server that bridges the gap between AI intent and codebase reality through automated analysis and refinement.",
     "tech": [
       "TypeScript",
@@ -476,6 +482,7 @@
     "id": "notion-autopilot",
     "year": "2025",
     "name": "Notion Autopilot",
+    "highlight": "Organizes 10,000+ Blocks Autonomously",
     "description": "Autonomous Workspace Intelligence & Organization. An AI agent that continuously crawls, organizes, and extracts cognitive insights from messy Notion environments.",
     "tech": [
       "Python (uv)",
@@ -665,6 +672,7 @@
     "id": "the-signal",
     "year": "2025",
     "name": "THE SIGNAL",
+    "highlight": "350+ Active Subscribers",
     "description": "Premium AI Intelligence Protocol. A fully automated engine synthesizing global AI news into high-fidelity briefings via a strict 3-3-2-2-1 data protocol.",
     "tech": [
       "React",
@@ -793,6 +801,7 @@
     "id": "vidx",
     "year": "2025",
     "name": "VidX",
+    "highlight": "200+ Downloads",
     "description": "High-Fidelity Video Transformation for the Web. An interactive CLI tool that abstracts complex FFmpeg operations into a guided TUI for professional web optimization.",
     "tech": [
       "Node.js",
