@@ -168,5 +168,47 @@
       "Passive health checking based on actual proxy error rates detects degradation much faster than periodic active probes alone.",
       "Effective load balancing isn't just about routing; it's about connection pooling and intelligent request retry management."
     ]
+  },
+  {
+    "id": "the-signal",
+    "year": "2025",
+    "name": "THE SIGNAL",
+    "description": "Premium AI Intelligence Protocol. A fully automated engine synthesizing global AI news into high-fidelity briefings via a strict 3-3-2-2-1 data protocol.",
+    "tech": ["React", "Gemini 2.0", "Supabase", "Inngest", "Cloudflare"],
+    "type": "Product / Automation",
+    "status": "v1.0.0",
+    "github": "https://github.com/MuhammadUsmanGM/NewsLetter",
+    "links": [
+      { "label": "LIVE EXPERIENCE", "url": "https://news-letter-umber-five.vercel.app/" }
+    ],
+    "installCommand": "npm run send-newsletter",
+    "image": "https://placehold.co/1200x800/0a0a0f/3ecf8e?text=THE+SIGNAL+INTELLIGENCE",
+    "benchmarks": [
+      { "label": "Synthesis Accuracy", "value": "3-3-2-2-1", "detail": "Strict content ratio protocol" },
+      { "label": "Delivery Precision", "value": "9:00 AM", "detail": "Dynamic local timezone scheduling" },
+      { "label": "Security", "value": "Turnstile", "detail": "Bot-proof subscription layer" }
+    ],
+    "sections": [
+      {
+        "title": "Intelligence Synthesis",
+        "icon": "Cpu",
+        "content": "Engineered a weekly intelligence pipeline that crawls GitHub trending repos and global tech news via NewsAPI. Using Gemini 2.0, the system distills raw data into a premium 3-3-2-2-1 briefing, focusing on high-signal dev tools and AI hardware breakthroughs."
+      },
+      {
+        "title": "Automated Dispatch Workflow",
+        "icon": "Zap",
+        "content": "Leveraging Inngest's event-driven architecture and Vercel Cron, the engine handles asynchronous task processing with resilient retry logic. It ensures zero-downtime delivery across thousands of global timezones simultaneously."
+      },
+      {
+        "title": "Neural Gamification",
+        "icon": "Activity",
+        "content": "Implemented a 10-tier loyalty spectrum that evolves the user's interface from 'Alpha Initiate' to 'Signal Architect'. As users reach higher tiers, the entire UI theme dynamically shifts, unlocking total 'Prism Protocol' customization."
+      }
+    ],
+    "learnings": [
+      "Dynamic timezone delivery requires careful timestamp normalization at the edge to prevent race conditions during global dispatch.",
+      "Gamifying a newsletter increases long-term retention by turning consumption into a progression-based technical journey.",
+      "Serverless automation via GitHub Actions provides the most cost-effective and reliable orchestrator for consistent weekly content generation."
+    ]
   }
 ]
