@@ -414,5 +414,50 @@
       "Machine-generated 'meta-insights' are far more valuable to a user than simple auto-tagging of tasks.",
       "Providing a full 'organizer' history is critical for building trust in autonomous systems that modify user-owned data."
     ]
+  },
+  {
+    "id": "automation-vault",
+    "year": "2024",
+    "name": "Automation Vault",
+    "description": "Enterprise-Grade Automation Infrastructure & AI Orchestration. A collection of complex, event-driven workflows that automate the entire Software Development Life Cycle (SDLC).",
+    "tech": ["n8n", "AI Orchestration", "GitHub API", "Slack", "Groq"],
+    "type": "Automation Engineering",
+    "status": "Production",
+    "github": "https://github.com/MuhammadUsmanGM/WorkFlows",
+    "links": [],
+    "installCommand": "Import .json workflows into n8n",
+    "image": "https://placehold.co/1200x800/0a0a0f/f5a623?text=AUTOMATION+INFRASTRUCTURE",
+    "benchmarks": [
+      { "label": "Nodes Orchestrated", "value": "1200+", "detail": "Combined Takt-time logic" },
+      { "label": "Integrations", "value": "30+", "detail": "SaaS ecosystem connectivity" },
+      { "label": "AI Review", "value": "< 10s", "detail": "Real-time diff analysis via Llama 3" }
+    ],
+    "sections": [
+      {
+        "title": "Full-Stack Project Monitor",
+        "icon": "Activity",
+        "content": "Engineered a massive, 30KB+ n8n workflow that serves as a self-healing project monitor. It intercepts GitHub webhooks to perform real-time AI code reviews, detect security vulnerabilities, and auto-generate executive briefings for project stakeholders."
+      },
+      {
+        "title": "Autonomous Documentation Pipeline",
+        "icon": "Layers",
+        "content": "Implemented a recursive documentation engine that scans README files for gaps and automatically generates missing technical sections. The system creates automated PRs and synchronizes updates with internal wikis and Google Docs simultaneously."
+      },
+      {
+        "title": "AI Lead Qualification",
+        "icon": "Zap",
+        "content": "Architected a multi-step nurture system that leverages Groq for ultra-high-speed lead qualification. The system synthesizes incoming data points into structured buyer personas, triggering personalized email sequences based on behavioral triggers."
+      },
+      {
+        "title": "Integrated Workflow Library",
+        "icon": "Library",
+        "content": "The repository serves as a centralized hub for production-ready automation protocols, including: • Full-Stack Project Monitor • AI Support Automation • Abandoned Cart Recovery • LinkedIn Lead Gen Systems • Content Distribution Hubs • Real Estate Nurture Pipelines • Neural Newsletter Dispatchers."
+      }
+    ],
+    "learnings": [
+      "Low-code doesn't equal low-complexity; enterprise automation requires rigorous error-handling, retry logic, and architectural discipline.",
+      "The value of automation isn't just time saved—it's the elimination of cognitive overhead for engineering teams.",
+      "Event-driven architectures are the only way to build truly responsive business and technical infrastructure."
+    ]
   }
 ]
