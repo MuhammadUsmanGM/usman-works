@@ -250,5 +250,45 @@
       "Structured logging with log/slog is essential for creating machine-readable CLI outputs suitable for modern CI/CD pipelines.",
       "Multi-stage Docker builds using the 'scratch' image provide the most secure and efficient way to distribute compiled binaries."
     ]
+  },
+  {
+    "id": "physical-ai",
+    "year": "2025",
+    "name": "Physical AI Platform",
+    "description": "Next-generation Embodied Intelligence textbook. Features a RAG-powered AI tutor, personalized learning paths for ROS 2, and real-time Urdu translation for robotics education.",
+    "tech": ["Docusaurus", "FastAPI", "Qdrant", "Better Auth", "NVIDIA Isaac Sim"],
+    "type": "EdTech / Robotics",
+    "status": "Hackathon Project",
+    "github": "https://github.com/MuhammadUsmanGM/physical-ai-hackathon",
+    "links": [],
+    "installCommand": "npm start",
+    "image": "https://placehold.co/1200x800/0a0a0f/de4b39?text=PHYSICAL+AI+ROBOTICS",
+    "benchmarks": [
+      { "label": "TA Latency", "value": "< 2s", "detail": "RAG-driven context retrieval" },
+      { "label": "Curriculum", "value": "13 Weeks", "detail": "ROS 2 to NVIDIA Isaac Sim" },
+      { "label": "Accessibility", "value": "Urdu", "detail": "Neural content translation layer" }
+    ],
+    "sections": [
+      {
+        "title": "Context-Aware AI Tutor",
+        "icon": "Cpu",
+        "content": "Engineered a sophisticated RAG (Retrieval-Augmented Generation) system using Qdrant and Gemini 2.0. The TA is grounded specifically in the textbook's technical content, providing sub-second answers to complex ROS 2 and kinematics queries while referencing internal citations."
+      },
+      {
+        "title": "Embodied Intelligence Curriculum",
+        "icon": "Layers",
+        "content": "Architected a comprehensive 13-week technical journey from basic ROS 2 nodes to advanced VLA (Vision-Language-Action) models. The platform integrates NVIDIA Isaac Sim for photorealistic robotics simulation and digital-twin training."
+      },
+      {
+        "title": "Dynamic Personalization Engine",
+        "icon": "Activity",
+        "content": "Implemented a multi-tier onboarding system using Better Auth and Neon Postgres. The textbook dynamically adjust its technical depth (Beginner → Advanced) based on the user's hardware and software background, ensuring an optimal learning curve."
+      }
+    ],
+    "learnings": [
+      "Physical AI requires a fundamental bridge between digital reasoning (LLMs) and temporal/physical constraints of real-world hardware.",
+      "Vector-based RAG for technical documentation must prioritize code-snippet preservation to remain useful for engineering education.",
+      "Hybrid backends (FastAPI for AI + Node.js for Auth) provide the best balance of speed and security for AI-native platforms."
+    ]
   }
 ]
