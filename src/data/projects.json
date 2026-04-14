@@ -210,5 +210,45 @@
       "Gamifying a newsletter increases long-term retention by turning consumption into a progression-based technical journey.",
       "Serverless automation via GitHub Actions provides the most cost-effective and reliable orchestrator for consistent weekly content generation."
     ]
+  },
+  {
+    "id": "opsforge",
+    "year": "2024",
+    "name": "OpsForge",
+    "description": "Zero-dependency DevOps CLI & REST API toolkit built with Go's standard library. Features 10+ core utilities for load testing, SSL auditing, and network discovery.",
+    "tech": ["Go (Stdlib)", "slog", "Docker", "Prometheus", "GoReleaser"],
+    "type": "DevOps Engineering",
+    "status": "v1.2.0",
+    "github": "https://github.com/MuhammadUsmanGM/OpsForge",
+    "links": [],
+    "installCommand": "go install github.com/MuhammadUsmanGM/OpsForge@latest",
+    "image": "https://placehold.co/1200x800/0a0a0f/f5a623?text=OPSFORGE+CLI+TOOLKIT",
+    "benchmarks": [
+      { "label": "External Deps", "value": "ZERO", "detail": "Pure Go standard library implementation" },
+      { "label": "Image Size", "value": "~5MB", "detail": "Optimized multi-stage SCRATCH build" },
+      { "label": "Utilities", "value": "10+", "detail": "Comprehensive network & system toolkit" }
+    ],
+    "sections": [
+      {
+        "title": "Zero-Dependency Architecture",
+        "icon": "ShieldCheck",
+        "content": "Engineered a production-ready toolkit using exclusively the Go standard library. By avoiding third-party dependencies, the project achieves an ultra-low attack surface and maximum long-term maintainability for mission-critical DevOps environments."
+      },
+      {
+        "title": "Concurrent Task Orchestration",
+        "icon": "Cpu",
+        "content": "Leverages bounded concurrency models with goroutines and semaphores. The port-scanner and load-tester modules utilize a fixed worker pool to manage thousands of parallel TCP/HTTP connections without exhausting system file descriptors."
+      },
+      {
+        "title": "API-First Extensibility",
+        "icon": "Layers",
+        "content": "Features a built-in 'devtool serve' mode that exposes all CLI capabilities as a REST API. Includes native Prometheus metrics exposition and a plugin discovery system that automatically registers external binaries from the system PATH."
+      }
+    ],
+    "learnings": [
+      "Building without external frameworks like Cobra forces a deeper understanding of Go's flag parsing and command-routing primitives.",
+      "Structured logging with log/slog is essential for creating machine-readable CLI outputs suitable for modern CI/CD pipelines.",
+      "Multi-stage Docker builds using the 'scratch' image provide the most secure and efficient way to distribute compiled binaries."
+    ]
   }
 ]
