@@ -128,5 +128,45 @@
       "Markdown is a surprisingly robust state management tool for local-first AI systems due to its human-readable nature.",
       "A truly swappable 'Brain Factory' requires strict output normalization to handle different LLM reasoning styles."
     ]
+  },
+  {
+    "id": "go-load-balancer",
+    "year": "2024",
+    "name": "Go Load Balancer",
+    "description": "Production-grade HTTP load balancer with advanced observability. Features multi-strategy routing, distributed tracing, and zero-downtime hot reloads.",
+    "tech": ["Go", "OpenTelemetry", "Prometheus", "Grafana", "fnotify"],
+    "type": "Network Engineering",
+    "status": "Production-Ready",
+    "github": "https://github.com/MuhammadUsmanGM/go-load-balancer",
+    "links": [],
+    "installCommand": "go build -o lb .",
+    "image": "https://placehold.co/1200x800/0a0a0f/22d3ee?text=GO+LOAD+BALANCER+PRO",
+    "benchmarks": [
+      { "label": "Latency Overhead", "value": "< 2ms", "detail": "High-performance proxying" },
+      { "label": "Scaling Progress", "value": "Slow-Start", "detail": "Gradual backend traffic ramp-up" },
+      { "label": "Monitoring", "value": "Tracing", "detail": "W3C TraceContext propagation" }
+    ],
+    "sections": [
+      {
+        "title": "Advanced Traffic Orchestration",
+        "icon": "Layers",
+        "content": "Implemented five distinct load-balancing strategies: Round-Robin, Least Connections, Weighted RR, IP Hash, and Random with Two Choices. This allows for granular control over traffic distribution based on backend capacity and persistence requirements."
+      },
+      {
+        "title": "Circuit Breaker & Resilience",
+        "icon": "Zap",
+        "content": "Engineered a state-aware circuit breaker pattern (Closed, Half-Open, Open) with configurable failure thresholds. By stopping traffic to failing nodes, the system prevents cascading failures and provides deterministic recovery windows."
+      },
+      {
+        "title": "Full-Stack Observability",
+        "icon": "Activity",
+        "content": "Integrated a comprehensive observability suite featuring Prometheus metrics for P99 latency tracking and OpenTelemetry for distributed tracing. Every request is injected with a unique X-Request-ID for end-to-end auditability."
+      }
+    ],
+    "learnings": [
+      "Hot-reload configuration using file-watchers is key for minimizing operational friction in high-availability systems.",
+      "Passive health checking based on actual proxy error rates detects degradation much faster than periodic active probes alone.",
+      "Effective load balancing isn't just about routing; it's about connection pooling and intelligent request retry management."
+    ]
   }
 ]
