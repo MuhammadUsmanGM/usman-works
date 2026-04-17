@@ -1,5 +1,78 @@
 [
   {
+    "id": "autonoma",
+    "year": "2026",
+    "name": "Autonoma",
+    "highlight": "Reduces Manual Workload by 85% | 6+ Channels",
+    "description": "Professional-grade AI Agent platform that operates as a 'Digital FTE'. Features proactive monitoring, high-fidelity live telemetry HUD, and intelligent multi-session memory across Telegram, WhatsApp, Discord, and Gmail.",
+    "tech": [
+      "Python 3.11",
+      "React 19",
+      "SQLite FTS5",
+      "asyncio",
+      "Tailwind 4",
+      "WebSockets"
+    ],
+    "categories": [
+      "AI & Agents",
+      "Systems Engineering",
+      "Automation"
+    ],
+    "type": "Digital Employee Framework",
+    "status": "v1.0.0",
+    "github": "https://github.com/MuhammadUsmanGM/digital-fte",
+    "links": [
+      {
+        "label": "NPM PACKAGE",
+        "url": "https://www.npmjs.com/package/autonoma-ai"
+      }
+    ],
+    "installCommand": "npm install -g autonoma-ai",
+    "image": "https://placehold.co/1200x800/0a0a0f/f59e0b?text=AUTONOMA+HUD+OPERATIONAL",
+    "bannerVariant": "neural",
+    "bannerVersion": "v1.0.0",
+    "bannerStatus": "HUD_ACTIVE",
+    "benchmarks": [
+      {
+        "label": "Memory Search",
+        "value": "< 5ms",
+        "detail": "SQLite FTS5 BM25 ranked retrieval"
+      },
+      {
+        "label": "Workforce Automation",
+        "value": "85%",
+        "detail": "Reduction in manual triage & response"
+      },
+      {
+        "label": "Agent Response",
+        "value": "< 2s",
+        "detail": "End-to-end cognitive reasoning loop"
+      }
+    ],
+    "sections": [
+      {
+        "title": "Proactive HUD & Telemetry",
+        "icon": "Activity",
+        "content": "Engineered a high-fidelity 'Control Tower' using React 19. The dashboard provides live Gantt-style visualizations of agent reasoning loops, pipeline latency tracking, and proactive system health alerts through a premium glassmorphic interface."
+      },
+      {
+        "title": "Neural Memory Registry",
+        "icon": "Database",
+        "content": "Implemented a sophisticated memory engine using SQLite with FTS5. It employs BM25 ranked retrieval, importance-based decay, and automatic deduplication to ensure the agent maintains high-signal context across multi-session interactions."
+      },
+      {
+        "title": "Unified Channel Gateway",
+        "icon": "Zap",
+        "content": "Developed a robust integration layer supporting mixed-media communication. The gateway handles complex routing between WebSockets, Telegram, Discord, and a Node.js-based WhatsApp bridge, providing a singular, abstracted API for the agent cortex."
+      }
+    ],
+    "learnings": [
+      "Proactive monitoring (push) significantly improves the perceived 'agency' of AI systems compared to purely reactive models.",
+      "BM25 ranking for local memory outperforms simple vector search for technical task retrieval where keyword precision is critical.",
+      "Developing a 'Soul Evolution' system with identity diff-tracking is essential for auditability in autonomous digital employees."
+    ]
+  },
+  {
     "id": "ferrumdb",
     "year": "2025",
     "name": "FerrumDB",
@@ -47,6 +120,9 @@
       }
     ],
     "image": "https://placehold.co/1200x800/0d0d12/de4b39?text=FERRUMDB+RUST+SYSTEMS",
+    "bannerVariant": "crystal",
+    "bannerVersion": "v0.1.3",
+    "bannerStatus": "SHIPPED",
     "benchmarks": [
       {
         "label": "Read Latency",
@@ -115,6 +191,9 @@
     ],
     "installCommand": "npx @muhammadusmangm/codelens",
     "image": "https://placehold.co/1200x800/0a0a0f/f5a623?text=CODELENS+ENGINEERING+PREMIUM",
+    "bannerVariant": "matrix",
+    "bannerVersion": "v2.1",
+    "bannerStatus": "DISTRIBUTED",
     "benchmarks": [
       {
         "label": "Retrieval Latency",
@@ -177,6 +256,9 @@
     "links": [],
     "installCommand": "go build -o lb .",
     "image": "https://placehold.co/1200x800/0a0a0f/22d3ee?text=GO+LOAD+BALANCER+PRO",
+    "bannerVariant": "crystal",
+    "bannerVersion": "v1.0",
+    "bannerStatus": "PRODUCTION",
     "benchmarks": [
       {
         "label": "Latency Overhead",
@@ -246,6 +328,9 @@
     ],
     "installCommand": "npm install -g echo-ai-agent",
     "image": "https://placehold.co/1200x800/0a0a0f/10b981?text=ECHO+AI+HOLOGRAPHIC",
+    "bannerVariant": "neural",
+    "bannerVersion": "v3.0",
+    "bannerStatus": "LIVE",
     "benchmarks": [
       {
         "label": "UI Performance",
@@ -308,6 +393,9 @@
     "links": [],
     "installCommand": "python run_elyx.py",
     "image": "https://placehold.co/1200x800/0a0a0f/bc8cff?text=ELYX+AUTONOMOUS+EMPLOYEE",
+    "bannerVariant": "neural",
+    "bannerVersion": "v4.2",
+    "bannerStatus": "AUTONOMOUS",
     "benchmarks": [
       {
         "label": "Perception Points",
@@ -376,6 +464,9 @@
     ],
     "installCommand": "npm install -g @promptly-ai/cli",
     "image": "https://placehold.co/1200x800/0a0a0f/bc8cff?text=PROMPTLY+MCP+SERVER",
+    "bannerVariant": "matrix",
+    "bannerVersion": "v1.0",
+    "bannerStatus": "PRODUCTION",
     "benchmarks": [
       {
         "label": "Refinement Latency",
@@ -438,6 +529,9 @@
     "links": [],
     "installCommand": "npm start",
     "image": "https://placehold.co/1200x800/0a0a0f/de4b39?text=PHYSICAL+AI+ROBOTICS",
+    "bannerVariant": "wave",
+    "bannerVersion": "v1.0",
+    "bannerStatus": "PROTOTYPE",
     "benchmarks": [
       {
         "label": "TA Latency",
@@ -499,6 +593,9 @@
     "links": [],
     "installCommand": "uv run notion-autopilot organize",
     "image": "https://placehold.co/1200x800/0a0a0f/10b981?text=NOTION+AUTOPILOT+AGENT",
+    "bannerVariant": "neural",
+    "bannerVersion": "v1.0",
+    "bannerStatus": "AUTONOMOUS",
     "benchmarks": [
       {
         "label": "Analysis Polish",
@@ -561,6 +658,9 @@
     "links": [],
     "installCommand": "go install github.com/MuhammadUsmanGM/OpsForge@latest",
     "image": "https://placehold.co/1200x800/0a0a0f/f5a623?text=OPSFORGE+CLI+TOOLKIT",
+    "bannerVariant": "crystal",
+    "bannerVersion": "v1.2",
+    "bannerStatus": "STABLE",
     "benchmarks": [
       {
         "label": "External Deps",
@@ -623,6 +723,9 @@
     "links": [],
     "installCommand": "Import .json workflows into n8n",
     "image": "https://placehold.co/1200x800/0a0a0f/f5a623?text=AUTOMATION+INFRASTRUCTURE",
+    "bannerVariant": "wave",
+    "bannerVersion": "v2.0",
+    "bannerStatus": "PRODUCTION",
     "benchmarks": [
       {
         "label": "Nodes Orchestrated",
@@ -696,6 +799,9 @@
     ],
     "installCommand": "npm run send-newsletter",
     "image": "https://placehold.co/1200x800/0a0a0f/3ecf8e?text=THE+SIGNAL+INTELLIGENCE",
+    "bannerVariant": "wave",
+    "bannerVersion": "v1.0",
+    "bannerStatus": "LIVE",
     "benchmarks": [
       {
         "label": "Synthesis Accuracy",
@@ -757,6 +863,9 @@
     "links": [],
     "installCommand": "cargo install todo-audit",
     "image": "https://placehold.co/1200x800/0a0a0f/f5a623?text=TODO-AUDIT+CLI",
+    "bannerVariant": "crystal",
+    "bannerVersion": "v1.0",
+    "bannerStatus": "PRODUCTION",
     "benchmarks": [
       {
         "label": "Performance",
@@ -824,6 +933,9 @@
     ],
     "installCommand": "npm install -g @muhammadusmangm/vidx",
     "image": "https://placehold.co/1200x800/0a0a0f/f97316?text=VIDX+VIDEO+ENGINE",
+    "bannerVariant": "matrix",
+    "bannerVersion": "v1.0",
+    "bannerStatus": "PRODUCTION",
     "benchmarks": [
       {
         "label": "Codec Support",

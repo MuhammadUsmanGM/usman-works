@@ -2,8 +2,11 @@
 import { ref, computed, onMounted, watch } from 'vue'
 import MainLayout from './components/MainLayout.vue'
 import ProjectCard from './components/ProjectCard.vue'
-import projectsData from './data/projects.json'
+import projectsDataRaw from './data/projects.json'
+import type { Project } from './types'
 import { Search, X, LayoutGrid } from 'lucide-vue-next'
+
+const projectsData = projectsDataRaw as Project[]
 
 const searchQuery = ref('')
 const selectedCategory = ref('All')
@@ -21,7 +24,7 @@ watch([searchQuery, selectedCategory], ([newQ, newC]) => {
   window.history.replaceState({}, '', url)
 })
 
-const allCategories = ['All', 'AI & Agents', 'Systems / Rust', 'High-Perf Go', 'Automation', 'Full-Stack']
+const allCategories = ['All', 'AI & Agents', 'Systems Engineering', 'Systems / Rust', 'High-Perf Go', 'Automation', 'Full-Stack']
 
 const filteredProjects = computed(() => {
   return projectsData.filter(p => {

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import projectsData from '../data/projects.json'
+import projectsDataRaw from '../data/projects.json'
+import type { Project } from '../types'
 import { 
   ArrowLeft, Github, Database, Zap, Cpu, 
   ShieldCheck, Activity, Code2, Link as LinkIcon, Layers,
@@ -10,6 +11,8 @@ import {
 
 const route = useRoute()
 const router = useRouter()
+
+const projectsData = projectsDataRaw as Project[]
 
 const project = computed(() => {
   return projectsData.find(p => p.id === route.params.id)

@@ -2,20 +2,11 @@
 import { ref } from 'vue'
 import { Github, ArrowRight } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
+import ProjectBanner from './ProjectBanner.vue'
+import type { Project } from '../types'
 
 const props = defineProps<{
-  project: {
-    id: string
-    name: string
-    description: string
-    highlight?: string
-    tech: string[]
-    type: string
-    status: string
-    links: { label: string; url: string }[]
-    github: string
-    image: string
-  }
+  project: Project
 }>()
 
 const router = useRouter()
@@ -53,16 +44,15 @@ const goToCaseStudy = () => {
     <!-- Spotlight Glow Layer -->
     <div class="spotlight"></div>
 
-    <!-- Abstract Typographic Hero Header -->
-    <div class="card-image-wrap abstract-hero">
-      <div class="hero-grid"></div>
-      <div class="hero-content">
-        <h2 class="hero-title">{{ project.name }}</h2>
-        <span class="hero-subtitle">{{ project.type }}</span>
-      </div>
-      <div class="badge-float">
-        <span :class="['status-badge', project.status.toLowerCase()]">{{ project.status }}</span>
-      </div>
+    <!-- Premium Code-Generated Banner -->
+    <div class="card-image-wrap">
+      <ProjectBanner
+        :title="project.name"
+        :subtitle="project.type"
+        :variant="project.bannerVariant || 'neural'"
+        :status="project.bannerStatus || project.status"
+        :version="project.bannerVersion || 'v1.0'"
+      />
     </div>
 
     <!-- Content -->
@@ -136,86 +126,8 @@ const goToCaseStudy = () => {
   border-bottom: 1px solid var(--border);
 }
 
-.abstract-hero {
-  background: linear-gradient(135deg, rgba(15,15,20,1) 0%, rgba(20,20,25,1) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-}
 
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 24px 24px;
-  background-position: center center;
-  opacity: 0.5;
-  pointer-events: none;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.premium-card:hover .hero-grid {
-  transform: scale(1.1) rotate(1deg);
-  opacity: 0.8;
-}
-
-.premium-card:hover .hero-content {
-  transform: scale(1.06);
-}
-
-.hero-title {
-  font-size: 2.1rem;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-  line-height: 1.1;
-  background: linear-gradient(135deg, #ffffff 0%, #71717a 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: var(--accent);
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  opacity: 0.9;
-  display: block;
-}
-
-.badge-float {
-  position: absolute;
-  top: 1.25rem;
-  left: 1.25rem;
-  z-index: 4;
-}
-
-.status-badge {
-  font-size: 0.65rem;
-  font-weight: 900;
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  text-transform: uppercase;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.status-badge.live { background: rgba(16, 185, 129, 0.8); color: white; }
-.status-badge.alpha { background: rgba(245, 158, 11, 0.8); color: black; }
-.status-badge.archived { background: rgba(107, 114, 128, 0.8); color: white; }
 
 .card-content {
   padding: 2rem;

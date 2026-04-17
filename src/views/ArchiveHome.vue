@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
 import ProjectCard from '../components/ProjectCard.vue'
-import projectsData from '../data/projects.json'
+import projectsDataRaw from '../data/projects.json'
+import type { Project } from '../types'
 import { Search, X } from 'lucide-vue-next'
+
+const projectsData = projectsDataRaw as Project[]
 
 const searchQuery = ref('')
 const selectedTech = ref('All')
