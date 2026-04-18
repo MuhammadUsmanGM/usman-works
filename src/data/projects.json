@@ -526,8 +526,12 @@
     "type": "EdTech / Robotics",
     "status": "Hackathon Project",
     "github": "https://github.com/MuhammadUsmanGM/physical-ai-hackathon",
-    "links": [],
-    "installCommand": "npm start",
+    "links": [
+      {
+        "label": "LIVE EXPERIENCE",
+        "url": "https://muhammadusmangm.github.io/physical-ai-hackathon/"
+      }
+    ],
     "image": "https://placehold.co/1200x800/0a0a0f/de4b39?text=PHYSICAL+AI+ROBOTICS",
     "bannerVariant": "wave",
     "bannerVersion": "v1.0",
@@ -797,7 +801,6 @@
         "url": "https://news-letter-umber-five.vercel.app/"
       }
     ],
-    "installCommand": "npm run send-newsletter",
     "image": "https://placehold.co/1200x800/0a0a0f/3ecf8e?text=THE+SIGNAL+INTELLIGENCE",
     "bannerVariant": "wave",
     "bannerVersion": "v1.0",

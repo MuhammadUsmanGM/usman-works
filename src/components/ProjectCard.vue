@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Github, ArrowRight } from 'lucide-vue-next'
+import { Github, ArrowRight, ExternalLink } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import ProjectBanner from './ProjectBanner.vue'
 import type { Project } from '../types'
@@ -71,9 +71,21 @@ const goToCaseStudy = () => {
 
       <!-- Action Footer -->
       <div class="card-footer">
-        <a :href="project.github" target="_blank" class="github-btn" v-if="project.github !== '#'" title="View Source" @click.stop>
+        <a :href="project.github" target="_blank" class="footer-icon-btn" v-if="project.github !== '#'" title="View Source" @click.stop>
           <Github :size="20" />
         </a>
+        
+        <a 
+          v-if="project.links.find(l => l.label.toUpperCase().includes('LIVE'))"
+          :href="project.links.find(l => l.label.toUpperCase().includes('LIVE'))?.url" 
+          target="_blank" 
+          class="footer-icon-btn live-btn" 
+          title="Live Experience" 
+          @click.stop
+        >
+          <ExternalLink :size="20" />
+        </a>
+
         <button @click.stop="goToCaseStudy" class="case-study-btn group">
           <span>CASE STUDY</span>
           <ArrowRight :size="16" class="btn-icon" />
@@ -209,7 +221,7 @@ const goToCaseStudy = () => {
   gap: 1rem;
 }
 
-.github-btn {
+.footer-icon-btn {
   background: var(--bg-3);
   color: var(--text);
   width: 52px;
@@ -220,12 +232,19 @@ const goToCaseStudy = () => {
   justify-content: center;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
-.github-btn:hover {
+.footer-icon-btn:hover {
   background: var(--accent);
   color: black;
   border-color: var(--accent);
+}
+
+.live-btn:hover {
+  background: #3ecf8e; /* emerald for live */
+  border-color: #3ecf8e;
+  color: black;
 }
 
 .case-study-btn {
