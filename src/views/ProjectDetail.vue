@@ -126,7 +126,7 @@ const iconMap: Record<string, any> = {
 
     <!-- Technical Sections -->
     <div class="technical-deep-dive">
-      <div v-for="(section, i) in project.sections" :key="section.title" class="tech-section" v-motion-fade-visible>
+      <div v-for="section in project.sections" :key="section.title" class="tech-section" v-motion-fade-visible>
         <div class="section-sidebar">
           <div class="icon-wrap">
             <component :is="iconMap[section.icon] || Code2" :size="24" />

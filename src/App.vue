@@ -4,7 +4,7 @@ import MainLayout from './components/MainLayout.vue'
 import ProjectCard from './components/ProjectCard.vue'
 import projectsDataRaw from './data/projects.json'
 import type { Project } from './types'
-import { Search, X, LayoutGrid } from 'lucide-vue-next'
+import { Search } from 'lucide-vue-next'
 
 const projectsData = projectsDataRaw as Project[]
 
@@ -40,14 +40,6 @@ const filteredProjects = computed(() => {
   })
 })
 
-const groupedProjects = computed(() => {
-  const groups: Record<string, typeof projectsData> = {}
-  filteredProjects.value.forEach(p => {
-    if (!groups[p.year]) groups[p.year] = []
-    groups[p.year].push(p)
-  })
-  return Object.entries(groups).sort((a, b) => Number(b[0]) - Number(a[0]))
-})
 </script>
 
 <template>

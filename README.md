@@ -47,24 +47,9 @@ The archive is strictly data-driven, separating the display logic from the techn
 └── package.json          # Dependency manifest
 ```
 
-## 🛠️ Local Development
+## 🏛️ Vault Access
 
-To run the vault locally and explore the architectural artifacts:
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/MuhammadUsmanGM/usman-works.git
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start the HUD:**
-   ```bash
-   npm run dev
-   ```
+This archive is a read-only historical record of technical implementations. For active projects and current source code, please refer to the specific GitHub repositories linked within the vault interface.
 
 ---
 
@@ -81,7 +66,7 @@ To run the vault locally and explore the architectural artifacts:
 
 ## 📜 Metadata
 
-- **Author:** [Usman Mustafa](https://github.com/MuhammadUsmanGM)
+- **Author:** [Muhammad Usman](https://github.com/MuhammadUsmanGM)
 - **Version:** `1.0.0`
 - **Environment:** `Production`
 

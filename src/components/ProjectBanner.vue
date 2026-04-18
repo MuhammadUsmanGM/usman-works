@@ -50,7 +50,7 @@ const matrixGrid = computed(() => {
   const rng = seededRandom(42)
   const cols = 14
   const rows = 16
-  return Array.from({ length: cols }, (_, col) =>
+  return Array.from({ length: cols }, () =>
     Array.from({ length: rows }, () => {
       const charIdx = Math.floor(rng() * matrixChars.length)
       const isAccent = rng() > 0.85

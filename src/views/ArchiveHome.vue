@@ -3,7 +3,7 @@ import { ref, computed, onMounted, watch } from 'vue'
 import ProjectCard from '../components/ProjectCard.vue'
 import projectsDataRaw from '../data/projects.json'
 import type { Project } from '../types'
-import { Search, X } from 'lucide-vue-next'
+import { Search } from 'lucide-vue-next'
 
 const projectsData = projectsDataRaw as Project[]
 
