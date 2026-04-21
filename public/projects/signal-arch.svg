@@ -1,0 +1,31 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="grad_blue_glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(400 250) rotate(90) scale(300 480)">
+      <stop stop-color="#3b82f6" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#0A0A0A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="#0A0A0A"/>
+  <rect width="800" height="500" fill="url(#grad_blue_glow)"/>
+
+  <!-- SIGNAL ENGINE -->
+  <g>
+    <rect x="200" y="100" width="400" height="300" rx="20" fill="#1A1A1A" stroke="#3b82f6" stroke-width="2"/>
+    <text x="400" y="140" fill="#3b82f6" font-family="sans-serif" font-size="18" font-weight="black" text-anchor="middle">THE SIGNAL ENGINE</text>
+    
+    <!-- Protocol Visual -->
+    <rect x="230" y="180" width="340" height="180" rx="12" fill="#0A0A0A" stroke="#3b82f6" stroke-opacity="0.3"/>
+    <text x="400" y="210" fill="#FFFFFF" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">3-3-2-2-1 DATA PROTOCOL</text>
+    
+    <!-- Flow dots -->
+    <circle cx="300" cy="260" r="4" fill="#3b82f6"/>
+    <circle cx="400" cy="260" r="4" fill="#3b82f6"/>
+    <circle cx="500" cy="260" r="4" fill="#3b82f6"/>
+    <text x="400" y="300" fill="#AAAAAA" font-family="monospace" font-size="9" text-anchor="middle">Synthesize → Distill → Distribute</text>
+  </g>
+
+  <path d="M50 250 H190 M610 250 H750" stroke="#3b82f6" stroke-width="1" stroke-dasharray="10 5" opacity="0.3"/>
+
+  <text x="400" y="470" fill="#444" font-family="sans-serif" font-size="10" text-anchor="middle" letter-spacing="0.2em">PREMIUM AI NEWS INTELLIGENCE PROTOCOL</text>
+</svg>

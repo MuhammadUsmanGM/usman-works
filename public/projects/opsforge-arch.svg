@@ -1,0 +1,38 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="grad_gold_soft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(400 250) rotate(90) scale(300 480)">
+      <stop stop-color="#f5a623" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#0A0A0A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="#0A0A0A"/>
+  <rect width="800" height="500" fill="url(#grad_gold_soft)"/>
+
+  <!-- BINARY CORE -->
+  <g>
+    <rect x="250" y="80" width="300" height="120" rx="20" fill="#1A1A1A" stroke="#f5a623" stroke-width="2"/>
+    <text x="400" y="125" fill="#f5a623" font-family="sans-serif" font-size="18" font-weight="black" text-anchor="middle">OPSFORGE CORE</text>
+    <text x="400" y="150" fill="#AAAAAA" font-family="monospace" font-size="10" text-anchor="middle">Go Standard Library (No-Deps)</text>
+    
+    <rect x="270" y="165" width="260" height="20" rx="4" fill="#f5a623" fill-opacity="0.1"/>
+    <text x="400" y="178" fill="#f5a623" font-family="monospace" font-size="8" text-anchor="middle">Fixed Worker Pool Concurrency</text>
+  </g>
+
+  <!-- UTILITIES GRID -->
+  <g>
+    <rect x="100" y="250" width="180" height="80" rx="12" fill="#1A1A1A" stroke="#f5a623" stroke-opacity="0.3"/>
+    <text x="190" y="285" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">LOAD TESTER</text>
+    <text x="190" y="305" fill="#f5a623" font-family="monospace" font-size="8" text-anchor="middle">10k+ Parallel Conn</text>
+
+    <rect x="310" y="250" width="180" height="80" rx="12" fill="#1A1A1A" stroke="#f5a623" stroke-opacity="0.3"/>
+    <text x="400" y="285" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">SSL AUDIT</text>
+    <text x="400" y="305" fill="#f5a623" font-family="monospace" font-size="8" text-anchor="middle">Cert Chain Discovery</text>
+
+    <rect x="520" y="250" width="180" height="80" rx="12" fill="#1A1A1A" stroke="#f5a623" stroke-opacity="0.3"/>
+    <text x="610" y="285" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">PORT SCAN</text>
+    <text x="610" y="305" fill="#f5a623" font-family="monospace" font-size="8" text-anchor="middle">Semaphore Managed</text>
+  </g>
+
+  <text x="400" y="470" fill="#444" font-family="sans-serif" font-size="10" text-anchor="middle" letter-spacing="0.2em">ZERO-DEPENDENCY DEVOPS CLI &amp; INFRASTRUCTURE TOOLKIT</text>
+</svg>

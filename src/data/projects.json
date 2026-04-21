@@ -265,6 +265,8 @@
     "bannerVariant": "crystal",
     "bannerVersion": "v1.0",
     "bannerStatus": "PRODUCTION",
+    "customVisual": "/projects/go-lb-arch.svg",
+    "codeSnippet": "// Go Concurrency Loop\nfor i := 0; i < workers; i++ {\n  go lb.proxy(reqChan)\n}\nlb.monitor.Heartbeat(ctx)",
     "benchmarks": [
       {
         "label": "Latency Overhead",
@@ -337,6 +339,8 @@
     "bannerVariant": "neural",
     "bannerVersion": "v3.0",
     "bannerStatus": "LIVE",
+    "customVisual": "/projects/echo-arch.svg",
+    "codeSnippet": "// Real-time Canvas Pulse\nconst particle = new Particle();\nparticle.react(audioFrequency);\nengine.render(2000, context);",
     "benchmarks": [
       {
         "label": "UI Performance",
@@ -402,6 +406,8 @@
     "bannerVariant": "neural",
     "bannerVersion": "v4.2",
     "bannerStatus": "AUTONOMOUS",
+    "customVisual": "/projects/elyx-arch.svg",
+    "codeSnippet": "// Obsidian-as-State Pattern\nconst state = await obsidian.read(file);\nif (state.status === 'PENDING') {\n  await agent.reason(state.intent);\n}",
     "benchmarks": [
       {
         "label": "Perception Points",
@@ -544,6 +550,8 @@
     "bannerVariant": "wave",
     "bannerVersion": "v1.0",
     "bannerStatus": "PROTOTYPE",
+    "customVisual": "/projects/physical-ai-arch.svg",
+    "codeSnippet": "// Robotics RAG TA Engine\nconst query = await tutor.listen();\nconst context = await qdrant.fetchROS2Content(query);\nreturn tutor.synthesize(query, context);",
     "benchmarks": [
       {
         "label": "TA Latency",
@@ -608,6 +616,8 @@
     "bannerVariant": "neural",
     "bannerVersion": "v1.0",
     "bannerStatus": "AUTONOMOUS",
+    "customVisual": "/projects/notion-arch.svg",
+    "codeSnippet": "// Autonomous Workspace Sharding\nconst pages = await notion.discover();\nfor (const page of pages) {\n  const chaos = await analyzer.score(page);\n  if (chaos > 0.8) await agent.cleanup(page);\n}",
     "benchmarks": [
       {
         "label": "Analysis Polish",
@@ -673,6 +683,8 @@
     "bannerVariant": "crystal",
     "bannerVersion": "v1.2",
     "bannerStatus": "STABLE",
+    "customVisual": "/projects/opsforge-arch.svg",
+    "codeSnippet": "// Semaphore Controlled Port Scan\nsem := make(chan struct{}, maxParallel)\nfor port := range ports {\n  sem <- struct{}{}\n  go scan(target, port, sem)\n}",
     "benchmarks": [
       {
         "label": "External Deps",
@@ -738,6 +750,8 @@
     "bannerVariant": "wave",
     "bannerVersion": "v2.0",
     "bannerStatus": "PRODUCTION",
+    "customVisual": "/projects/automation-arch.svg",
+    "codeSnippet": "// n8n AI Review Node\nconst diff = await github.getDiff(prId);\nconst review = await llama3.analyze(diff);\nreturn { score: review.quality };",
     "benchmarks": [
       {
         "label": "Nodes Orchestrated",
@@ -813,6 +827,8 @@
     "bannerVariant": "wave",
     "bannerVersion": "v1.0",
     "bannerStatus": "LIVE",
+    "customVisual": "/projects/signal-arch.svg",
+    "codeSnippet": "// 3-3-2-2-1 News Synthesis\nconst articles = await scraper.fetchLatest();\nconst briefings = await gemini.synthesize(articles);\nawait supabase.distribute(briefings);",
     "benchmarks": [
       {
         "label": "Synthesis Accuracy",
