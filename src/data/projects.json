@@ -893,6 +893,8 @@
     "bannerVariant": "crystal",
     "bannerVersion": "v1.0",
     "bannerStatus": "PRODUCTION",
+    "customVisual": "/projects/audit-arch.svg",
+    "codeSnippet": "// Debt Heatmap Generation\nconst todos = await scanner.find('TODO');\nconst commits = await git.getBlame(todos);\nreturn debtManager.triage(todos, commits);",
     "benchmarks": [
       {
         "label": "Performance",
@@ -963,6 +965,8 @@
     "bannerVariant": "matrix",
     "bannerVersion": "v1.0",
     "bannerStatus": "PRODUCTION",
+    "customVisual": "/projects/vidx-arch.svg",
+    "codeSnippet": "// Semantic Frame Discovery\nconst frames = await ffmpeg.extract(video);\nconst caption = await whisper.transcribe(audio);\nconst concept = await gemini.synthesize(frames, caption);",
     "benchmarks": [
       {
         "label": "Codec Support",
