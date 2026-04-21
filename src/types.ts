@@ -19,4 +19,6 @@ export interface Project {
   benchmarks?: { label: string; value: string; detail: string }[]
   sections?: { title: string; icon: string; content: string }[]
   learnings?: string[]
+  customVisual?: string
+  codeSnippet?: string
 }

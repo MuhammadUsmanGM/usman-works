@@ -32,6 +32,8 @@
     "bannerVariant": "neural",
     "bannerVersion": "v1.0.0",
     "bannerStatus": "HUD_ACTIVE",
+    "customVisual": "/projects/autonoma-arch.svg",
+    "codeSnippet": "// Autonomous Planning Loop\nconst plan = await agent.plan(objective);\nfor (const step of plan) {\n  const result = await agent.execute(step);\n  await agent.reflect(result);\n}",
     "benchmarks": [
       {
         "label": "Memory Search",
@@ -123,6 +125,8 @@
     "bannerVariant": "crystal",
     "bannerVersion": "v0.1.3",
     "bannerStatus": "SHIPPED",
+    "customVisual": "/projects/ferrumdb-arch.svg",
+    "codeSnippet": "// Bitcask-inspired O(1) Read\nlet entry = keydir.get(key)?;\nfile.read_at(entry.offset, buf)?;\ncrypto.decrypt(buf)",
     "benchmarks": [
       {
         "label": "Read Latency",
@@ -194,6 +198,8 @@
     "bannerVariant": "matrix",
     "bannerVersion": "v2.1",
     "bannerStatus": "DISTRIBUTED",
+    "customVisual": "/projects/codelens-arch.svg",
+    "codeSnippet": "// Neural Semantic Search\nconst results = await lens.discover(\"auth flow\");\n// [Match 94%] -> src/engine/session.ts",
     "benchmarks": [
       {
         "label": "Retrieval Latency",
@@ -467,6 +473,8 @@
     "bannerVariant": "matrix",
     "bannerVersion": "v1.0",
     "bannerStatus": "PRODUCTION",
+    "customVisual": "/projects/promptly-arch.svg",
+    "codeSnippet": "// High-Speed Context Inlay\nconst context = await analyze(root);\nreturn mcp.provide({\n  structure: context.tree,\n  grounding: true\n});",
     "benchmarks": [
       {
         "label": "Refinement Latency",

@@ -124,6 +124,18 @@ const iconMap: Record<string, any> = {
       </div>
     </section>
 
+    <!-- Macro Architecture View -->
+    <section v-if="project.customVisual" class="architecture-showcase" v-motion-fade-visible>
+       <div class="showcase-label">
+          <Layers :size="16" />
+          <span>Macro Architecture Architecture</span>
+       </div>
+       <div class="visual-container">
+          <img :src="project.customVisual" :alt="project.name + ' Architecture'" class="full-arch-img" />
+          <div class="scan-line"></div>
+       </div>
+    </section>
+
     <!-- Technical Sections -->
     <div class="technical-deep-dive">
       <div v-for="section in project.sections" :key="section.title" class="tech-section" v-motion-fade-visible>
@@ -138,6 +150,20 @@ const iconMap: Record<string, any> = {
         </div>
       </div>
     </div>
+
+    <!-- Implementation Engine HUD -->
+    <section v-if="project.codeSnippet" class="implementation-hud-section" v-motion-slide-visible-bottom>
+       <div class="hud-header">
+          <div class="flex items-center gap-3">
+             <div class="pulse-dot"></div>
+             <h2 class="bebas tracking-widest text-xl">Technical Implementation Engine</h2>
+          </div>
+          <span class="text-[10px] font-mono text-muted uppercase tracking-widest">Logic_Kernel_v2.1</span>
+       </div>
+       <div class="hud-code-container">
+          <pre class="detail-hud-code"><code>{{ project.codeSnippet }}</code></pre>
+       </div>
+    </section>
 
     <!-- The Hard Truths (Learnings) -->
     <section class="learnings-section" v-motion-fade-visible>
@@ -248,6 +274,107 @@ const iconMap: Record<string, any> = {
 .icon-wrap { width: 48px; height: 48px; background: rgba(245, 166, 35, 0.1); border: 1px solid rgba(245, 166, 35, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent); }
 .section-title { font-size: 2.5rem; line-height: 1; }
 .section-body p { font-size: 1.25rem; color: var(--text-sub); line-height: 1.7; font-style: italic; background: var(--bg-2); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); white-space: pre-line; }
+
+/* Architecture Showcase */
+.architecture-showcase {
+  margin-bottom: 10rem;
+  position: relative;
+}
+
+.showcase-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--accent);
+  font-size: 0.65rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 2rem;
+}
+
+.visual-container {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  position: relative;
+}
+
+.full-arch-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  opacity: 0.3;
+  animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+  from { transform: translateY(0); }
+  to { transform: translateY(500px); }
+}
+
+/* Implementation HUD */
+.implementation-hud-section {
+  margin-bottom: 10rem;
+  background: #08080a;
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  overflow: hidden;
+  border-left: 4px solid var(--accent);
+}
+
+.hud-header {
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent);
+  animation: pulse 2s infinite;
+}
+
+.hud-code-container {
+  padding: 3rem;
+  background: #050505;
+  overflow-x: auto;
+}
+
+.detail-hud-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
 
 /* Learnings */
 .learning-title { font-size: 4rem; margin-bottom: 4rem; }

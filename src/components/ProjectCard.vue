@@ -53,6 +53,21 @@ const goToCaseStudy = () => {
         :status="project.bannerStatus || project.status"
         :version="project.bannerVersion || 'v1.0'"
       />
+      
+      <!-- Custom Architectural Visual Overlay -->
+      <transition name="fade">
+        <div v-if="project.customVisual && isHovering" class="custom-visual-overlay">
+          <img :src="project.customVisual" :alt="project.name" class="visual-img" />
+        </div>
+      </transition>
+
+      <!-- Technical Code Snippet HUD -->
+      <transition name="slide-up">
+        <div v-if="project.codeSnippet && isHovering" class="code-snippet-hud">
+          <div class="hud-label">Technical Logic</div>
+          <pre class="hud-code"><code>{{ project.codeSnippet }}</code></pre>
+        </div>
+      </transition>
     </div>
 
     <!-- Content -->
@@ -136,6 +151,82 @@ const goToCaseStudy = () => {
   overflow: hidden;
   background: var(--bg-3);
   border-bottom: 1px solid var(--border);
+}
+
+.custom-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-2);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.code-snippet-hud {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 1.25rem;
+  z-index: 10;
+  border-top: 1px solid var(--accent);
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+.hud-label {
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hud-label::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.hud-code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: var(--text-sub);
+  line-height: 1.5;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* Transitions */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active, .slide-up-leave-active {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide-up-enter-from, .slide-up-leave-to {
+  transform: translateY(100%);
 }
 
 
