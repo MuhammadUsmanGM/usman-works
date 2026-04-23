@@ -371,4 +371,12 @@ const goToCaseStudy = () => {
 .case-study-btn:hover .btn-icon {
   transform: translateX(6px);
 }
+@media (max-width: 480px) {
+  .card-content { padding: 1.25rem; }
+  .project-name { font-size: 1.3rem; }
+  .project-desc { font-size: 0.9rem; margin-bottom: 1.5rem; }
+  .footer-icon-btn { width: 44px; height: 44px; border-radius: 10px; }
+  .case-study-btn { height: 44px; font-size: 0.85rem; padding: 0 1rem; border-radius: 10px; }
+  .tech-stack { margin-bottom: 1.5rem; }
+}
 </style>

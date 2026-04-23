@@ -11,12 +11,16 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
           <div class="brand-logo">
             <img src="/favicon.webp" alt="MU" class="nav-logo-img" />
           </div>
-          <span class="bebas logo-title">MuhammadUsman <span class="accent-text">/ ARCHIVE</span></span>
+          <span class="bebas logo-title">
+            <span class="full-name">MuhammadUsman</span>
+            <span class="short-name">MU</span>
+            <span class="accent-text"> / ARCHIVE</span>
+          </span>
         </a>
 
         <div class="nav-links">
           <a href="https://www.buildwithusman.me/" target="_blank" class="nav-item external group">
-            MAIN PORTFOLIO
+            <span class="nav-text">MAIN PORTFOLIO</span>
             <ArrowUpRight :size="14" class="up-arrow" />
           </a>
         </div>
@@ -79,13 +83,14 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
   z-index: 1000;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .premium-navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4rem;
+  gap: 2rem;
   padding: 0.6rem 0.6rem 0.6rem 1.5rem;
   background: rgba(10, 10, 15, 0.7);
   backdrop-filter: blur(20px);
@@ -93,6 +98,9 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 100px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 1200px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-brand {
@@ -103,6 +111,7 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
   color: var(--text);
   font-size: 1.1rem;
   letter-spacing: 0.05em;
+  flex-shrink: 0;
 }
 
 .brand-logo {
@@ -113,6 +122,7 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
   justify-content: center;
   overflow: hidden;
   border-radius: 6px;
+  background: var(--bg-3);
 }
 
 .nav-logo-img {
@@ -124,6 +134,12 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
 .logo-title {
   font-size: 1.25rem;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.short-name {
+  display: none;
 }
 
 .accent-text {
@@ -146,15 +162,7 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
   padding: 0.75rem 1.25rem;
   border-radius: 100px;
   transition: all 0.3s ease;
-}
-
-.nav-item.active {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text);
-}
-
-.nav-item:hover {
-  color: var(--accent);
+  white-space: nowrap;
 }
 
 .nav-item.external {
@@ -266,16 +274,68 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
   text-transform: uppercase;
 }
 
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .premium-navbar {
+    max-width: 90%;
+  }
+}
+
 @media (max-width: 768px) {
+  .layout-container {
+    padding: 0 1rem;
+  }
+  
+  .top-nav-spacer { height: 1rem; }
+  .floating-nav-wrapper { top: 1rem; }
+
+  .premium-navbar {
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .logo-title {
+    font-size: 1.1rem;
+  }
+
+  .full-name { display: none; }
+  .short-name { display: inline; }
+
+  .nav-item {
+    padding: 0.6rem 1rem;
+    font-size: 0.6rem;
+  }
+
   .footer-top { flex-direction: column; gap: 2.5rem; }
   .social-links { flex-direction: column; gap: 1rem; }
 }
 
-@media (max-width: 768px) {
-  .premium-navbar { gap: 0.5rem; width: fit-content; max-width: 100%; padding: 0.4rem 0.6rem 0.4rem 1rem; }
-  .logo-title { font-size: 0.8rem; }
-  .nav-item.external { padding: 0.5rem 0.8rem; font-size: 0.55rem; }
-  .brand-logo { width: 22px; height: 22px; border-radius: 4px; }
-  .logo-text { font-size: 0.7rem; }
+@media (max-width: 480px) {
+  .premium-navbar {
+    padding: 0.4rem 0.4rem 0.4rem 0.8rem;
+  }
+  
+  .logo-title {
+    font-size: 1rem;
+  }
+
+  .nav-text {
+    display: none;
+  }
+
+  .nav-item.external {
+    padding: 0.6rem;
+    border-radius: 50%;
+  }
+
+  .up-arrow {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .brand-logo {
+    width: 24px;
+    height: 24px;
+  }
 }
 </style>

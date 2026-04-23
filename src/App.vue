@@ -287,11 +287,9 @@ const filteredProjects = computed(() => {
 
 @media (max-width: 768px) {
   .layout-container { padding: 0 1rem; }
-  .premium-navbar { gap: 0.5rem; width: fit-content; max-width: 100%; padding: 0.4rem 0.8rem; }
-  .logo-title { font-size: 0.9rem; }
-  .nav-item.external { padding: 0.5rem 0.8rem; font-size: 0.55rem; }
-  .brand-logo { width: 22px; height: 22px; }
-  .logo-text { font-size: 0.8rem; }
+  .archive-header { margin-bottom: 3rem; }
+  .hero-section { margin-bottom: 2rem; }
+  .hero-sub { font-size: 0.85rem; }
 }
 
 .empty-state {
