@@ -11,16 +11,12 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
           <div class="brand-logo">
             <img src="/favicon.webp" alt="MU" class="nav-logo-img" />
           </div>
-          <span class="bebas logo-title">
-            <span class="full-name">MuhammadUsman</span>
-            <span class="short-name">MU</span>
-            <span class="accent-text"> / ARCHIVE</span>
-          </span>
+          <span class="bebas logo-title">MuhammadUsman <span class="accent-text">/ ARCHIVE</span></span>
         </a>
 
         <div class="nav-links">
           <a href="https://www.buildwithusman.me/" target="_blank" class="nav-item external group">
-            <span class="nav-text">MAIN PORTFOLIO</span>
+            MAIN PORTFOLIO
             <ArrowUpRight :size="14" class="up-arrow" />
           </a>
         </div>
@@ -136,10 +132,6 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
   white-space: nowrap;
   display: flex;
   align-items: center;
-}
-
-.short-name {
-  display: none;
 }
 
 .accent-text {
@@ -274,36 +266,31 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
   text-transform: uppercase;
 }
 
-/* Responsiveness */
+/* Responsiveness Overhaul */
 @media (max-width: 1024px) {
   .premium-navbar {
-    max-width: 90%;
+    max-width: 95%;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .layout-container {
-    padding: 0 1rem;
-  }
-  
+  .layout-container { padding: 0 1rem; }
   .top-nav-spacer { height: 1rem; }
   .floating-nav-wrapper { top: 1rem; }
 
   .premium-navbar {
-    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    padding: 0.4rem 0.4rem 0.4rem 1rem;
     gap: 1rem;
   }
 
-  .logo-title {
-    font-size: 1.1rem;
-  }
-
-  .full-name { display: none; }
-  .short-name { display: inline; }
+  .nav-brand { gap: 0.5rem; }
+  .logo-title { font-size: 0.9rem; }
+  .brand-logo { width: 22px; height: 22px; }
 
   .nav-item {
     padding: 0.6rem 1rem;
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
 
   .footer-top { flex-direction: column; gap: 2.5rem; }
@@ -312,30 +299,32 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
 
 @media (max-width: 480px) {
   .premium-navbar {
-    padding: 0.4rem 0.4rem 0.4rem 0.8rem;
-  }
-  
-  .logo-title {
-    font-size: 1rem;
+    padding: 0.3rem 0.3rem 0.3rem 0.75rem;
+    gap: 0.5rem;
   }
 
-  .nav-text {
-    display: none;
+  .logo-title {
+    font-size: 0.75rem;
+  }
+
+  .brand-logo {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+  }
+
+  .nav-item {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.5rem;
   }
 
   .nav-item.external {
-    padding: 0.6rem;
-    border-radius: 50%;
+    gap: 0.3rem;
   }
 
   .up-arrow {
-    width: 16px;
-    height: 16px;
-  }
-  
-  .brand-logo {
-    width: 24px;
-    height: 24px;
+    width: 12px;
+    height: 12px;
   }
 }
 </style>

@@ -128,7 +128,7 @@ const iconMap: Record<string, any> = {
     <section v-if="project.customVisual" class="architecture-showcase" v-motion-fade-visible>
        <div class="showcase-label">
           <Layers :size="16" />
-          <span>Macro Architecture Architecture</span>
+          <span>Macro Architecture</span>
        </div>
        <div class="visual-container">
           <img :src="project.customVisual" :alt="project.name + ' Architecture'" class="full-arch-img" />
@@ -295,22 +295,30 @@ const iconMap: Record<string, any> = {
 
 .visual-container {
   width: 100%;
-  aspect-ratio: 21 / 9;
-  background: var(--bg-2);
+  background: #0A0A0A;
   border: 1px solid var(--border);
   border-radius: 32px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem;
+  padding: 1rem;
   position: relative;
+  transition: all 0.5s ease;
+}
+
+@media (min-width: 768px) {
+  .visual-container {
+    padding: 3rem;
+  }
 }
 
 .full-arch-img {
   width: 100%;
-  height: 100%;
+  max-width: 1000px;
+  height: auto;
   object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
 }
 
 .scan-line {
@@ -318,15 +326,19 @@ const iconMap: Record<string, any> = {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 2px;
   background: linear-gradient(to right, transparent, var(--accent), transparent);
-  opacity: 0.3;
-  animation: scan 4s linear infinite;
+  opacity: 0.2;
+  z-index: 10;
+  pointer-events: none;
+  animation: scan 6s linear infinite;
 }
 
 @keyframes scan {
-  from { transform: translateY(0); }
-  to { transform: translateY(500px); }
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 0.2; }
+  90% { opacity: 0.2; }
+  100% { top: 100%; opacity: 0; }
 }
 
 /* Implementation HUD */

@@ -156,7 +156,7 @@ const goToCaseStudy = () => {
 .custom-visual-overlay {
   position: absolute;
   inset: 0;
-  background: var(--bg-2);
+  background: #0A0A0A;
   z-index: 5;
   display: flex;
   align-items: center;
