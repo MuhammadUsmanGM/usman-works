@@ -1,5 +1,15 @@
 <script setup lang="ts">
-import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
+import { ArrowUpRight, Github, Linkedin, ArrowLeft } from 'lucide-vue-next'
+import { onMounted, ref } from 'vue'
+
+const isFromPortfolio = ref(false)
+
+onMounted(() => {
+  // Detect if user came from the main portfolio to provide a graceful "Back" experience
+  if (document.referrer.includes('buildwithusman.me')) {
+    isFromPortfolio.value = true
+  }
+})
 </script>
 
 <template>
@@ -15,9 +25,10 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
         </a>
 
         <div class="nav-links">
-          <a href="https://www.buildwithusman.me/" target="_blank" class="nav-item external group">
-            MAIN PORTFOLIO
-            <ArrowUpRight :size="14" class="up-arrow" />
+          <a href="https://www.buildwithusman.me/" class="nav-item external group">
+            <ArrowLeft v-if="isFromPortfolio" :size="14" class="back-arrow" />
+            <span>{{ isFromPortfolio ? 'BACK TO PORTFOLIO' : 'MAIN PORTFOLIO' }}</span>
+            <ArrowUpRight v-if="!isFromPortfolio" :size="14" class="up-arrow" />
           </a>
         </div>
       </nav>
@@ -170,12 +181,16 @@ import { ArrowUpRight, Github, Linkedin } from 'lucide-vue-next'
   box-shadow: 0 10px 20px rgba(245, 166, 35, 0.2);
 }
 
-.up-arrow {
+.up-arrow, .back-arrow {
   transition: transform 0.3s ease;
 }
 
 .nav-item.external:hover .up-arrow {
   transform: translate(2px, -2px);
+}
+
+.nav-item.external:hover .back-arrow {
+  transform: translateX(-4px);
 }
 
 /* Main Content Padding */
