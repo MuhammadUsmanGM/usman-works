@@ -1,5 +1,80 @@
 [
   {
+    "id": "mcp-probe",
+    "year": "2026",
+    "name": "MCPProbe",
+    "highlight": "Health Scoring | 13+ Client Support",
+    "description": "The definitive diagnostic layer for the Model Context Protocol (MCP) ecosystem. Instantly probe any MCP server to extract tools, verify client compatibility, and generate production configs.",
+    "tech": [
+      "TypeScript",
+      "Node.js",
+      "@modelcontextprotocol/sdk",
+      "Commander",
+      "Zod",
+      "Vite"
+    ],
+    "categories": [
+      "AI & Agents",
+      "Systems Engineering",
+      "Developer Tools"
+    ],
+    "type": "Diagnostic Engineering",
+    "status": "v1.0.0",
+    "github": "https://github.com/MuhammadUsmanGM/McpProbe",
+    "links": [
+      {
+        "label": "NPM PACKAGE",
+        "url": "https://www.npmjs.com/package/mcpprobe"
+      }
+    ],
+    "installCommand": "npx mcpprobe <github-url-or-local-path>",
+    "image": "https://placehold.co/1200x800/0a0a0f/8B5CF6?text=MCP+PROBE+DIAGNOSTICS",
+    "bannerVariant": "crystal",
+    "bannerVersion": "v1.0.0",
+    "bannerStatus": "OPERATIONAL",
+    "customVisual": "/projects/mcpprobe-arch.svg",
+    "codeSnippet": "// Universal MCP Diagnostics\nconst report = await probe.analyze(serverUrl);\nconsole.log(`Health: ${report.score}/100`);\n// Identified Tools: [google_search, get_weather]\n// Compatibility: Cursor [OK], Claude [OK]",
+    "benchmarks": [
+      {
+        "label": "Probe Latency",
+        "value": "< 2s",
+        "detail": "Sub-second server discovery"
+      },
+      {
+        "label": "Client Matrix",
+        "value": "13+",
+        "detail": "Major AI clients supported"
+      },
+      {
+        "label": "Health Grading",
+        "value": "Strict",
+        "detail": "0-100 logic-driven scoring"
+      }
+    ],
+    "sections": [
+      {
+        "title": "Introspective Server Analysis",
+        "icon": "Search",
+        "content": "Engineered a robust scanning engine that establishes Stdio or SSE connections to perform full introspective analysis. It extracts tool schemas, resource templates, and prompt definitions, providing a clear map of server capabilities."
+      },
+      {
+        "title": "Client Compatibility Matrix",
+        "icon": "CheckCircle",
+        "content": "Developed a rigid verification layer that tests server implementations against specific requirements of Cursor, Claude Desktop, and VS Code. This ensures developers can ship MCP tools that work reliably across the entire AI interface landscape."
+      },
+      {
+        "title": "Smart Config Orchestration",
+        "icon": "Settings",
+        "content": "Implemented an automated generator that outputs production-ready JSON configurations tailored to individual AI clients. It handles path resolution, environment variables, and client-specific boilerplate with zero manual intervention."
+      }
+    ],
+    "learnings": [
+      "The MCP ecosystem lacks standardized validation; a central diagnostic tool is essential for developer trust and rapid prototyping.",
+      "Asynchronous transport discovery (Stdio vs SSE) is the most fragile part of the protocol—robust retry logic and timeouts are mandatory.",
+      "Quantitative 'Health Scores' significantly improve developer focus by gamifying the iterative improvement of tool documentation."
+    ]
+  },
+  {
     "id": "autonoma",
     "year": "2026",
     "name": "Autonoma",

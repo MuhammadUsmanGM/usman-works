@@ -24,7 +24,7 @@ watch([searchQuery, selectedCategory], ([newQ, newC]) => {
   window.history.replaceState({}, '', url)
 })
 
-const allCategories = ['All', 'AI & Agents', 'Systems Engineering', 'Systems / Rust', 'High-Perf Go', 'Automation', 'Full-Stack']
+const allCategories = ['All', 'AI & Agents', 'Systems Engineering', 'Systems / Rust', 'High-Perf Go', 'Automation', 'Developer Tools', 'Full-Stack']
 
 const filteredProjects = computed(() => {
   return projectsData.filter(p => {
