@@ -10,6 +10,19 @@ onMounted(() => {
     isFromPortfolio.value = true
   }
 })
+
+const handlePortfolioClick = (e: MouseEvent) => {
+  if (isFromPortfolio.value) {
+    e.preventDefault()
+    // Attempt to close the tab to return to the original tab
+    window.close()
+    
+    // Fallback: If the tab didn't close (browser security), navigate instead
+    setTimeout(() => {
+      window.location.href = 'https://www.buildwithusman.me/'
+    }, 100)
+  }
+}
 </script>
 
 <template>
@@ -25,7 +38,11 @@ onMounted(() => {
         </a>
 
         <div class="nav-links">
-          <a href="https://www.buildwithusman.me/" class="nav-item external group">
+          <a 
+            href="https://www.buildwithusman.me/" 
+            class="nav-item external group"
+            @click="handlePortfolioClick"
+          >
             <ArrowLeft v-if="isFromPortfolio" :size="14" class="back-arrow" />
             <span>{{ isFromPortfolio ? 'BACK TO PORTFOLIO' : 'MAIN PORTFOLIO' }}</span>
             <ArrowUpRight v-if="!isFromPortfolio" :size="14" class="up-arrow" />
