@@ -652,4 +652,20 @@ const wavePaths = computed(() => {
   0%, 100% { opacity: 0; }
   50%      { opacity: 0.15; }
 }
+@media (max-width: 768px) {
+  .sys-label { top: 12px; }
+  .sys-label-left { left: 16px; }
+  .sys-label-right { right: 16px; }
+  .corner { width: 12px; height: 12px; }
+  .corner-tl { top: 12px; left: 12px; }
+  .corner-tr { top: 12px; right: 12px; }
+  .corner-bl { bottom: 12px; left: 12px; }
+  .corner-br { bottom: 12px; right: 12px; }
+  .meta-label { bottom: 12px; }
+  .meta-left { left: 16px; }
+  .meta-right { right: 16px; }
+  .banner-center { padding: 0 1rem; }
+  .center-line { width: 20px; }
+  .center-line-top, .center-line-bottom { margin: 10px 0; }
+}
 </style>

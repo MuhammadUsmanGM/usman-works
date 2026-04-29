@@ -160,9 +160,9 @@ const filteredProjects = computed(() => {
 }
 
 .premium-title {
-  font-size: clamp(3rem, 10vw, 5.5rem);
+  font-size: clamp(2.5rem, 10vw, 5.5rem);
   line-height: 1;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   position: relative;
   display: inline-block;
   color: var(--text);
@@ -186,7 +186,7 @@ const filteredProjects = computed(() => {
 
 .hero-sub {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 3vw, 1rem);
   max-width: 450px;
   line-height: 1.5;
 }
@@ -200,6 +200,7 @@ const filteredProjects = computed(() => {
 
 .search-box {
   position: relative;
+  width: 100%;
   max-width: 400px;
 }
 
@@ -281,8 +282,8 @@ const filteredProjects = computed(() => {
 
 .project-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 1.5rem;
 }
 
 @media (max-width: 768px) {

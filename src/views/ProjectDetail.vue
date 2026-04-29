@@ -205,7 +205,7 @@ const iconMap: Record<string, any> = {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   cursor: pointer;
-  margin-bottom: 4rem;
+  margin-bottom: clamp(2rem, 8vw, 4rem);
   transition: color 0.3s ease;
 }
 
@@ -221,9 +221,9 @@ const iconMap: Record<string, any> = {
 .meta-tag.mono { color: var(--muted); font-family: monospace; }
 
 .detail-title {
-  font-size: clamp(4rem, 15vw, 8rem);
-  line-height: 0.85;
-  margin-bottom: 2.5rem;
+  font-size: clamp(3rem, 12vw, 8rem);
+  line-height: 0.9;
+  margin-bottom: 2rem;
   position: relative;
   display: inline-block;
   background: linear-gradient(to right, var(--text), var(--text) 40%, var(--accent) 50%, var(--text) 60%, var(--text));
@@ -233,10 +233,10 @@ const iconMap: Record<string, any> = {
   animation: shine 6s linear infinite;
 }
 
-.detail-subtitle { font-size: 1.4rem; color: var(--text-sub); max-width: 700px; line-height: 1.5; }
+.detail-subtitle { font-size: clamp(1.1rem, 4vw, 1.4rem); color: var(--text-sub); max-width: 700px; line-height: 1.5; }
 
-.header-actions { display: flex; gap: 1rem; margin-top: 3rem; }
-.action-link { display: flex; align-items: center; gap: 0.75rem; padding: 1.25rem 2rem; border-radius: 100px; font-weight: 900; font-size: 0.75rem; text-decoration: none; transition: all 0.3s ease; }
+.header-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; }
+.action-link { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.75rem; border-radius: 100px; font-weight: 900; font-size: 0.7rem; text-decoration: none; transition: all 0.3s ease; white-space: nowrap; }
 .action-link.primary { background: var(--accent); color: black; box-shadow: 0 10px 30px rgba(245, 166, 35, 0.2); }
 .action-link.border { border: 1px solid var(--border); color: var(--text); }
 .action-link:hover { transform: translateY(-5px); }
@@ -244,9 +244,9 @@ const iconMap: Record<string, any> = {
 /* Benchmarks */
 .benchmarks-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 8rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 6rem;
 }
 
 .bench-item {
@@ -262,18 +262,18 @@ const iconMap: Record<string, any> = {
 }
 
 .bench-item:hover { border-color: var(--accent); }
-.bench-value { font-size: 3rem; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
-.bench-label { font-size: 0.7rem; font-weight: 900; color: var(--text); text-transform: uppercase; letter-spacing: 0.1em; }
-.bench-detail { font-size: 0.65rem; color: var(--muted); margin-top: 0.5rem; text-transform: uppercase; }
+.bench-value { font-size: clamp(2rem, 8vw, 3rem); color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
+.bench-label { font-size: 0.65rem; font-weight: 900; color: var(--text); text-transform: uppercase; letter-spacing: 0.1em; }
+.bench-detail { font-size: 0.6rem; color: var(--muted); margin-top: 0.5rem; text-transform: uppercase; }
 
 /* Tech Deep Dive */
 .technical-deep-dive { margin-bottom: 10rem; }
 .tech-section { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; margin-bottom: 10rem; }
 
-.section-sidebar { display: flex; align-items: center; gap: 1.5rem; }
-.icon-wrap { width: 48px; height: 48px; background: rgba(245, 166, 35, 0.1); border: 1px solid rgba(245, 166, 35, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent); }
-.section-title { font-size: 2.5rem; line-height: 1; }
-.section-body p { font-size: 1.25rem; color: var(--text-sub); line-height: 1.7; font-style: italic; background: var(--bg-2); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); white-space: pre-line; }
+.section-sidebar { display: flex; align-items: center; gap: 1.25rem; }
+.icon-wrap { width: 40px; height: 40px; background: rgba(245, 166, 35, 0.1); border: 1px solid rgba(245, 166, 35, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent); flex-shrink: 0; }
+.section-title { font-size: clamp(1.75rem, 6vw, 2.5rem); line-height: 1; }
+.section-body p { font-size: clamp(1rem, 4vw, 1.25rem); color: var(--text-sub); line-height: 1.6; font-style: italic; background: var(--bg-2); padding: clamp(1.5rem, 5vw, 2.5rem); border-radius: 20px; border: 1px solid var(--border); white-space: pre-line; }
 
 /* Architecture Showcase */
 .architecture-showcase {
@@ -305,6 +305,7 @@ const iconMap: Record<string, any> = {
   padding: 1rem;
   position: relative;
   transition: all 0.5s ease;
+  min-height: 200px;
 }
 
 @media (min-width: 768px) {
@@ -370,16 +371,16 @@ const iconMap: Record<string, any> = {
 }
 
 .hud-code-container {
-  padding: 3rem;
+  padding: clamp(1rem, 5vw, 3rem);
   background: #050505;
   overflow-x: auto;
 }
 
 .detail-hud-code {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 3vw, 1rem);
   color: var(--text-sub);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 @keyframes pulse {
@@ -389,11 +390,11 @@ const iconMap: Record<string, any> = {
 }
 
 /* Learnings */
-.learning-title { font-size: 4rem; margin-bottom: 4rem; }
-.learning-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.learning-title { font-size: clamp(2.5rem, 10vw, 4rem); margin-bottom: 3rem; }
+.learning-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
 .learning-card { position: relative; padding-top: 2rem; border-top: 1px solid var(--border); }
-.card-num { font-size: 0.7rem; font-weight: 950; color: var(--accent); margin-bottom: 1rem; }
-.learning-card p { font-size: 1.1rem; color: var(--text-sub); line-height: 1.6; }
+.card-num { font-size: 0.65rem; font-weight: 950; color: var(--accent); margin-bottom: 0.75rem; }
+.learning-card p { font-size: clamp(1rem, 3.5vw, 1.1rem); color: var(--text-sub); line-height: 1.5; }
 
 /* Footer */
 .detail-footer { margin-top: 10rem; text-align: center; }
@@ -518,9 +519,22 @@ const iconMap: Record<string, any> = {
 }
 
 @media (max-width: 768px) {
-  .tech-section { grid-template-columns: 1fr; gap: 1.5rem; }
+  .detail-header { margin-bottom: 4rem; }
+  .tech-section { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 6rem; }
+  .section-sidebar { flex-direction: row; align-items: center; gap: 1rem; }
   .learning-grid { grid-template-columns: 1fr; }
-  .detail-title { font-size: 4rem; }
-  .install-command-wrap { width: 100%; }
+  .detail-title { margin-bottom: 1.5rem; }
+  .install-command-wrap, .multi-install-wrap { width: 100%; margin-top: 2.5rem; }
+  .command-body { padding: 1rem; gap: 0.75rem; }
+  .command-body code { font-size: 0.8rem; }
+  .project-detail-view { padding-bottom: 6rem; }
+  .architecture-showcase, .technical-deep-dive, .implementation-hud-section { margin-bottom: 6rem; }
+}
+
+@media (max-width: 480px) {
+  .header-actions { flex-direction: column; }
+  .action-link { width: 100%; justify-content: center; }
+  .benchmarks-grid { grid-template-columns: 1fr; }
+  .hud-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
 }
 </style>
