@@ -115,7 +115,7 @@ const goToCaseStudy = () => {
   position: relative;
   background: var(--bg-2);
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -241,22 +241,22 @@ const goToCaseStudy = () => {
 }
 
 .project-type {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 800;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.75rem;
   display: block;
 }
 
 .project-name {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--text);
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.75rem;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .project-highlight {
@@ -275,10 +275,11 @@ const goToCaseStudy = () => {
 
 .project-desc {
   color: var(--text-sub);
-  font-size: 1rem;
-  line-height: 1.65;
-  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
   flex-grow: 1;
+  opacity: 0.8;
 }
 
 .tech-stack {
@@ -289,14 +290,15 @@ const goToCaseStudy = () => {
 }
 
 .tech-pill {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 800;
   background: var(--bg-3);
-  padding: 0.3rem 0.7rem;
-  border-radius: 6px;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
   color: var(--muted);
   border: 1px solid var(--border);
   transition: all 0.3s ease;
+  font-family: monospace;
 }
 
 .premium-card:hover .tech-pill {
@@ -315,9 +317,9 @@ const goToCaseStudy = () => {
 .footer-icon-btn {
   background: var(--bg-3);
   color: var(--text);
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -346,15 +348,15 @@ const goToCaseStudy = () => {
   background: var(--accent);
   color: black;
   text-decoration: none;
-  font-weight: 950;
-  font-size: 1rem;
-  padding: 0 1.5rem;
-  border-radius: 14px;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 0 1.25rem;
+  border-radius: 8px;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   flex-grow: 1;
-  height: 52px;
-  letter-spacing: 0.15em;
-  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.2);
+  height: 44px;
+  letter-spacing: 0.1em;
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.1);
   border: none;
   cursor: pointer;
 }

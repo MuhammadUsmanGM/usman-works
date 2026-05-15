@@ -34,7 +34,7 @@ const handlePortfolioClick = (e: MouseEvent) => {
           <div class="brand-logo">
             <img src="/favicon.webp" alt="MU" class="nav-logo-img" />
           </div>
-          <span class="bebas logo-title">MuhammadUsman <span class="accent-text">/ ARCHIVE</span></span>
+          <span class="bebas logo-title">MUHAMMAD USMAN <span class="archive-tag">/ VAULT.CORE</span></span>
         </a>
 
         <div class="nav-links">
@@ -59,8 +59,8 @@ const handlePortfolioClick = (e: MouseEvent) => {
       <div class="footer-inner">
         <div class="footer-top">
           <div class="footer-left">
-            <span class="bebas footer-brand">MuhammadUsman <span class="accent-text">/ ARCHIVE</span></span>
-            <p class="footer-tagline">Deep Systems • AI Agentics • High-Perf Architecture</p>
+            <span class="bebas footer-brand">MUHAMMAD USMAN <span class="archive-tag">/ VAULT.CORE</span></span>
+            <p class="footer-tagline">Systems Engineering • AI Agentics • Distributed Architecture</p>
           </div>
           
           <div class="footer-right">
@@ -156,15 +156,23 @@ const handlePortfolioClick = (e: MouseEvent) => {
 }
 
 .logo-title {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   white-space: nowrap;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
-.accent-text {
+.archive-tag {
+  font-family: monospace;
+  font-size: 0.65rem;
   color: var(--accent);
-  opacity: 0.8;
+  background: rgba(245, 166, 35, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  letter-spacing: 0.1em;
+  font-weight: 900;
 }
 
 .nav-links {

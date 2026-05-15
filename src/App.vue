@@ -45,24 +45,47 @@ const filteredProjects = computed(() => {
 <template>
   <MainLayout>
     <div v-if="$route.path === '/'">
+      <div class="hero-background">
+        <div class="grid-pattern"></div>
+        <div class="scan-line-v"></div>
+      </div>
       <!-- Your Existing Archive UI -->
       <header class="archive-header" v-motion-fade>
-        <button v-if="searchQuery || selectedCategory !== 'All'" @click="searchQuery = ''; selectedCategory = 'All'" class="reset-btn">
-          RESET_VIEW
-        </button>
+        <div class="vault-status-bar">
+          <div class="status-item">
+            <span class="label">VAULT_STATUS:</span>
+            <span class="value pulse">OPERATIONAL</span>
+          </div>
+          <div class="status-item hide-mobile">
+            <span class="label">ACTIVE_NODES:</span>
+            <span class="value">{{ projectsData.length }}</span>
+          </div>
+          <div class="status-item hide-mobile">
+            <span class="label">CORE_STACKS:</span>
+            <span class="value">RUST / GO / AI / TS</span>
+          </div>
+          <div class="status-item">
+            <span class="label">LAST_SYNC:</span>
+            <span class="value">MAY_2026</span>
+          </div>
+        </div>
 
         <div class="hero-section">
+          <div class="hero-badge" v-motion-slide-visible-top>SECONDARY_ENGINEERING_ARCHIVE</div>
           <h1 class="bebas premium-title">
-            <span>ENGINEERING ARCHIVE</span>
+            <span>DATA VAULT</span>
             <div class="title-shine"></div>
           </h1>
-          <p class="hero-sub">A secondary vault of deep technical artifacts, benchmarks, and architectural learnings from my production systems.</p>
+          <p class="hero-sub">Deep-dive technical artifacts, production benchmarks, and architectural patterns from systems engineering and AI agentics research.</p>
         </div>
         
-        <div class="search-wrap">
-          <div class="search-box">
-            <Search :size="16" class="search-icon" />
-            <input v-model="searchQuery" type="text" placeholder="FILTER VAULT BY STACK OR NAME..." class="compact-input" />
+        <div class="controls-wrapper">
+          <div class="search-wrap">
+            <div class="search-box">
+              <div class="prompt-arrow">></div>
+              <input v-model="searchQuery" type="text" placeholder="FILTER BY STACK, NAME OR TOOL..." class="compact-input" />
+              <Search :size="14" class="search-icon" />
+            </div>
           </div>
           <div class="filter-chips">
             <button 
@@ -104,67 +127,111 @@ const filteredProjects = computed(() => {
 <style>
 /* Refined Compact Header */
 .archive-header {
-  margin-bottom: 5rem;
+  margin-bottom: 6rem;
   padding-top: 1rem;
 }
 
-.header-meta {
+.vault-status-bar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.index-status {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  gap: 2rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 4rem;
   font-family: monospace;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  color: var(--muted);
   letter-spacing: 0.1em;
 }
 
-.status-icon {
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--accent);
+.status-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
-.value { color: var(--accent); }
-
-.reset-btn {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text-sub);
-  font-family: monospace;
-  font-size: 0.65rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.status-item .label {
+  color: var(--muted);
 }
 
-.reset-btn:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: black;
+.status-item .value {
+  color: var(--accent);
+}
+
+.pulse {
+  animation: soft-pulse 2s infinite;
+}
+
+@keyframes soft-pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Hero Background Effects */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 800px;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.05;
+  mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 80%);
+}
+
+.scan-line-v {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+  opacity: 0.03;
+  animation: scan-v 8s linear infinite;
+}
+
+@keyframes scan-v {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(800px); }
 }
 
 /* Premium Title with Live Effect */
 .hero-section {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.2em;
 }
 
 .premium-title {
-  font-size: clamp(2.5rem, 10vw, 5.5rem);
-  line-height: 1;
-  margin-bottom: 1rem;
+  font-size: clamp(3rem, 12vw, 7rem);
+  line-height: 0.9;
+  margin-bottom: 1.5rem;
   position: relative;
-  display: inline-block;
+  display: block;
   color: var(--text);
   background: linear-gradient(
     to right,
@@ -185,41 +252,54 @@ const filteredProjects = computed(() => {
 }
 
 .hero-sub {
-  color: var(--muted);
-  font-size: clamp(0.85rem, 3vw, 1rem);
-  max-width: 450px;
-  line-height: 1.5;
+  color: var(--text-sub);
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  max-width: 600px;
+  line-height: 1.6;
+  font-weight: 500;
 }
 
 /* Sleek Search Wrap */
-.search-wrap {
+.controls-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
+  border-left: 2px solid var(--accent);
+  padding-left: 2rem;
 }
 
 .search-box {
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.prompt-arrow {
+  position: absolute;
+  left: 1rem;
+  color: var(--accent);
+  font-family: monospace;
+  font-weight: 900;
+  font-size: 1rem;
 }
 
 .search-icon {
   position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--accent);
-  opacity: 0.6;
+  right: 1.25rem;
+  color: var(--muted);
+  opacity: 0.5;
 }
 
 .compact-input {
   width: 100%;
   background: var(--bg-2);
   border: 1px solid var(--border);
-  padding: 0.85rem 1rem 0.85rem 2.75rem;
-  border-radius: 10px;
+  padding: 1rem 1rem 1rem 2.5rem;
+  border-radius: 4px;
   color: var(--text);
+  font-family: monospace;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -229,8 +309,7 @@ const filteredProjects = computed(() => {
 .compact-input:focus {
   outline: none;
   border-color: var(--accent);
-  background: var(--bg);
-  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.08);
+  background: var(--bg-3);
 }
 
 .filter-chips {
@@ -242,14 +321,15 @@ const filteredProjects = computed(() => {
 .chip {
   background: transparent;
   border: 1px solid var(--border);
-  padding: 0.4rem 0.9rem;
-  border-radius: 6px;
-  font-size: 0.7rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
   font-weight: 800;
   color: var(--muted);
   cursor: pointer;
   transition: all 0.2s ease;
   text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .chip:hover {
@@ -288,9 +368,12 @@ const filteredProjects = computed(() => {
 
 @media (max-width: 768px) {
   .layout-container { padding: 0 1rem; }
-  .archive-header { margin-bottom: 3rem; }
-  .hero-section { margin-bottom: 2rem; }
-  .hero-sub { font-size: 0.85rem; }
+  .archive-header { margin-bottom: 4rem; }
+  .vault-status-bar { gap: 1rem; padding: 0.6rem 1rem; margin-bottom: 3rem; overflow-x: auto; white-space: nowrap; }
+  .hide-mobile { display: none; }
+  .hero-section { margin-bottom: 2.5rem; }
+  .controls-wrapper { padding-left: 1.25rem; }
+  .search-box { max-width: 100%; }
 }
 
 .empty-state {
