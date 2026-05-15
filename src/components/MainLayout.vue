@@ -6,21 +6,29 @@ const isFromPortfolio = ref(false)
 
 onMounted(() => {
   // Detect if user came from the main portfolio to provide a graceful "Back" experience
-  if (document.referrer.includes('buildwithusman.me')) {
+  // We check referrer AND opener (in case referrer is stripped)
+  const fromPortfolio = document.referrer.includes('buildwithusman.me') || 
+                        (window.opener && window.opener.location.href.includes('buildwithusman.me'))
+  
+  if (fromPortfolio) {
     isFromPortfolio.value = true
   }
 })
 
 const handlePortfolioClick = (e: MouseEvent) => {
+  // If we know they came from the main portfolio, we try to close this tab
+  // to return them to the existing tab instead of navigating away here.
   if (isFromPortfolio.value) {
     e.preventDefault()
-    // Attempt to close the tab to return to the original tab
+    
+    // Attempt to close the current tab
     window.close()
     
-    // Fallback: If the tab didn't close (browser security), navigate instead
+    // Fallback: If the tab didn't close (browser security/policy), 
+    // we navigate in the same tab after a short delay.
     setTimeout(() => {
       window.location.href = 'https://www.buildwithusman.me/'
-    }, 100)
+    }, 300)
   }
 }
 </script>
