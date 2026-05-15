@@ -69,7 +69,7 @@ const handlePortfolioClick = (e: MouseEvent) => {
                 <Github :size="18" />
                 <span>GITHUB</span>
               </a>
-              <a href="https://linkedin.com/in/muhammad-usman-mustafa" target="_blank" class="social-link">
+              <a href="https://www.linkedin.com/in/muhammad-usman-ai-dev" target="_blank" class="social-link">
                 <Linkedin :size="18" />
                 <span>LINKEDIN</span>
               </a>
