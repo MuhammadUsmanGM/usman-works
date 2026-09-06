@@ -51,15 +51,6 @@ const filteredProjects = computed(() => {
   })
 })
 
-const groupedProjects = computed(() => {
-  const groups: Record<string, typeof projectsData> = {}
-  filteredProjects.value.forEach(p => {
-    if (!groups[p.year]) groups[p.year] = []
-    groups[p.year].push(p)
-  })
-  return Object.entries(groups).sort((a, b) => Number(b[0]) - Number(a[0]))
-})
-
 const resetFilters = () => {
   searchQuery.value = ''
   selectedCategory.value = 'All'
@@ -118,22 +109,15 @@ const resetFilters = () => {
         </div>
       </div>
 
-      <div v-for="[year, projects] in groupedProjects" :key="year" class="year-block">
-        <div class="year-header">
-          <span class="year-text bebas">{{ year }}</span>
-          <div class="year-line"></div>
-        </div>
-
-        <div class="project-gallery">
-          <ProjectCard 
-            v-for="(project, index) in projects" 
-            :key="project.id" 
-            :project="project"
-            v-motion
-            :initial="{ opacity: 0, y: 16 }"
-            :enter="{ opacity: 1, y: 0, transition: { delay: index * 40 } }"
-          />
-        </div>
+      <div v-else class="project-gallery">
+        <ProjectCard 
+          v-for="(project, index) in filteredProjects" 
+          :key="project.id" 
+          :project="project"
+          v-motion
+          :initial="{ opacity: 0, y: 16 }"
+          :enter="{ opacity: 1, y: 0, transition: { delay: index * 30 } }"
+        />
       </div>
     </main>
   </div>
@@ -283,29 +267,7 @@ const resetFilters = () => {
 }
 
 /* Gallery & Year Blocks */
-.year-block {
-  margin-bottom: 4rem;
-}
 
-.year-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.year-text {
-  font-size: 2.5rem;
-  color: var(--accent);
-  opacity: 0.3;
-  line-height: 1;
-}
-
-.year-line {
-  flex-grow: 1;
-  height: 1px;
-  background: var(--border);
-}
 
 .project-gallery {
   display: grid;
