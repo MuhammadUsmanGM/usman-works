@@ -107,11 +107,11 @@ const handlePortfolioClick = (e: MouseEvent) => {
   min-height: 100vh;
 }
 
-.top-nav-spacer { height: 2rem; }
+.top-nav-spacer { height: 0.75rem; }
 
 .floating-nav-wrapper {
   position: sticky;
-  top: 1.5rem;
+  top: 1rem;
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -228,7 +228,7 @@ const handlePortfolioClick = (e: MouseEvent) => {
 
 /* Main Content Padding */
 .main-content {
-  padding-top: 4rem;
+  padding-top: 1.5rem;
 }
 
 /* Premium Footer Overhaul */

@@ -62,7 +62,7 @@ const iconMap: Record<string, any> = {
       <p class="detail-subtitle">{{ project.description }}</p>
 
       <div class="header-actions">
-        <a v-if="project.github !== '#'" :href="project.github" target="_blank" class="action-link primary">
+        <a v-if="project.github && project.github !== '#'" :href="project.github" target="_blank" class="action-link primary">
           SOURCE CODE <Github :size="16" />
         </a>
         <a 
@@ -177,7 +177,7 @@ const iconMap: Record<string, any> = {
     </section>
 
     <!-- Footer CTA -->
-    <footer class="detail-footer" v-motion-fade>
+    <footer v-if="project.github && project.github !== '#'" class="detail-footer" v-motion-fade>
       <a :href="project.github" target="_blank" class="footer-cta-block">
         <div class="cta-icon-wrap">
           <Code2 :size="32" />
