@@ -42,7 +42,7 @@ const handlePortfolioClick = (e: MouseEvent) => {
           <div class="brand-logo">
             <img src="/favicon.webp" alt="MU" class="nav-logo-img" />
           </div>
-          <span class="bebas logo-title">MUHAMMAD USMAN <span class="archive-tag">/ VAULT.CORE</span></span>
+          <span class="bebas logo-title">MUHAMMAD USMAN <span class="archive-tag">/ LABS</span></span>
         </a>
 
         <div class="nav-links">
@@ -67,8 +67,8 @@ const handlePortfolioClick = (e: MouseEvent) => {
       <div class="footer-inner">
         <div class="footer-top">
           <div class="footer-left">
-            <span class="bebas footer-brand">MUHAMMAD USMAN <span class="archive-tag">/ VAULT.CORE</span></span>
-            <p class="footer-tagline">Systems Engineering • AI Agentics • Distributed Architecture</p>
+            <span class="bebas footer-brand">MUHAMMAD USMAN <span class="archive-tag">/ LABS</span></span>
+            <p class="footer-tagline">Systems Engineering • AI Tools • Full-Stack Development</p>
           </div>
           
           <div class="footer-right">
@@ -88,7 +88,7 @@ const handlePortfolioClick = (e: MouseEvent) => {
         <div class="footer-bottom">
           <div class="footer-line"></div>
           <div class="footer-meta">
-            <p class="copyright">© 2026 MUHAMMAD USMAN. DATA_VAULT_OPERATIONAL</p>
+            <p class="copyright">© 2026 MUHAMMAD USMAN. ALL RIGHTS RESERVED.</p>
             <p class="build-tag">BUILT BY MUHAMMAD USMAN</p>
           </div>
         </div>
@@ -124,12 +124,12 @@ const handlePortfolioClick = (e: MouseEvent) => {
   justify-content: space-between;
   gap: 2rem;
   padding: 0.6rem 0.6rem 0.6rem 1.5rem;
-  background: rgba(10, 10, 15, 0.7);
+  background: var(--bg-2);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
   border-radius: 100px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   width: 100%;
   max-width: 1200px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

@@ -56,11 +56,11 @@ const groupedProjects = computed(() => {
       <div class="header-meta">
         <div class="index-status">
           <span class="status-icon"></span>
-          <span class="label">VAULT_RECORDS:</span>
+          <span class="label">PROJECTS:</span>
           <span class="value">[{{ filteredProjects.length }}]</span>
         </div>
         <button v-if="searchQuery || selectedTech !== 'All'" @click="searchQuery = ''; selectedTech = 'All'" class="reset-btn">
-          RESET_VIEW
+          RESET FILTERS
         </button>
       </div>
 
@@ -70,14 +70,14 @@ const groupedProjects = computed(() => {
           <span>PROJECTS</span>
           <div class="title-shine"></div>
         </h1>
-        <p class="hero-sub">Selected engineering works and technical artifacts from 2021—Present.</p>
+        <p class="hero-sub">Curated collection of projects and open-source software.</p>
       </div>
       
       <!-- Sleek Search Navigation -->
       <div class="search-wrap">
         <div class="search-box">
           <Search :size="16" class="search-icon" />
-          <input v-model="searchQuery" type="text" placeholder="FILTER BY STACK OR NAME..." class="compact-input" />
+          <input v-model="searchQuery" type="text" placeholder="Filter by tech stack or name..." class="compact-input" />
         </div>
         <div class="filter-chips">
           <button 
@@ -95,8 +95,8 @@ const groupedProjects = computed(() => {
     <div class="archive-content">
       <div v-if="filteredProjects.length === 0" class="no-results" v-motion-fade>
         <div class="empty-state">
-          <p>NO DATA NODES FOUND</p>
-          <button @click="searchQuery = ''; selectedTech = 'All'" class="link-btn">RE-INITIALIZE SEARCH</button>
+          <p>NO MATCHING PROJECTS FOUND</p>
+          <button @click="searchQuery = ''; selectedTech = 'All'" class="link-btn">RESET FILTERS</button>
         </div>
       </div>
 

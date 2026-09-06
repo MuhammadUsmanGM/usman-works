@@ -45,13 +45,13 @@ const iconMap: Record<string, any> = {
     <!-- Back Button -->
     <button @click="goBack" class="back-nav-btn group" v-motion-fade>
       <ArrowLeft :size="16" class="arrow-ico" />
-      <span>BACK TO VAULT</span>
+      <span>BACK TO PROJECTS</span>
     </button>
 
     <header class="detail-header" v-motion-slide-top>
       <div class="header-meta-tags">
         <span class="meta-tag blue">{{ project.type }}</span>
-        <span class="meta-tag mono">TECHNICAL STUDY</span>
+        <span class="meta-tag mono">CASE STUDY</span>
       </div>
       
       <h1 class="bebas detail-title">
