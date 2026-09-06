@@ -44,7 +44,7 @@ const goToCaseStudy = () => {
     <!-- Spotlight Glow Layer -->
     <div class="spotlight"></div>
 
-    <!-- Premium Code-Generated Banner -->
+    <!-- Code-Generated Banner -->
     <div class="card-image-wrap">
       <ProjectBanner
         :title="project.name"
@@ -81,29 +81,30 @@ const goToCaseStudy = () => {
       <p class="project-desc">{{ project.description }}</p>
 
       <div class="tech-stack">
-        <span v-for="t in project.tech" :key="t" class="tech-pill">{{ t }}</span>
+        <span v-for="t in project.tech.slice(0, 4)" :key="t" class="tech-pill">{{ t }}</span>
+        <span v-if="project.tech.length > 4" class="tech-pill more">+{{ project.tech.length - 4 }}</span>
       </div>
 
       <!-- Action Footer -->
       <div class="card-footer">
-        <a :href="project.github" target="_blank" class="footer-icon-btn" v-if="project.github !== '#'" title="View Source" @click.stop>
-          <Github :size="20" />
+        <a :href="project.github" target="_blank" class="footer-icon-btn" v-if="project.github && project.github !== '#'" title="View Source" @click.stop>
+          <Github :size="15" />
         </a>
         
         <a 
-          v-if="project.links.find(l => l.label.toUpperCase().includes('LIVE'))"
+          v-if="project.links && project.links.find(l => l.label.toUpperCase().includes('LIVE'))"
           :href="project.links.find(l => l.label.toUpperCase().includes('LIVE'))?.url" 
           target="_blank" 
           class="footer-icon-btn live-btn" 
           title="Live Experience" 
           @click.stop
         >
-          <ExternalLink :size="20" />
+          <ExternalLink :size="15" />
         </a>
 
         <button @click.stop="goToCaseStudy" class="case-study-btn group">
-          <span>CASE STUDY</span>
-          <ArrowRight :size="16" class="btn-icon" />
+          <span>DETAILS</span>
+          <ArrowRight :size="13" class="btn-icon" />
         </button>
       </div>
     </div>
@@ -115,11 +116,11 @@ const goToCaseStudy = () => {
   position: relative;
   background: var(--bg-2);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
   cursor: pointer;
   z-index: 1;
@@ -131,26 +132,27 @@ const goToCaseStudy = () => {
   inset: -1px;
   opacity: var(--opacity);
   background: radial-gradient(
-    600px circle at var(--x) var(--y),
+    400px circle at var(--x) var(--y),
     rgba(245, 166, 35, 0.15),
     transparent 40%
   );
   z-index: 3;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
 }
 
 .premium-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   border-color: var(--accent);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.3);
 }
 
 .card-image-wrap {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--bg-3);
   border-bottom: 1px solid var(--border);
+  max-height: 150px;
 }
 
 .custom-visual-overlay {
@@ -161,7 +163,7 @@ const goToCaseStudy = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 0.75rem;
 }
 
 .visual-img {
@@ -176,8 +178,8 @@ const goToCaseStudy = () => {
   left: 0;
   right: 0;
   background: rgba(10, 10, 15, 0.95);
-  backdrop-filter: blur(12px);
-  padding: 1.25rem;
+  backdrop-filter: blur(8px);
+  padding: 0.75rem;
   z-index: 10;
   border-top: 1px solid var(--accent);
   max-height: 80%;
@@ -185,55 +187,35 @@ const goToCaseStudy = () => {
 }
 
 .hud-label {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 900;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.4rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-}
-
-.hud-label::before {
-  content: '';
-  width: 4px;
-  height: 4px;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent);
+  gap: 0.35rem;
 }
 
 .hud-code {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  font-size: 0.75rem;
+  font-family: monospace;
+  font-size: 0.65rem;
   color: var(--text-sub);
-  line-height: 1.5;
+  line-height: 1.4;
   margin: 0;
   white-space: pre-wrap;
 }
 
 /* Transitions */
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.4s ease;
-}
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
-}
+.fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
 
-.slide-up-enter-active, .slide-up-leave-active {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.slide-up-enter-from, .slide-up-leave-to {
-  transform: translateY(100%);
-}
-
-
-
+.slide-up-enter-active, .slide-up-leave-active { transition: transform 0.3s ease; }
+.slide-up-enter-from, .slide-up-leave-to { transform: translateY(100%); }
 
 .card-content {
-  padding: 2rem;
+  padding: 1.15rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -241,89 +223,90 @@ const goToCaseStudy = () => {
 }
 
 .project-type {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 800;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.25rem;
   display: block;
 }
 
 .project-name {
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--text);
-  margin-bottom: 0.75rem;
-  line-height: 1.1;
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
   letter-spacing: -0.01em;
 }
 
 .project-highlight {
-  font-size: 0.75rem;
-  font-weight: 800;
+  font-size: 0.65rem;
+  font-weight: 700;
   color: var(--accent);
-  background: rgba(245, 166, 35, 0.1);
-  padding: 0.4rem 0.75rem;
-  border-radius: 8px;
+  background: rgba(245, 166, 35, 0.08);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
   border: 1px solid rgba(245, 166, 35, 0.2);
-  letter-spacing: 0.05em;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  line-height: 1.3;
 }
 
 .project-desc {
   color: var(--text-sub);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  font-size: 0.825rem;
+  line-height: 1.45;
+  margin-bottom: 0.85rem;
   flex-grow: 1;
-  opacity: 0.8;
+  opacity: 0.85;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .tech-stack {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.35rem;
   flex-wrap: wrap;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .tech-pill {
-  font-size: 0.6rem;
-  font-weight: 800;
+  font-size: 0.55rem;
+  font-weight: 700;
   background: var(--bg-3);
-  padding: 0.25rem 0.6rem;
+  padding: 0.15rem 0.45rem;
   border-radius: 4px;
   color: var(--muted);
   border: 1px solid var(--border);
-  transition: all 0.3s ease;
   font-family: monospace;
 }
 
-.premium-card:hover .tech-pill {
-  border-color: var(--accent);
-  color: var(--text-sub);
+.tech-pill.more {
+  color: var(--accent);
 }
 
 .card-footer {
   border-top: 1px solid var(--border);
-  padding-top: 1.5rem;
+  padding-top: 0.75rem;
   margin-top: auto;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .footer-icon-btn {
   background: var(--bg-3);
   color: var(--text);
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
   border: 1px solid var(--border);
   flex-shrink: 0;
 }
@@ -335,7 +318,7 @@ const goToCaseStudy = () => {
 }
 
 .live-btn:hover {
-  background: #3ecf8e; /* emerald for live */
+  background: #3ecf8e;
   border-color: #3ecf8e;
   color: black;
 }
@@ -344,41 +327,52 @@ const goToCaseStudy = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.4rem;
   background: var(--accent);
   color: black;
-  text-decoration: none;
-  font-weight: 900;
-  font-size: 0.85rem;
-  padding: 0 1.25rem;
-  border-radius: 8px;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 800;
+  font-size: 0.7rem;
+  padding: 0 0.85rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
   flex-grow: 1;
-  height: 44px;
-  letter-spacing: 0.1em;
-  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.1);
+  height: 34px;
+  letter-spacing: 0.08em;
   border: none;
   cursor: pointer;
 }
 
 .case-study-btn:hover {
-  background: var(--accent-glow);
-  box-shadow: 0 8px 25px rgba(245, 166, 35, 0.4);
+  opacity: 0.9;
 }
 
 .btn-icon {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s ease;
 }
 
 .case-study-btn:hover .btn-icon {
-  transform: translateX(6px);
+  transform: translateX(3px);
 }
+
+/* Mobile Responsiveness (Phones) */
+@media (max-width: 768px) {
+  .card-content { padding: 0.85rem; }
+  .card-image-wrap { max-height: 110px; }
+  .project-name { font-size: 0.95rem; margin-bottom: 0.25rem; }
+  .project-type { font-size: 0.55rem; }
+  .project-highlight { font-size: 0.6rem; padding: 0.15rem 0.4rem; margin-bottom: 0.5rem; }
+  .project-desc { font-size: 0.75rem; -webkit-line-clamp: 2; margin-bottom: 0.6rem; }
+  .tech-stack { gap: 0.25rem; margin-bottom: 0.75rem; }
+  .tech-pill { font-size: 0.5rem; padding: 0.1rem 0.35rem; }
+  .footer-icon-btn { width: 30px; height: 30px; }
+  .case-study-btn { height: 30px; font-size: 0.625rem; padding: 0 0.5rem; }
+}
+
 @media (max-width: 480px) {
-  .card-content { padding: 1.25rem; }
-  .project-name { font-size: 1.3rem; }
-  .project-desc { font-size: 0.9rem; margin-bottom: 1.5rem; }
-  .footer-icon-btn { width: 44px; height: 44px; border-radius: 10px; }
-  .case-study-btn { height: 44px; font-size: 0.85rem; padding: 0 1rem; border-radius: 10px; }
-  .tech-stack { margin-bottom: 1.5rem; }
+  .card-content { padding: 0.7rem; }
+  .card-image-wrap { max-height: 90px; }
+  .project-name { font-size: 0.875rem; }
+  .project-highlight { display: none; } /* Hide highlight tag on ultra-compact mobile to save vertical space */
+  .tech-stack { margin-bottom: 0.5rem; }
 }
 </style>
